@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_ListeMusique"
+        android:title="Sauvegarder/Charger" />
+    <item android:id="@+id/menu_Parametre"
+        android:title="Parametres" />
+
+        <item android:id="@+id/menu_Interface_Principal"
+            android:title="Aller a l'interface principal"
+            />
+
+
+
+</menu>
