@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/menu_ListeMusique"
-        android:title="Sauvegarder/Charger" />
+        android:title="Liste de musique" />
     <item android:id="@+id/menu_Parametre"
         android:title="Parametres" />
 
