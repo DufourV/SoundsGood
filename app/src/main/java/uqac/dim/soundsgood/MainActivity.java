@@ -56,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         activityLauncher.launch(intent);
     }
 
+    public void openActivityParametres() {
+        Intent intent = new Intent(this, Parametres.class);
+        activityLauncher.launch(intent);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -69,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.menu_Parametre:
                 Log.i("DIM", "VOICI LES PARAMETRES!");
-
+                openActivityParametres();
 
                 return true;
 

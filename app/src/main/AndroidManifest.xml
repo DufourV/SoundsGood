@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoundsGood">
         <activity
+            android:name=".Parametres"
+            android:exported="false" />
+        <activity
             android:name=".ListeMusique"
             android:exported="false" />
         <activity
