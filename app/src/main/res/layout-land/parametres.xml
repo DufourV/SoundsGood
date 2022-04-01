@@ -9,10 +9,37 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Paramètres"
-        android:textSize="26dp"
-        android:textStyle="bold">
+        android:text="@string/parametres"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="25dp">
 
     </TextView>
+
+    <TableLayout style="@style/frag1TableLayout" >
+        <TableRow style="@style/frag1HeaderTableRow">
+            <TextView style="@style/frag1HeaderCol" android:text="@string/instrument"/>
+            <TextView style="@style/frag1HeaderCol" android:text="@string/bpm"/>
+            <TextView style="@style/frag1HeaderCol" android:text="@string/pitch"/>
+        </TableRow>
+
+        <TableRow style="@style/frag1TableRow">
+            <TextView style="@style/frag1Col" android:text="@string/piano"/>
+            <TextView style="@style/frag1Col" android:text="125"/>
+            <TextView style="@style/frag1Col" android:text="125"/>
+        </TableRow>
+
+        <TableRow style="@style/frag1TableRow">
+            <TextView style="@style/frag1Col" android:text="@string/guitare"/>
+            <TextView style="@style/frag1Col" android:text="120"/>
+            <TextView style="@style/frag1Col" android:text="120"/>
+        </TableRow>
+
+        <TableRow style="@style/frag1TableRow">
+            <TextView style="@style/frag1Col" android:text="@string/saxophone"/>
+            <TextView style="@style/frag1Col" android:text="120"/>
+            <TextView style="@style/frag1Col" android:text="120"/>
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Sounds Good</string>
+    <string name="parametres">Paramètres</string>
+    <string name="instrument">Instrument</string>
+    <string name="bpm">BPM</string>
+    <string name="pitch">Pitch</string>
+    <string name="saxophone">Saxophone</string>
+    <string name="guitare">Guitare</string>
+    <string name="piano">Piano</string>
 </resources>
