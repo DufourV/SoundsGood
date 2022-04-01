@@ -30,6 +30,7 @@
     </style>
     <style name="frag1Col" parent="defaultTextView">
         <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:background">@drawable/tableborder</item>
     </style>
     <style name="frag1HeaderCol" parent="frag1Col">
         <item name="android:textStyle">bold</item>
