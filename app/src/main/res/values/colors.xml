@@ -8,4 +8,43 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#DD1919</color>
+
+    <color name="blank_selected">#a9a9a9</color>
+    <color name="blank_unselected">#D3D3D3</color>
+
+    <color name="do_selected">#D3D3D3</color>
+    <color name="do_unselected">#D3D3D3</color>
+
+    <color name="do_diese_selected">#D3D3D3</color>
+    <color name="do_diese_unselected">#D3D3D3</color>
+
+    <color name="re_selected">#D3D3D3</color>
+    <color name="re_unselected">#D3D3D3</color>
+
+    <color name="re_diese_selected">#D3D3D3</color>
+    <color name="re_diese_unselected">#D3D3D3</color>
+
+    <color name="mi_selected">#D3D3D3</color>
+    <color name="mi_unselected">#D3D3D3</color>
+
+    <color name="fa_selected">#D3D3D3</color>
+    <color name="fa_unselected">#D3D3D3</color>
+
+    <color name="fa_diese_selected">#D3D3D3</color>
+    <color name="fa_diese_unselected">#D3D3D3</color>
+
+    <color name="sol_selected">#D3D3D3</color>
+    <color name="sol_unselected">#D3D3D3</color>
+
+    <color name="sol_diese_selected">#D3D3D3</color>
+    <color name="sol_diese_unselected">#D3D3D3</color>
+
+    <color name="la_selected">#D3D3D3</color>
+    <color name="la_unselected">#D3D3D3</color>
+
+    <color name="la_diese_selected">#D3D3D3</color>
+    <color name="la_diese_unselected">#D3D3D3</color>
+
+    <color name="si_selected">#D3D3D3</color>
+    <color name="si_unselected">#D3D3D3</color>
 </resources>
