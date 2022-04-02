@@ -15,14 +15,14 @@
     <color name="blank_selected">#a9a9a9</color>
     <color name="blank_unselected">#D3D3D3</color>
 
-    <color name="do_selected">#D3D3D3</color>
-    <color name="do_unselected">#D3D3D3</color>
+    <color name="do_selected">#A3D3D3</color>
+    <color name="do_unselected">#B3D3D3</color>
 
     <color name="do_diese_selected">#D3D3D3</color>
     <color name="do_diese_unselected">#D3D3D3</color>
 
-    <color name="re_selected">#D3D3D3</color>
-    <color name="re_unselected">#D3D3D3</color>
+    <color name="re_selected">#D3A3A3</color>
+    <color name="re_unselected">#D3A3B3</color>
 
     <color name="re_diese_selected">#D3D3D3</color>
     <color name="re_diese_unselected">#D3D3D3</color>
