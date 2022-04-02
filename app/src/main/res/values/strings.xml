@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sounds Good</string>
+
+    <string name="piano">Piano</string>
+    <string name="guitare">Guitare</string>
+    <string name="clave">Claves</string>
 </resources>

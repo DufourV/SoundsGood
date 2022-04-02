@@ -2,6 +2,7 @@ package uqac.dim.soundsgood;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -103,92 +104,107 @@ public class MainActivity extends AppCompatActivity {
         selectColor(selectedBeat);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void deselectColor(View view)
     {
-        Drawable selectedBackground = view.getBackground();
+        Drawable selectedForeground = view.getForeground();
 
-        if (selectedBackground == getDrawable(R.color.blank_unselected))
-            selectedBeat.setBackgroundResource(R.color.blank_selected);
+        if (selectedForeground == getDrawable(R.color.blank_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.blank_selected));
 
-        else if (selectedBackground == getDrawable(R.color.do_unselected))
-            selectedBeat.setBackgroundResource(R.color.do_selected);
+        else if (selectedForeground == getDrawable(R.color.do_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.do_selected));
 
-        else if (selectedBackground == getDrawable(R.color.do_diese_unselected))
-            selectedBeat.setBackgroundResource(R.color.do_diese_selected);
+        else if (selectedForeground == getDrawable(R.color.do_diese_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.do_diese_selected));
 
-        else if (selectedBackground == getDrawable(R.color.re_unselected))
-            selectedBeat.setBackgroundResource(R.color.re_selected);
+        else if (selectedForeground == getDrawable(R.color.re_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.re_selected));
 
-        else if (selectedBackground == getDrawable(R.color.re_diese_unselected))
-            selectedBeat.setBackgroundResource(R.color.re_diese_selected);
+        else if (selectedForeground == getDrawable(R.color.re_diese_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.re_diese_selected));
 
-        else if (selectedBackground == getDrawable(R.color.mi_unselected))
-            selectedBeat.setBackgroundResource(R.color.mi_selected);
+        else if (selectedForeground == getDrawable(R.color.mi_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.mi_selected));
 
-        else if (selectedBackground == getDrawable(R.color.fa_unselected))
-            selectedBeat.setBackgroundResource(R.color.fa_selected);
+        else if (selectedForeground == getDrawable(R.color.fa_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.fa_selected));
 
-        else if (selectedBackground == getDrawable(R.color.fa_diese_unselected))
-            selectedBeat.setBackgroundResource(R.color.fa_diese_selected);
+        else if (selectedForeground == getDrawable(R.color.fa_diese_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.fa_diese_selected));
 
-        else if (selectedBackground == getDrawable(R.color.sol_unselected))
-            selectedBeat.setBackgroundResource(R.color.sol_selected);
+        else if (selectedForeground == getDrawable(R.color.sol_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.sol_diese_unselected))
-            selectedBeat.setBackgroundResource(R.color.sol_diese_selected);
+        else if (selectedForeground == getDrawable(R.color.sol_diese_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.la_unselected))
-            selectedBeat.setBackgroundResource(R.color.la_selected);
+        else if (selectedForeground == getDrawable(R.color.la_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.la_selected));
 
-        else if (selectedBackground == getDrawable(R.color.la_diese_unselected))
-            selectedBeat.setBackgroundResource(R.color.la_diese_selected);
+        else if (selectedForeground == getDrawable(R.color.la_diese_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.la_diese_selected));
 
-        else if (selectedBackground == getDrawable(R.color.si_unselected))
-            selectedBeat.setBackgroundResource(R.color.si_selected);
+        else if (selectedForeground == getDrawable(R.color.si_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
+
+        else if (selectedForeground == getDrawable(R.color.custom_unselected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
     }
 
 
     public void selectColor(View view)
     {
-        Drawable selectedBackground = view.getBackground();
+        Drawable selectedForeground = view.getForeground();
 
-        if (selectedBackground == getDrawable(R.color.blank_selected))
-            selectedBeat.setBackgroundResource(R.color.blank_unselected);
+        if (selectedForeground == getDrawable(R.color.blank_selected))
+            selectedBeat.setForeground(getDrawable(R.color.blank_selected));
 
-        else if (selectedBackground == getDrawable(R.color.do_selected))
-            selectedBeat.setBackgroundResource(R.color.do_unselected);
+        else if (selectedForeground == getDrawable(R.color.do_selected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.do_diese_selected))
-            selectedBeat.setBackgroundResource(R.color.do_diese_unselected);
+        else if (selectedForeground == getDrawable(R.color.do_diese_selected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.re_selected))
-            selectedBeat.setBackgroundResource(R.color.re_unselected);
+        else if (selectedForeground == getDrawable(R.color.re_selected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.re_diese_selected))
-            selectedBeat.setBackgroundResource(R.color.re_diese_unselected);
+        else if (selectedForeground == getDrawable(R.color.re_diese_selected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.mi_selected))
-            selectedBeat.setBackgroundResource(R.color.mi_unselected);
+        else if (selectedForeground == getDrawable(R.color.mi_selected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.fa_selected))
-            selectedBeat.setBackgroundResource(R.color.fa_unselected);
+        else if (selectedForeground == getDrawable(R.color.fa_selected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.fa_diese_selected))
-            selectedBeat.setBackgroundResource(R.color.fa_diese_unselected);
+        else if (selectedForeground == getDrawable(R.color.fa_diese_selected))
+            selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedBackground == getDrawable(R.color.sol_selected))
+        else if (selectedForeground == getDrawable(R.color.sol_selected))
             selectedBeat.setBackgroundResource(R.color.sol_unselected);
 
-        else if (selectedBackground == getDrawable(R.color.sol_diese_selected))
+        else if (selectedForeground == getDrawable(R.color.sol_diese_selected))
             selectedBeat.setBackgroundResource(R.color.sol_diese_unselected);
 
-        else if (selectedBackground == getDrawable(R.color.la_selected))
+        else if (selectedForeground == getDrawable(R.color.la_selected))
             selectedBeat.setBackgroundResource(R.color.la_unselected);
 
-        else if (selectedBackground == getDrawable(R.color.la_diese_selected))
+        else if (selectedForeground == getDrawable(R.color.la_diese_selected))
             selectedBeat.setBackgroundResource(R.color.la_diese_unselected);
 
-        else if (selectedBackground == getDrawable(R.color.si_selected))
+        else if (selectedForeground == getDrawable(R.color.si_selected))
             selectedBeat.setBackgroundResource(R.color.si_unselected);
+
+        else if (selectedForeground == getDrawable(R.color.custom_selected))
+            selectedBeat.setBackgroundResource(R.color.custom_unselected);
+    }
+
+    private void selectNote(View view)
+    {
+        if (selectedBeat != null)
+        {
+
+        }
     }
 }
