@@ -5,51 +5,55 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#DD1919</color>
     <color name="pink">#FFC0CB</color>
     <color name="orange">#FFA500</color>
 
+    <color name="low">#000000</color>
+    <color name="mid">#808080</color>
+    <color name="high">#FFFFFF</color>
 
-    <color name="blank_selected">#a9a9a9</color>
-    <color name="blank_unselected">#D3D3D3</color>
 
-    <color name="do_selected">#A3D3D3</color>
-    <color name="do_unselected">#B3D3D3</color>
+    <color name="blank_selected">#C6C6C6</color>
+    <color name="blank_unselected">#EDEDED</color>
 
-    <color name="do_diese_selected">#D3D3D3</color>
-    <color name="do_diese_unselected">#D3D3D3</color>
+    <color name="do_selected">#2C9C91</color>
+    <color name="do_unselected">#40E0D0</color>
 
-    <color name="re_selected">#D3A3A3</color>
-    <color name="re_unselected">#D3A3B3</color>
+    <color name="do_diese_selected">#431c53</color>
+    <color name="do_diese_unselected">#c8a2c8</color>
 
-    <color name="re_diese_selected">#D3D3D3</color>
-    <color name="re_diese_unselected">#D3D3D3</color>
+    <color name="re_selected">#654321</color>
+    <color name="re_unselected">#987654</color>
 
-    <color name="mi_selected">#D3D3D3</color>
-    <color name="mi_unselected">#D3D3D3</color>
+    <color name="re_diese_selected">#b80000</color>
+    <color name="re_diese_unselected">#ff0000</color>
 
-    <color name="fa_selected">#D3D3D3</color>
-    <color name="fa_unselected">#D3D3D3</color>
+    <color name="mi_selected">#D6C823</color>
+    <color name="mi_unselected">#ffff00</color>
 
-    <color name="fa_diese_selected">#D3D3D3</color>
-    <color name="fa_diese_unselected">#D3D3D3</color>
+    <color name="fa_selected">#00008b</color>
+    <color name="fa_unselected">#0000ff</color>
 
-    <color name="sol_selected">#D3D3D3</color>
-    <color name="sol_unselected">#D3D3D3</color>
+    <color name="fa_diese_selected">#1eb6a7</color>
+    <color name="fa_diese_unselected">#40e0d0</color>
 
-    <color name="sol_diese_selected">#D3D3D3</color>
-    <color name="sol_diese_unselected">#D3D3D3</color>
+    <color name="sol_selected">#800020</color>
+    <color name="sol_unselected">#b3002d</color>
 
-    <color name="la_selected">#D3D3D3</color>
-    <color name="la_unselected">#D3D3D3</color>
+    <color name="sol_diese_selected">#aa00cc</color>
+    <color name="sol_diese_unselected">#FF00FF</color>
 
-    <color name="la_diese_selected">#D3D3D3</color>
-    <color name="la_diese_unselected">#D3D3D3</color>
+    <color name="la_selected">#008b00</color>
+    <color name="la_unselected">#00FF00</color>
 
-    <color name="si_selected">#D3D3D3</color>
-    <color name="si_unselected">#D3D3D3</color>
+    <color name="la_diese_selected">#ff8da1</color>
+    <color name="la_diese_unselected">#ffc0cb</color>
+
+    <color name="si_selected">#CC5500</color>
+    <color name="si_unselected">#FFA500</color>
 
     <color name="custom_selected">#D3D3D3</color>
     <color name="custom_unselected">#D3D3D3</color>

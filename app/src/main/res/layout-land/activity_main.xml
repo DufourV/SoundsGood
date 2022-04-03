@@ -79,6 +79,38 @@
                     android:layout_marginLeft="2dp"
                     android:layout_marginTop="2dp"
                     android:onClick="SelectBeat"/>
+
+                <Button
+                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:foreground="@color/blank_unselected"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="2dp"
+                    android:onClick="SelectBeat"/>
+
+                <Button
+                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:foreground="@color/blank_unselected"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="2dp"
+                    android:onClick="SelectBeat"/>
+
+                <Button
+                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:foreground="@color/blank_unselected"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="2dp"
+                    android:onClick="SelectBeat"/>
+
+                <Button
+                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:foreground="@color/blank_unselected"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="2dp"
+                    android:onClick="SelectBeat"/>
             </LinearLayout>
 
         </ScrollView>
@@ -87,28 +119,182 @@
 
     </LinearLayout>
 
+
+
     <LinearLayout
+        android:id="@+id/zone_input"
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:orientation="horizontal"
-        android:background="@color/pink">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/Do"
-            android:layout_height="50dp"
-            android:layout_width="20dp"
-            android:foreground="@color/red"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:onClick="selectNote"/>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/clavier"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <Button
-            android:id="@+id/Re"
-            android:layout_height="50dp"
-            android:layout_width="20dp"
-            android:foreground="@color/red"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="2dp"
-            android:onClick="selectNote"/>
-    </LinearLayout>>
+            <ImageView
+            android:src="@drawable/piano"
+            android:layout_height="100dp"
+            android:layout_width="500dp"
+            android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:id="@+id/notes_naturelles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Do"
+                    android:layout_width="70dp"
+                    android:layout_height="95dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="2dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+                <Button
+                    android:id="@+id/Re"
+                    android:layout_width="70dp"
+                    android:layout_height="95dp"
+                    android:alpha="0"
+                    android:onClick="addNote"/>
+
+                <Button
+                    android:id="@+id/Mi"
+                    android:layout_width="70dp"
+                    android:layout_height="95dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+                <Button
+                    android:id="@+id/Fa"
+                    android:layout_width="70dp"
+                    android:layout_height="95dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+
+                <Button
+                    android:id="@+id/Sol"
+                    android:layout_width="70dp"
+                    android:layout_height="95dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+
+                <Button
+                    android:id="@+id/La"
+                    android:layout_width="70dp"
+                    android:layout_height="95dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+
+                <Button
+                    android:id="@+id/Si"
+                    android:layout_width="70dp"
+                    android:layout_height="95dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+                <Button
+                    android:id="@+id/Erase"
+                    android:layout_width="70dp"
+                    android:layout_height="95dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/notes_dieses"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Do_diese"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="45dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+
+                <Button
+                    android:id="@+id/Re_diese"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="35dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+
+                <Button
+                    android:id="@+id/Fa_diese"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="85dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+
+                <Button
+                    android:id="@+id/Sol_diese"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="35dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+
+                <Button
+                    android:id="@+id/La_diese"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="35dp"
+                    android:alpha="0"
+                    android:onClick="addNote" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RadioGroup
+            android:id="@+id/choix_hauteur"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="10dp">
+
+            <RadioButton
+                android:id="@+id/radio_high"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/high"
+                android:onClick="changeHeight"/>
+
+            <RadioButton
+                android:id="@+id/radio_mid"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/mid"
+                android:onClick="changeHeight"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/radio_low"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/low"
+                android:onClick="changeHeight"/>
+
+        </RadioGroup>
+    </LinearLayout>
+
+
+
 </LinearLayout>

@@ -24,6 +24,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 public class MainActivity extends AppCompatActivity {
 
     private View selectedBeat = null;
+    private int keyboardHeight = 2;
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -202,7 +203,8 @@ public class MainActivity extends AppCompatActivity {
             selectedBeat.setForeground(getDrawable(R.color.custom_selected));
     }
 
-    public void selectNote(View view)
+    //applique une note a la trame choisie
+    public void addNote(View view)
     {
         if (selectedBeat == null)
         {
@@ -216,8 +218,85 @@ public class MainActivity extends AppCompatActivity {
                selectedBeat.setForeground(getDrawable(R.color.do_selected));
                break;
 
+            case R.id.Do_diese:
+                selectedBeat.setForeground(getDrawable(R.color.do_diese_selected));
+                break;
+
             case R.id.Re:
                 selectedBeat.setForeground(getDrawable(R.color.re_selected));
+                break;
+
+            case R.id.Re_diese:
+                selectedBeat.setForeground(getDrawable(R.color.re_diese_selected));
+                break;
+
+            case R.id.Mi:
+                selectedBeat.setForeground(getDrawable(R.color.mi_selected));
+                break;
+
+            case R.id.Fa:
+                selectedBeat.setForeground(getDrawable(R.color.fa_selected));
+                break;
+
+            case R.id.Fa_diese:
+                selectedBeat.setForeground(getDrawable(R.color.fa_diese_selected));
+                break;
+
+            case R.id.Sol:
+                selectedBeat.setForeground(getDrawable(R.color.sol_selected));
+                break;
+
+            case R.id.Sol_diese:
+                selectedBeat.setForeground(getDrawable(R.color.sol_diese_selected));
+                break;
+
+            case R.id.La:
+                selectedBeat.setForeground(getDrawable(R.color.la_selected));
+                break;
+
+            case R.id.La_diese:
+                selectedBeat.setForeground(getDrawable(R.color.la_diese_selected));
+                break;
+
+            case R.id.Si:
+                selectedBeat.setForeground(getDrawable(R.color.si_selected));
+                break;
+
+            case R.id.Erase:
+                selectedBeat.setForeground(getDrawable(R.color.blank_selected));
+                break;
+        }
+
+        switch(keyboardHeight)
+        {
+            case 1:
+                selectedBeat.setBackgroundResource(R.color.low);
+                break;
+
+            case 2:
+                selectedBeat.setBackgroundResource(R.color.mid);
+                break;
+
+            case 3:
+                selectedBeat.setBackgroundResource(R.color.high);
+                break;
+        }
+    }
+
+    public void changeHeight(View view)
+    {
+        switch(view.getId())
+        {
+            case R.id.radio_low:
+                keyboardHeight = 1;
+                break;
+
+            case R.id.radio_mid:
+                keyboardHeight = 2;
+                break;
+
+            case R.id.radio_high:
+                keyboardHeight = 3;
                 break;
         }
     }
