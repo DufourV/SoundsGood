@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Sounds Good</string>
-
     <string name="piano">Piano</string>
     <string name="guitare">Guitare</string>
     <string name="clave">Claves</string>
     <string name="high">high</string>
     <string name="mid">mid</string>
     <string name="low">low</string>
+
+    <string name="Effacer">Effacer</string>
 </resources>

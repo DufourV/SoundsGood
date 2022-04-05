@@ -7,294 +7,815 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="right">
-
-    <ImageView
-        android:id="@+id/Play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:src="@drawable/playbutton">
-    </ImageView>
-
-        <ImageView
-            android:id="@+id/Pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:src="@drawable/pausebutton">
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/Record"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:src="@drawable/recordbuttoncircle">
-        </ImageView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:id="@+id/content"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
         android:orientation="vertical"
-        android:background="@color/pink">
+        android:layout_marginTop="3dp">
 
-        <TextView
-            android:id="@+id/instrument1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="3dp"
-            android:background="@color/white"
-            android:text="@string/piano">
-        </TextView>
-
-        <ScrollView
-            android:layout_height="fill_parent"
-            android:layout_width="wrap_content">
-
-            <LinearLayout android:id="@+id/stats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:layout_height="30dp"
-                    android:layout_width="20dp"
-                    android:foreground="@color/blank_unselected"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="2dp"
-                    android:onClick="SelectBeat"/>
-
-                <Button
-                    android:layout_height="30dp"
-                    android:layout_width="20dp"
-                    android:foreground="@color/blank_unselected"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="2dp"
-                    android:onClick="SelectBeat"/>
-
-                <Button
-                    android:layout_height="30dp"
-                    android:layout_width="20dp"
-                    android:foreground="@color/blank_unselected"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="2dp"
-                    android:onClick="SelectBeat"/>
-
-                <Button
-                    android:layout_height="30dp"
-                    android:layout_width="20dp"
-                    android:foreground="@color/blank_unselected"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="2dp"
-                    android:onClick="SelectBeat"/>
-
-                <Button
-                    android:layout_height="30dp"
-                    android:layout_width="20dp"
-                    android:foreground="@color/blank_unselected"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="2dp"
-                    android:onClick="SelectBeat"/>
-
-                <Button
-                    android:layout_height="30dp"
-                    android:layout_width="20dp"
-                    android:foreground="@color/blank_unselected"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="2dp"
-                    android:onClick="SelectBeat"/>
-            </LinearLayout>
-
-        </ScrollView>
-
-
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:id="@+id/zone_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/clavier"
-            android:orientation="horizontal"
+        <LinearLayout
+            android:id="@+id/partition"
+            android:layout_height="200dp"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <ImageView
-            android:src="@drawable/piano"
-            android:layout_height="100dp"
-            android:layout_width="500dp"
-            android:scaleType="fitXY" />
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/notes_naturelles"
+                android:id="@+id/parametres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_gravity="right"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="3dp">
 
-                <Button
-                    android:id="@+id/Do"
-                    android:layout_width="70dp"
-                    android:layout_height="95dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="2dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
+                <ImageView
+                    android:id="@+id/Play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/playbutton"
+                    android:layout_marginTop="10dp">
+                </ImageView>
 
-                <Button
-                    android:id="@+id/Re"
-                    android:layout_width="70dp"
-                    android:layout_height="95dp"
-                    android:alpha="0"
-                    android:onClick="addNote"/>
+                <ImageView
+                    android:id="@+id/Pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/pausebutton"
+                    android:layout_marginTop="15dp">
+                </ImageView>
 
-                <Button
-                    android:id="@+id/Mi"
-                    android:layout_width="70dp"
-                    android:layout_height="95dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
+                <ImageView
+                    android:id="@+id/Record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/recordbuttoncircle">
+                </ImageView>
 
-                <Button
-                    android:id="@+id/Fa"
-                    android:layout_width="70dp"
-                    android:layout_height="95dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
-
-
-                <Button
-                    android:id="@+id/Sol"
-                    android:layout_width="70dp"
-                    android:layout_height="95dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
-
-
-                <Button
-                    android:id="@+id/La"
-                    android:layout_width="70dp"
-                    android:layout_height="95dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
-
-
-                <Button
-                    android:id="@+id/Si"
-                    android:layout_width="70dp"
-                    android:layout_height="95dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
-
-                <Button
-                    android:id="@+id/Erase"
-                    android:layout_width="70dp"
-                    android:layout_height="95dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
             </LinearLayout>
-
 
             <LinearLayout
-                android:id="@+id/notes_dieses"
+                android:id="@+id/noms_instruments"
                 android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp">
 
-                <Button
-                    android:id="@+id/Do_diese"
-                    android:layout_width="45dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="45dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
+                <TextView
+                    android:id="@+id/instrument1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="25dp"
+                    android:padding="2dp"
+                    android:background="@color/white"
+                    android:text="@string/piano">
+                </TextView>
 
+                <TextView
+                    android:id="@+id/instrument2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="40dp"
+                    android:padding="2dp"
+                    android:background="@color/white"
+                    android:text="@string/guitare">
+                </TextView>
 
-                <Button
-                    android:id="@+id/Re_diese"
-                    android:layout_width="45dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="35dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
+                <TextView
+                    android:id="@+id/instrument3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="40dp"
+                    android:background="@color/white"
+                    android:padding="2dp"
 
-
-                <Button
-                    android:id="@+id/Fa_diese"
-                    android:layout_width="45dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="85dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
-
-
-                <Button
-                    android:id="@+id/Sol_diese"
-                    android:layout_width="45dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="35dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
-
-
-                <Button
-                    android:id="@+id/La_diese"
-                    android:layout_width="45dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="35dp"
-                    android:alpha="0"
-                    android:onClick="addNote" />
-
+                    android:text="@string/clave">
+                </TextView>
             </LinearLayout>
 
-        </RelativeLayout>
-        <RadioGroup
-            android:id="@+id/choix_hauteur"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="10dp">
+            <HorizontalScrollView
+                android:id="@+id/mesures"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radio_high"
+                <LinearLayout
+                    android:id="@+id/note_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:foreground="@color/blank_unselected"
+                            android:onClick="SelectBeat" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/zone_input"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Erase"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="addNote"
+                android:foreground="@drawable/trash"
+                android:layout_gravity="bottom"/>
+
+            <RelativeLayout
+                android:id="@+id/clavier"
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/high"
-                android:onClick="changeHeight"/>
+                android:layout_height="fill_parent"
+                android:gravity="bottom"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="7dp">
 
-            <RadioButton
-                android:id="@+id/radio_mid"
+                <ImageView
+                    android:src="@drawable/piano"
+                    android:layout_height="100dp"
+                    android:layout_width="500dp"
+                    android:scaleType="fitXY" />
+
+                <LinearLayout
+                    android:id="@+id/notes_naturelles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/Do"
+                        android:layout_width="70dp"
+                        android:layout_height="95dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="2dp"
+                        android:foreground="@color/do_unselected"
+                        android:onClick="addNote" />
+
+                    <Button
+                        android:id="@+id/Re"
+                        android:layout_width="70dp"
+                        android:layout_height="95dp"
+                        android:foreground="@color/re_unselected"
+                        android:onClick="addNote"/>
+
+                    <Button
+                        android:id="@+id/Mi"
+                        android:layout_width="70dp"
+                        android:layout_height="95dp"
+                        android:foreground="@color/mi_unselected"
+                        android:onClick="addNote" />
+
+                    <Button
+                        android:id="@+id/Fa"
+                        android:layout_width="70dp"
+                        android:layout_height="95dp"
+                        android:foreground="@color/fa_unselected"
+                        android:onClick="addNote" />
+
+
+                    <Button
+                        android:id="@+id/Sol"
+                        android:layout_width="70dp"
+                        android:layout_height="95dp"
+                        android:foreground="@color/sol_unselected"
+                        android:onClick="addNote" />
+
+
+                    <Button
+                        android:id="@+id/La"
+                        android:layout_width="70dp"
+                        android:layout_height="95dp"
+                        android:foreground="@color/la_unselected"
+                        android:onClick="addNote" />
+
+
+                    <Button
+                        android:id="@+id/Si"
+                        android:layout_width="70dp"
+                        android:layout_height="95dp"
+                        android:foreground="@color/si_unselected"
+                        android:onClick="addNote" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/notes_dieses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/Do_diese"
+                        android:layout_width="45dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="45dp"
+                        android:foreground="@color/do_diese_unselected"
+                        android:onClick="addNote" />
+
+
+                    <Button
+                        android:id="@+id/Re_diese"
+                        android:layout_width="45dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="35dp"
+                        android:foreground="@color/re_diese_unselected"
+                        android:onClick="addNote" />
+
+
+                    <Button
+                        android:id="@+id/Fa_diese"
+                        android:layout_width="45dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="85dp"
+                        android:foreground="@color/fa_diese_unselected"
+                        android:onClick="addNote" />
+
+
+                    <Button
+                        android:id="@+id/Sol_diese"
+                        android:layout_width="45dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="30dp"
+                        android:foreground="@color/sol_diese_unselected"
+                        android:onClick="addNote" />
+
+
+                    <Button
+                        android:id="@+id/La_diese"
+                        android:layout_width="45dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="25dp"
+                        android:foreground="@color/la_diese_unselected"
+                        android:onClick="addNote" />
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+
+            <RadioGroup
+                android:id="@+id/choix_hauteur"
+                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/mid"
-                android:onClick="changeHeight"
-                android:checked="true"/>
+                android:layout_marginStart="20dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="15dp">
 
-            <RadioButton
-                android:id="@+id/radio_low"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/low"
-                android:onClick="changeHeight"/>
+                <RadioButton
+                    android:id="@+id/radio_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
 
-        </RadioGroup>
+                    android:text="@string/high"
+                    android:onClick="changeHeight"/>
+
+                <RadioButton
+                    android:id="@+id/radio_mid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/mid"
+                    android:onClick="changeHeight"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radio_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/low"
+                    android:onClick="changeHeight"/>
+
+            </RadioGroup>
+
+
+
+        </LinearLayout>
     </LinearLayout>
-
-
-
 </LinearLayout>

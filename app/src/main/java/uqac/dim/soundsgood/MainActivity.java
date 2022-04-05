@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
@@ -20,6 +21,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -107,99 +109,101 @@ public class MainActivity extends AppCompatActivity {
 
 
     //remet la couleur déhighlightée quand tu cliques ailleurs
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void deselectColor(View view)
     {
         Drawable selectedForeground = view.getForeground();
 
-        if (selectedForeground == getDrawable(R.color.blank_selected))
+
+        if (selectedForeground.equals(getDrawable(R.color.blank_selected)))
             selectedBeat.setForeground(getDrawable(R.color.blank_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.do_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.do_selected)))
             selectedBeat.setForeground(getDrawable(R.color.do_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.do_diese_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.do_diese_selected)))
             selectedBeat.setForeground(getDrawable(R.color.do_diese_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.re_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.re_selected)))
             selectedBeat.setForeground(getDrawable(R.color.re_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.re_diese_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.re_diese_selected)))
             selectedBeat.setForeground(getDrawable(R.color.re_diese_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.mi_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.mi_selected)))
             selectedBeat.setForeground(getDrawable(R.color.mi_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.fa_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.fa_selected)))
             selectedBeat.setForeground(getDrawable(R.color.fa_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.fa_diese_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.fa_diese_selected)))
             selectedBeat.setForeground(getDrawable(R.color.fa_diese_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.sol_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.sol_selected)))
             selectedBeat.setForeground(getDrawable(R.color.si_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.sol_diese_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.sol_diese_selected)))
             selectedBeat.setForeground(getDrawable(R.color.si_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.la_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.la_selected)))
             selectedBeat.setForeground(getDrawable(R.color.la_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.la_diese_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.la_diese_selected)))
             selectedBeat.setForeground(getDrawable(R.color.la_diese_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.si_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.si_selected)))
             selectedBeat.setForeground(getDrawable(R.color.si_unselected));
 
-        else if (selectedForeground == getDrawable(R.color.custom_selected))
+        else if (selectedForeground.equals(getDrawable(R.color.custom_selected)))
             selectedBeat.setForeground(getDrawable(R.color.custom_unselected));
     }
 
 
     //switche la couleur quand tu cliques sur un endroit de la trame
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void selectColor(View view)
     {
         Drawable selectedForeground = view.getForeground();
-
-        if (selectedForeground == getDrawable(R.color.blank_unselected))
+        if (selectedForeground.equals(getDrawable(R.color.blank_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.blank_selected));
 
-        else if (selectedForeground == getDrawable(R.color.do_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.do_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.do_selected));
 
-        else if (selectedForeground == getDrawable(R.color.do_diese_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.do_diese_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.do_diese_selected));
 
-        else if (selectedForeground == getDrawable(R.color.re_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.re_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.re_selected));
 
-        else if (selectedForeground == getDrawable(R.color.re_diese_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.re_diese_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.re_diese_selected));
 
-        else if (selectedForeground == getDrawable(R.color.mi_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.mi_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.mi_selected));
 
-        else if (selectedForeground == getDrawable(R.color.fa_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.fa_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.fa_selected));
 
-        else if (selectedForeground == getDrawable(R.color.fa_diese_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.fa_diese_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.fa_diese_selected));
 
-        else if (selectedForeground == getDrawable(R.color.sol_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.sol_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.sol_selected));
 
-        else if (selectedForeground == getDrawable(R.color.sol_diese_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.sol_diese_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.sol_diese_selected));
 
-        else if (selectedForeground == getDrawable(R.color.la_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.la_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.la_selected));
 
-        else if (selectedForeground == getDrawable(R.color.la_diese_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.la_diese_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.la_diese_selected));
 
-        else if (selectedForeground == getDrawable(R.color.si_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.si_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.si_selected));
 
-        else if (selectedForeground == getDrawable(R.color.custom_unselected))
+        else if (selectedForeground.equals(getDrawable(R.color.custom_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.custom_selected));
     }
 
@@ -215,55 +219,55 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId())
         {
             case R.id.Do:
-               selectedBeat.setForeground(getDrawable(R.color.do_selected));
+               selectedBeat.setForeground(getDrawable(R.color.do_unselected));
                break;
 
             case R.id.Do_diese:
-                selectedBeat.setForeground(getDrawable(R.color.do_diese_selected));
+                selectedBeat.setForeground(getDrawable(R.color.do_diese_unselected));
                 break;
 
             case R.id.Re:
-                selectedBeat.setForeground(getDrawable(R.color.re_selected));
+                selectedBeat.setForeground(getDrawable(R.color.re_unselected));
                 break;
 
             case R.id.Re_diese:
-                selectedBeat.setForeground(getDrawable(R.color.re_diese_selected));
+                selectedBeat.setForeground(getDrawable(R.color.re_diese_unselected));
                 break;
 
             case R.id.Mi:
-                selectedBeat.setForeground(getDrawable(R.color.mi_selected));
+                selectedBeat.setForeground(getDrawable(R.color.mi_unselected));
                 break;
 
             case R.id.Fa:
-                selectedBeat.setForeground(getDrawable(R.color.fa_selected));
+                selectedBeat.setForeground(getDrawable(R.color.fa_unselected));
                 break;
 
             case R.id.Fa_diese:
-                selectedBeat.setForeground(getDrawable(R.color.fa_diese_selected));
+                selectedBeat.setForeground(getDrawable(R.color.fa_diese_unselected));
                 break;
 
             case R.id.Sol:
-                selectedBeat.setForeground(getDrawable(R.color.sol_selected));
+                selectedBeat.setForeground(getDrawable(R.color.sol_unselected));
                 break;
 
             case R.id.Sol_diese:
-                selectedBeat.setForeground(getDrawable(R.color.sol_diese_selected));
+                selectedBeat.setForeground(getDrawable(R.color.sol_diese_unselected));
                 break;
 
             case R.id.La:
-                selectedBeat.setForeground(getDrawable(R.color.la_selected));
+                selectedBeat.setForeground(getDrawable(R.color.la_unselected));
                 break;
 
             case R.id.La_diese:
-                selectedBeat.setForeground(getDrawable(R.color.la_diese_selected));
+                selectedBeat.setForeground(getDrawable(R.color.la_diese_unselected));
                 break;
 
             case R.id.Si:
-                selectedBeat.setForeground(getDrawable(R.color.si_selected));
+                selectedBeat.setForeground(getDrawable(R.color.si_unselected));
                 break;
 
             case R.id.Erase:
-                selectedBeat.setForeground(getDrawable(R.color.blank_selected));
+                selectedBeat.setForeground(getDrawable(R.color.blank_unselected));
                 break;
         }
 
