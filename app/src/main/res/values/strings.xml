@@ -1,11 +1,20 @@
 <resources>
     <string name="app_name">Sounds Good</string>
-    <string name="piano">Piano</string>
-    <string name="guitare">Guitare</string>
-    <string name="clave">Claves</string>
+    
     <string name="high">high</string>
     <string name="mid">mid</string>
     <string name="low">low</string>
-
     <string name="Effacer">Effacer</string>
+    <string name="parametres">Paramètres</string>
+    <string name="instrument">Instrument</string>
+    <string name="bpm">BPM</string>
+    <string name="pitch">Pitch</string>
+    <string name="saxophone">Saxophone</string>
+    <string name="guitare">Guitare</string>
+    <string name="piano">Piano</string>
+    <string name="clave">Claves</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="track">Track</string>
 </resources>
