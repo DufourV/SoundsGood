@@ -6,6 +6,7 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:id="@+id/content"
         android:layout_height="fill_parent"
@@ -521,7 +522,6 @@
                             android:layout_marginTop="6dp"
                             android:foreground="@color/blank_unselected"
                             android:onClick="SelectBeat" />
-
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"

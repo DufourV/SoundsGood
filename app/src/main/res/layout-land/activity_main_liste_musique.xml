@@ -15,4 +15,127 @@
 
     </TextView>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vos enregistrements"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp">
+
+    </TextView>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey"
+                android:text="Enregistrement 1"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="Enregistrement 2"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey"
+                android:text="Enregistrement 3"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="Enregistrement 4"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+            </TextView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey"
+                android:text="Enregistrement 5"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="Enregistrement 6"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey"
+                android:text="Enregistrement 7"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="Enregistrement 8"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
