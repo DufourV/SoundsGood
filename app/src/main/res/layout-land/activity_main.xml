@@ -25,7 +25,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_gravity="right"
+                android:layout_gravity="left"
+                android:background="@color/grey"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="3dp">
 
@@ -33,26 +34,29 @@
                     android:id="@+id/Play"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
+                    android:layout_gravity="left"
                     android:src="@drawable/playbutton"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:onClick="PlayButton">
                 </ImageView>
 
                 <ImageView
                     android:id="@+id/Pause"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
+                    android:layout_gravity="left"
                     android:src="@drawable/pausebutton"
-                    android:layout_marginTop="15dp">
+                    android:layout_marginTop="15dp"
+                    android:onClick="PauseButton">
                 </ImageView>
 
                 <ImageView
                     android:id="@+id/Record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:src="@drawable/recordbuttoncircle">
+                    android:layout_gravity="left"
+                    android:src="@drawable/recordbuttoncircle"
+                    android:onClick="RecordButton">
                 </ImageView>
 
             </LinearLayout>
@@ -64,39 +68,39 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="5dp">
 
-                <TextView
+                <Button
                     android:id="@+id/instrument1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:padding="2dp"
                     android:background="@color/white"
                     android:text="@string/piano">
-                </TextView>
+                </Button>
 
-                <TextView
+                <Button
                     android:id="@+id/instrument2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="15dp"
                     android:padding="2dp"
                     android:background="@color/white"
                     android:text="@string/guitare">
-                </TextView>
+                </Button>
 
-                <TextView
+                <Button
                     android:id="@+id/instrument3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="15dp"
                     android:background="@color/white"
                     android:padding="2dp"
 
                     android:text="@string/clave">
-                </TextView>
+                </Button>
             </LinearLayout>
 
             <HorizontalScrollView
