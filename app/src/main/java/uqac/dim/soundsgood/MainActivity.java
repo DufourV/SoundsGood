@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("UseCompatLoadingForDrawables")
     public void deselectColor(View view)
     {
+        /*
         Drawable selectedForeground = view.getForeground();
 
 
@@ -156,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
 
         else if (selectedForeground.equals(getDrawable(R.color.custom_selected)))
             selectedBeat.setForeground(getDrawable(R.color.custom_unselected));
+
+         */
     }
 
 
@@ -163,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("UseCompatLoadingForDrawables")
     public void selectColor(View view)
     {
+        /*
         Drawable selectedForeground = view.getForeground();
         if (selectedForeground.equals(getDrawable(R.color.blank_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.blank_selected));
@@ -205,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
 
         else if (selectedForeground.equals(getDrawable(R.color.custom_unselected)))
             selectedBeat.setForeground(getDrawable(R.color.custom_selected));
+         */
     }
 
     //applique une note a la trame choisie
@@ -220,59 +225,60 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId())
         {
             case R.id.Do:
-               selectedBeat.setForeground(getDrawable(R.color.do_unselected));
+               selectedBeat.setForeground(getDrawable(R.color.do_couleur));
                break;
 
             case R.id.Do_diese:
-                selectedBeat.setForeground(getDrawable(R.color.do_diese_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.do_couleur));
                 break;
 
             case R.id.Re:
-                selectedBeat.setForeground(getDrawable(R.color.re_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.re_couleur));
                 break;
 
             case R.id.Re_diese:
-                selectedBeat.setForeground(getDrawable(R.color.re_diese_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.re_diese_couleur));
                 break;
 
             case R.id.Mi:
-                selectedBeat.setForeground(getDrawable(R.color.mi_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.mi_couleur));
                 break;
 
             case R.id.Fa:
-                selectedBeat.setForeground(getDrawable(R.color.fa_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.fa_couleur));
                 break;
 
             case R.id.Fa_diese:
-                selectedBeat.setForeground(getDrawable(R.color.fa_diese_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.fa_diese_couleur));
                 break;
 
             case R.id.Sol:
-                selectedBeat.setForeground(getDrawable(R.color.sol_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.sol_couleur));
                 break;
 
             case R.id.Sol_diese:
-                selectedBeat.setForeground(getDrawable(R.color.sol_diese_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.sol_diese_couleur));
                 break;
 
             case R.id.La:
-                selectedBeat.setForeground(getDrawable(R.color.la_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.la_couleur));
                 break;
 
             case R.id.La_diese:
-                selectedBeat.setForeground(getDrawable(R.color.la_diese_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.la_diese_couleur));
                 break;
 
             case R.id.Si:
-                selectedBeat.setForeground(getDrawable(R.color.si_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.si_couleur));
                 break;
 
             case R.id.Erase:
-                selectedBeat.setForeground(getDrawable(R.color.blank_unselected));
+                selectedBeat.setForeground(getDrawable(R.color.blank_couleur));
                 break;
         }
 
 
+        /*
         switch(keyboardHeight)
         {
             case 1:
@@ -287,6 +293,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedBeat.setBackgroundResource(R.color.high);
                 break;
         }
+         */
     }
 
     public void changeHeight(View view)

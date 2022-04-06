@@ -125,23 +125,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -155,23 +155,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -185,23 +185,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -215,23 +215,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -245,23 +245,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -275,23 +275,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -305,23 +305,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -335,23 +335,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -365,23 +365,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -395,23 +395,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -425,23 +425,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -455,23 +455,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -485,23 +485,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -515,22 +515,22 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -544,23 +544,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -574,23 +574,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
                     <LinearLayout
@@ -604,23 +604,23 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="2dp"
-                            android:foreground="@color/blank_unselected"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
 
                         <Button
                             android:layout_width="40dp"
                             android:layout_height="60dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="6dp"
-                            android:foreground="@color/blank_unselected"
+                            android:layout_marginTop="2dp"
+                            android:foreground="@color/blank_couleur"
                             android:onClick="SelectBeat" />
                     </LinearLayout>
 

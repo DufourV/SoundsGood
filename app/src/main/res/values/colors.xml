@@ -27,23 +27,21 @@
 
     <color name="re_couleur">#e5c100</color>
 
-    <color name="re_diese_unselected">#ffff00</color>
+    <color name="re_diese_couleur">#ffff00</color>
 
-    <color name="mi_unselected">#DFFF00</color>
+    <color name="mi_couleur">#DFFF00</color>
 
-    <color name="fa_unselected">#00FF00</color>
+    <color name="fa_couleur">#00FF00</color>
 
-    <color name="fa_diese_unselected">#40e0d0</color>
+    <color name="fa_diese_couleur">#40e0d0</color>
 
-    <color name="sol_unselected">#0000FF</color>
+    <color name="sol_couleur">#0000FF</color>
 
-    <color name="sol_diese_unselected">#0000B0</color>
+    <color name="sol_diese_couleur">#0000B0</color>
 
-    <color name="la_unselected">#aa00cc</color>
+    <color name="la_couleur">#aa00cc</color>
 
-    <color name="la_diese_unselected">#d2afff</color>
+    <color name="la_diese_couleur">#d2afff</color>
 
-    <color name="si_unselected">#FFC0CB</color>
-
-    <color name="custom_unselected">#D3D3D3</color>
+    <color name="si_couleur">#FFC0CB</color>
 </resources>
