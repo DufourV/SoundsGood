@@ -304,4 +304,16 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    public void PlayButton(View view){
+
+    }
+
+    public void PauseButton(View view){
+
+    }
+
+    public void RecordButton(View view){
+
+    }
 }
