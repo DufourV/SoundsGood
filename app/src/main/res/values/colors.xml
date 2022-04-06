@@ -17,48 +17,33 @@
     <color name="high">#FFFFFF</color>
 
 
-    <color name="blank_selected">#C6C6C6</color>
-    <color name="blank_unselected">#EDEDED</color>
+    <color name="blank_couleur">#EDEDED</color>
 
 
 
-    <color name="do_selected">#e50000</color>
-    <color name="do_unselected">#ff0000</color>
+    <color name="do_couleur">#ff0000</color>
 
-    <color name="do_diese_selected">#E69500</color>
-    <color name="do_diese_unselected">#FD7F20</color>
+    <color name="do_diese_couleur">#FD7F20</color>
 
-    <color name="re_selected">#ccac00</color>
-    <color name="re_unselected">#e5c100</color>
+    <color name="re_couleur">#e5c100</color>
 
-    <color name="re_diese_selected">#D6C823</color>
     <color name="re_diese_unselected">#ffff00</color>
 
-    <color name="mi_selected">#66cc00</color>
     <color name="mi_unselected">#DFFF00</color>
 
-    <color name="fa_selected">#008b00</color>
     <color name="fa_unselected">#00FF00</color>
 
-
-    <color name="fa_diese_selected">#1eb6a7</color>
     <color name="fa_diese_unselected">#40e0d0</color>
 
-    <color name="sol_selected">#0000e6</color>
     <color name="sol_unselected">#0000FF</color>
 
-    <color name="sol_diese_selected">#00004d</color>
     <color name="sol_diese_unselected">#0000B0</color>
 
-    <color name="la_selected">#aa00cc</color>
     <color name="la_unselected">#aa00cc</color>
 
-    <color name="la_diese_selected">#9955bb</color>
     <color name="la_diese_unselected">#d2afff</color>
 
-    <color name="si_selected">#e5acb6</color>
     <color name="si_unselected">#FFC0CB</color>
 
-    <color name="custom_selected">#D3D3D3</color>
     <color name="custom_unselected">#D3D3D3</color>
 </resources>
