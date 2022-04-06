@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+
         switch(view.getId())
         {
             case R.id.Do:
@@ -270,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedBeat.setForeground(getDrawable(R.color.blank_unselected));
                 break;
         }
+
 
         switch(keyboardHeight)
         {

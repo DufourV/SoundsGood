@@ -64,39 +64,38 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="5dp">
 
-                <TextView
+                <Button
                     android:id="@+id/instrument1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="10dp"
                     android:padding="2dp"
                     android:background="@color/white"
                     android:text="@string/piano">
-                </TextView>
+                </Button>
 
-                <TextView
+                <Button
                     android:id="@+id/instrument2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="10dp"
                     android:padding="2dp"
                     android:background="@color/white"
-                    android:text="@string/guitare">
-                </TextView>
+                    android:text="@string/piano">
+                </Button>
 
-                <TextView
+                <Button
                     android:id="@+id/instrument3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginTop="40dp"
-                    android:background="@color/white"
+                    android:layout_marginTop="10dp"
                     android:padding="2dp"
-
-                    android:text="@string/clave">
-                </TextView>
+                    android:background="@color/white"
+                    android:text="@string/piano">
+                </Button>
             </LinearLayout>
 
             <HorizontalScrollView
@@ -671,28 +670,32 @@
                         android:layout_height="95dp"
                         android:layout_marginLeft="2dp"
                         android:layout_marginTop="2dp"
-                        android:foreground="@color/do_unselected"
+                        android:foreground="@color/do_couleur"
+                        android:alpha="0"
                         android:onClick="addNote" />
 
                     <Button
                         android:id="@+id/Re"
                         android:layout_width="70dp"
                         android:layout_height="95dp"
-                        android:foreground="@color/re_unselected"
+                        android:foreground="@color/re_couleur"
+                        android:alpha="0"
                         android:onClick="addNote"/>
 
                     <Button
                         android:id="@+id/Mi"
                         android:layout_width="70dp"
                         android:layout_height="95dp"
-                        android:foreground="@color/mi_unselected"
+                        android:foreground="@color/mi_couleur"
+                        android:alpha="0"
                         android:onClick="addNote" />
 
                     <Button
                         android:id="@+id/Fa"
                         android:layout_width="70dp"
                         android:layout_height="95dp"
-                        android:foreground="@color/fa_unselected"
+                        android:foreground="@color/fa_couleur"
+                        android:alpha="0"
                         android:onClick="addNote" />
 
 
@@ -700,7 +703,8 @@
                         android:id="@+id/Sol"
                         android:layout_width="70dp"
                         android:layout_height="95dp"
-                        android:foreground="@color/sol_unselected"
+                        android:foreground="@color/sol_couleur"
+                        android:alpha="0"
                         android:onClick="addNote" />
 
 
@@ -708,7 +712,8 @@
                         android:id="@+id/La"
                         android:layout_width="70dp"
                         android:layout_height="95dp"
-                        android:foreground="@color/la_unselected"
+                        android:foreground="@color/la_couleur"
+                        android:alpha="0"
                         android:onClick="addNote" />
 
 
@@ -716,7 +721,8 @@
                         android:id="@+id/Si"
                         android:layout_width="70dp"
                         android:layout_height="95dp"
-                        android:foreground="@color/si_unselected"
+                        android:alpha="0"
+                        android:foreground="@color/si_couleur"
                         android:onClick="addNote" />
 
 
@@ -733,7 +739,8 @@
                         android:layout_width="45dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="45dp"
-                        android:foreground="@color/do_diese_unselected"
+                        android:alpha="0"
+                        android:foreground="@color/do_diese_couleur"
                         android:onClick="addNote" />
 
 
@@ -742,7 +749,8 @@
                         android:layout_width="45dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="35dp"
-                        android:foreground="@color/re_diese_unselected"
+                        android:alpha="0"
+                        android:foreground="@color/re_diese_couleur"
                         android:onClick="addNote" />
 
 
@@ -750,8 +758,9 @@
                         android:id="@+id/Fa_diese"
                         android:layout_width="45dp"
                         android:layout_height="60dp"
+                        android:alpha="0"
                         android:layout_marginLeft="85dp"
-                        android:foreground="@color/fa_diese_unselected"
+                        android:foreground="@color/fa_diese_couleur"
                         android:onClick="addNote" />
 
 
@@ -759,8 +768,9 @@
                         android:id="@+id/Sol_diese"
                         android:layout_width="45dp"
                         android:layout_height="60dp"
+                        android:alpha="0"
                         android:layout_marginLeft="30dp"
-                        android:foreground="@color/sol_diese_unselected"
+                        android:foreground="@color/sol_diese_couleur"
                         android:onClick="addNote" />
 
 
@@ -768,8 +778,9 @@
                         android:id="@+id/La_diese"
                         android:layout_width="45dp"
                         android:layout_height="60dp"
+                        android:alpha="0"
                         android:layout_marginLeft="25dp"
-                        android:foreground="@color/la_diese_unselected"
+                        android:foreground="@color/la_diese_couleur"
                         android:onClick="addNote" />
 
                 </LinearLayout>
