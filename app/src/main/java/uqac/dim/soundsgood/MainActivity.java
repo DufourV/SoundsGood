@@ -73,19 +73,31 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId())
         {
-            case R.id.menu_ListeMusique:
+            case R.id.menu_ChangerBPM:
                 Log.i("DIM", "VOICI VOTRE LISTE DE MUSIQUE!");
                 openActivityListeMusique();
 
                 return true;
 
-            case R.id.menu_Parametre:
+            case R.id.menu_AjouterTrack:
                 Log.i("DIM", "VOICI LES PARAMETRES!");
                 openActivityParametres();
 
                 return true;
 
-            case R.id.menu_Interface_Principal:
+            case R.id.menu_RetirerTrack:
+
+                return true;
+
+            case R.id.menu_Sauvegarder:
+
+                return true;
+
+            case R.id.menu_Charger:
+
+                return true;
+
+            case R.id.menu_Reinitialiser:
 
                 return true;
 
@@ -229,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
                break;
 
             case R.id.Do_diese:
-                selectedBeat.setForeground(getDrawable(R.color.do_couleur));
+                selectedBeat.setForeground(getDrawable(R.color.do_diese_couleur));
                 break;
 
             case R.id.Re:
@@ -278,7 +290,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        /*
         switch(keyboardHeight)
         {
             case 1:
@@ -293,7 +304,6 @@ public class MainActivity extends AppCompatActivity {
                 selectedBeat.setBackgroundResource(R.color.high);
                 break;
         }
-         */
     }
 
     public void changeHeight(View view)
