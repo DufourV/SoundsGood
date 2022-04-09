@@ -73,19 +73,26 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId())
         {
+            case R.id.menu_AddTrack:
+                Log.i("DIM", "AJOUT D'UNE TRACK!");
+                //openActivityParametres();
+
+                return true;
+
+            case R.id.menu_DeleteTrack:
+                Log.i("DIM", "SUPPRESSION D'UNE TRACK!");
+
+
+                return true;
+
+            case R.id.menu_AdjustBPM:
+
+                return true;
+
+
             case R.id.menu_ListeMusique:
                 Log.i("DIM", "VOICI VOTRE LISTE DE MUSIQUE!");
                 openActivityListeMusique();
-
-                return true;
-
-            case R.id.menu_Parametre:
-                Log.i("DIM", "VOICI LES PARAMETRES!");
-                openActivityParametres();
-
-                return true;
-
-            case R.id.menu_Interface_Principal:
 
                 return true;
 

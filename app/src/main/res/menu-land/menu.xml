@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/menu_ListeMusique"
-        android:title="Liste de musique" />
-    <item android:id="@+id/menu_Parametre"
-        android:title="Parametres" />
+    <item android:id="@+id/menu_AddTrack"
+        android:title="Ajouter une track" />
 
-        <item android:id="@+id/menu_Interface_Principal"
-            android:title="Aller a l'interface principal"
+    <item android:id="@+id/menu_DeleteTrack"
+        android:title="Enlever une track" />
+
+        <item android:id="@+id/menu_AdjustBPM"
+            android:title="Ajuster BPM"
             />
 
-
+    <item android:id="@+id/menu_ListeMusique"
+        android:title="Liste de musique (sauvegarder et charger)" />
 
 </menu>
