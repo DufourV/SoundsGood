@@ -119,7 +119,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:id="@+id/PremiereColonne">
 
                         <Button
                             android:layout_width="40dp"
@@ -638,15 +640,32 @@
             android:layout_height="fill_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/Erase"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginBottom="10dp"
-                android:onClick="addNote"
-                android:foreground="@drawable/trash"
-                android:layout_gravity="bottom"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Chronometer
+                    android:id="@+id/chronometer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="8dp">
+                </Chronometer>
+
+                <Button
+                    android:id="@+id/Erase"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="addNote"
+                    android:foreground="@drawable/trash"
+                    android:layout_gravity="bottom"/>
+
+            </LinearLayout>
+
 
             <RelativeLayout
                 android:id="@+id/clavier"

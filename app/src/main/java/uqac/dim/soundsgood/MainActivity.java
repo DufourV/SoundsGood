@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Chronometer;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
@@ -24,6 +28,11 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
+
+    //Chrono variables
+    private Chronometer chronometer;
+    private boolean running;
+    private long pauseOffset;
 
     private View selectedBeat = null;
     private int keyboardHeight = 2;
@@ -50,6 +59,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        chronometer = findViewById(R.id.chronometer);
+
+        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                /*
+                if ((SystemClock.elapsedRealtime() - chronometer.getBase()) ) { //me donne le temps qui a passe depuis que le chrono a commencer
+
+                }
+                */
+                 
+            }
+        });
     }
 
     @Override
@@ -313,11 +336,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void PlayButton(View view){
+        //mets le background de la premiere colone en noir, pas la meilleure façon, étais juste un test
+        LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
+        ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+
+        if(!running) {
+            chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
+            chronometer.start();
+            running = true;
+        }
 
     }
 
     public void PauseButton(View view){
 
+        if(running){
+            chronometer.stop();
+            pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
+            running = false;
+        }
+    }
+
+    public void ResetTimerButton(View view){
+        chronometer.setBase(SystemClock.elapsedRealtime()); //reset le temps du chrono a 0
+        pauseOffset = 0;
     }
 
     public void RecordButton(View view){
