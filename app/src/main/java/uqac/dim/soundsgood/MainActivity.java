@@ -398,7 +398,6 @@ public class MainActivity extends AppCompatActivity {
         ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
         ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
 
-
-
+        
     }
 }
