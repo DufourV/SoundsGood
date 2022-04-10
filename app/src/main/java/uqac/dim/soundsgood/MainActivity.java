@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 */
-                 
+
             }
         });
     }
@@ -360,6 +360,7 @@ public class MainActivity extends AppCompatActivity {
     public void ResetTimerButton(View view){
         chronometer.setBase(SystemClock.elapsedRealtime()); //reset le temps du chrono a 0
         pauseOffset = 0;
+
     }
 
     public void RecordButton(View view){
