@@ -8,6 +8,7 @@
     <string name="parametres">Paramètres</string>
     <string name="instrument">Instrument</string>
     <string name="bpm">BPM</string>
+    <string name="bpmChoix">Choisissez un nouveau bpm</string>
     <string name="pitch">Pitch</string>
     <string name="saxophone">Saxophone</string>
     <string name="guitare">Guitare</string>
