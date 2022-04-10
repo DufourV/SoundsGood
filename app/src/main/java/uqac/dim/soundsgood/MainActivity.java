@@ -64,12 +64,34 @@ public class MainActivity extends AppCompatActivity {
 
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
-            public void onChronometerTick(Chronometer chronometer) {
-                /*
-                if ((SystemClock.elapsedRealtime() - chronometer.getBase()) ) { //me donne le temps qui a passe depuis que le chrono a commencer
+            public void onChronometerTick(Chronometer chronometer) { //execute a chaque seconde du chrono
 
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 1000  ) { //1sec
+
+                    //mets le background de la premiere colone en noir
+                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
                 }
-                */
+
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 2000  ) {//2 sec
+
+                    //mets le background de la premiere colone en blanc
+                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+                }
+
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 3000  ) {//2 sec
+
+                    //mets le background de la premiere colone en blanc
+                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+                }
 
             }
         });
@@ -336,14 +358,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void PlayButton(View view){
-        //mets le background de la premiere colone en noir, pas la meilleure façon, étais juste un test
-        LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-        ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
 
         if(!running) {
             chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
             chronometer.start();
             running = true;
+
         }
 
     }
@@ -357,13 +377,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void RecordButton(View view){
+
+    }
+
     public void ResetTimerButton(View view){
         chronometer.setBase(SystemClock.elapsedRealtime()); //reset le temps du chrono a 0
         pauseOffset = 0;
 
+        ResetDefilement();
     }
 
-    public void RecordButton(View view){
+    public void ResetDefilement(){ //reset le background noir
+        LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
+        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+        ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
+        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+        ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
+        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+
 
     }
 }

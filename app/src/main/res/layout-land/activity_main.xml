@@ -158,7 +158,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:id="@+id/Colonne2"
+                        android:background="@color/white">
 
                         <Button
                             android:layout_width="40dp"
@@ -188,7 +190,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:id="@+id/Colonne3"
+                        android:background="@color/white">
 
                         <Button
                             android:layout_width="40dp"
