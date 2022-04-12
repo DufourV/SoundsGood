@@ -26,6 +26,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import android.widget.Spinner;
+import android.media.MediaPlayer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private View selectedBeat = null;
     private int keyboardHeight = 2;
+    final MediaPlayer mp = MediaPlayer.create(this, R.raw.);
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -277,6 +279,27 @@ public class MainActivity extends AppCompatActivity {
         if (selectedBeat == null)
         {
             //jouer la note
+            if(view == findViewById(R.id.Do)){
+
+            }
+            if(view == findViewById(R.id.Re)){
+
+            }
+            if(view == findViewById(R.id.Mi)){
+
+            }
+            if(view == findViewById(R.id.Fa)){
+
+            }
+            if(view == findViewById(R.id.Sol)){
+
+            }
+            if(view == findViewById(R.id.La)){
+
+            }
+            if(view == findViewById(R.id.Si)){
+
+            }
             return;
         }
 
@@ -414,4 +437,6 @@ public class MainActivity extends AppCompatActivity {
 
         
     }
+
+
 }
