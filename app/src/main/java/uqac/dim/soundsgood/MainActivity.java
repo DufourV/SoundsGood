@@ -285,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.i("do","isplaying");
 
-
+              //mp.start();
 
               /* MediaPlayer do_note = new MediaPlayer();
               try{
