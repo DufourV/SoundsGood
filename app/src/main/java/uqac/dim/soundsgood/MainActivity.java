@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.AudioAttributes;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -28,6 +29,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import android.widget.Spinner;
 import android.media.MediaPlayer;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     //Chrono variables
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private View selectedBeat = null;
     private int keyboardHeight = 2;
-    final MediaPlayer mp = MediaPlayer.create(this, R.raw.);
+    //MediaPlayer mp = MediaPlayer.create(this, R.raw.);
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -274,13 +277,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //applique une note a la trame choisie
-    public void addNote(View view)
-    {
+    public void addNote(View view) throws IOException {
         if (selectedBeat == null)
         {
             //jouer la note
             if(view == findViewById(R.id.Do)){
 
+                Log.i("do","isplaying");
+
+
+
+              /* MediaPlayer do_note = new MediaPlayer();
+              try{
+                  do_note.setDataSource("https://audio.oxforddictionaries.com/en/mp3/coward_gb_1.mp3");
+                  do_note.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                      @Override
+                      public void onPrepared(MediaPlayer mediaPlayer) {
+                          do_note.start();
+                      }
+                  });
+                  do_note.prepareAsync();
+              }
+
+              catch(IOException e){
+                   e.printStackTrace();
+                } */
             }
             if(view == findViewById(R.id.Re)){
 
