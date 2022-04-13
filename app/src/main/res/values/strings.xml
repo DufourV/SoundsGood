@@ -8,6 +8,7 @@
     <string name="parametres">Paramètres</string>
     <string name="instrument">Instrument</string>
     <string name="bpm">BPM</string>
+    <string name="bpmChoix">Choisissez un nouveau bpm</string>
     <string name="pitch">Pitch</string>
     <string name="saxophone">Saxophone</string>
     <string name="guitare">Guitare</string>
@@ -17,4 +18,6 @@
     <string name="_2">2</string>
     <string name="_3">3</string>
     <string name="track">Track</string>
+    <string name="mintrack">Quantite minimale de trames atteinte</string>
+    <string name="maxtrack">Quantite maximale de trames atteinte</string>
 </resources>
