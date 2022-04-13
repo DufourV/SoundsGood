@@ -79,21 +79,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= (dureedelai * 1000f)  ) { //scroll a chaque tick selon le bpm une colonne a la fois
 
                     horizontalscrollView.scrollTo(scrollDistX, 0);
-                    scrollDistX += 120;
+                    scrollDistX += 118;
 
                 }
 
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 3000  ) {//2 sec
 
-                    //mets le background de la premiere colone en blanc
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
-
-                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
-                }
-
-                 */
             }
         });
     }
@@ -363,6 +353,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             chronometer.start();
             running = true;
 
+            findViewById(R.id.scrollbuffer).setVisibility(View.VISIBLE);
+
         }
 
     }
@@ -373,6 +365,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             chronometer.stop();
             pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
             running = false;
+
+            findViewById(R.id.scrollbuffer).setVisibility(View.GONE);
         }
     }
 
@@ -390,6 +384,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
         scrollDistX = 0;
         horizontalscrollView.scrollTo(scrollDistX, 0);
+
+
 
     }
 }
