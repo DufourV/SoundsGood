@@ -16,9 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Chronometer;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public int bpm = 120;
     public int nbtracks = 3;
     public float dureedelai = 0.5F;
+    public int scrollDistX = 0;
+    public HorizontalScrollView horizontalscrollView;
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -64,28 +69,18 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal)); //variable pour le scroll horizontal
         chronometer = findViewById(R.id.chronometer);
 
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) { //execute a chaque seconde du chrono
 
-                /*
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 1000  ) { //1sec
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= (dureedelai * 1000f)  ) { //scroll a chaque tick selon le bpm une colonne a la fois
 
-                    //mets le background de la premiere colone en noir
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
-                }
+                    horizontalscrollView.scrollTo(scrollDistX, 0);
+                    scrollDistX += 120;
 
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 2000  ) {//2 sec
-
-                    //mets le background de la premiere colone en blanc
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
-
-                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
                 }
 
                 if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 3000  ) {//2 sec
@@ -99,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 }
 
                  */
-
             }
         });
     }
@@ -393,16 +387,9 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     }
 
     public void ResetDefilement(){ //reset le background noir
-        /*
-        LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
 
-        ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
-        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+        scrollDistX = 0;
+        horizontalscrollView.scrollTo(scrollDistX, 0);
 
-        ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
-        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
-
-        */
     }
 }
