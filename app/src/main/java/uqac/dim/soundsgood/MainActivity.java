@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                     ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
                     ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
                 }
-                
+
                  */
 
             }
@@ -164,22 +164,27 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         {
             case 1:
                 findViewById(R.id.track2).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument2).setVisibility(View.VISIBLE);
                 break;
 
             case 2:
                 findViewById(R.id.track3).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument3).setVisibility(View.VISIBLE);
                 break;
 
             case 3:
                 findViewById(R.id.track4).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument4).setVisibility(View.VISIBLE);
                 break;
 
             case 4:
                 findViewById(R.id.track5).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument5).setVisibility(View.VISIBLE);
                 break;
 
             case 5:
                 findViewById(R.id.track6).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument6).setVisibility(View.VISIBLE);
                 break;
 
             case 6:
@@ -215,22 +220,27 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
             case 2:
                 findViewById(R.id.track2).setVisibility(View.GONE);
+                findViewById(R.id.instrument2).setVisibility(View.GONE);
                 break;
 
             case 3:
                 findViewById(R.id.track3).setVisibility(View.GONE);
+                findViewById(R.id.instrument3).setVisibility(View.GONE);
                 break;
 
             case 4:
                 findViewById(R.id.track4).setVisibility(View.GONE);
+                findViewById(R.id.instrument4).setVisibility(View.GONE);
                 break;
 
             case 5:
                 findViewById(R.id.track5).setVisibility(View.GONE);
+                findViewById(R.id.instrument5).setVisibility(View.GONE);
                 break;
 
             case 6:
                 findViewById(R.id.track6).setVisibility(View.GONE);
+                findViewById(R.id.instrument6).setVisibility(View.GONE);
                 break;
         }
         nbtracks--;
