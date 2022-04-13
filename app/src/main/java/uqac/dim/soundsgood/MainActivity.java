@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void SelectBeat (View view)
     {
+        selectedBeat = view;
     }
 
 
@@ -134,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             //jouer la note
             return;
         }
-
 
         switch(view.getId())
         {
