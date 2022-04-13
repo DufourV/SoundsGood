@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private View selectedBeat = null;
     private int keyboardHeight = 2;
-    //MediaPlayer mp = MediaPlayer.create(this, R.raw.);
+
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -64,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final MediaPlayer do_note = MediaPlayer.create(this, R.raw.do_note);
+        final MediaPlayer re_note = MediaPlayer.create(this, R.raw.re_note);
+        final MediaPlayer mi_note = MediaPlayer.create(this, R.raw.mi_note);
+        final MediaPlayer fa_note = MediaPlayer.create(this, R.raw.fa_note);
+        final MediaPlayer sol_note = MediaPlayer.create(this, R.raw.sol_note);
+        final MediaPlayer la_note = MediaPlayer.create(this, R.raw.la_note);
+        final MediaPlayer si_note = MediaPlayer.create(this, R.raw.si_note);
 
         chronometer = findViewById(R.id.chronometer);
 
@@ -280,46 +288,45 @@ public class MainActivity extends AppCompatActivity {
     public void addNote(View view) throws IOException {
         if (selectedBeat == null)
         {
+
+            final MediaPlayer do_note_piano = MediaPlayer.create(this, R.raw.do_note_piano);
+            final MediaPlayer re_note_piano = MediaPlayer.create(this, R.raw.re_note_piano);
+            final MediaPlayer mi_note_piano = MediaPlayer.create(this, R.raw.mi_note_piano);
+            final MediaPlayer fa_note_piano = MediaPlayer.create(this, R.raw.fa_note_piano);
+            final MediaPlayer sol_note_piano = MediaPlayer.create(this, R.raw.sol_note_piano);
+            final MediaPlayer la_note_piano = MediaPlayer.create(this, R.raw.la_note_piano);
+            final MediaPlayer si_note_piano = MediaPlayer.create(this, R.raw.si_note_piano);
             //jouer la note
+
             if(view == findViewById(R.id.Do)){
 
                 Log.i("do","isplaying");
+                do_note_piano.start();
 
-              //mp.start();
-
-              /* MediaPlayer do_note = new MediaPlayer();
-              try{
-                  do_note.setDataSource("https://audio.oxforddictionaries.com/en/mp3/coward_gb_1.mp3");
-                  do_note.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                      @Override
-                      public void onPrepared(MediaPlayer mediaPlayer) {
-                          do_note.start();
-                      }
-                  });
-                  do_note.prepareAsync();
-              }
-
-              catch(IOException e){
-                   e.printStackTrace();
-                } */
             }
             if(view == findViewById(R.id.Re)){
-
+                Log.i("re","isplaying");
+                re_note_piano.start();
             }
             if(view == findViewById(R.id.Mi)){
-
+                Log.i("mi","isplaying");
+                mi_note_piano.start();
             }
             if(view == findViewById(R.id.Fa)){
-
+                Log.i("fa","isplaying");
+                fa_note_piano.start();
             }
             if(view == findViewById(R.id.Sol)){
-
+                Log.i("sol","isplaying");
+                sol_note_piano.start();
             }
             if(view == findViewById(R.id.La)){
-
+                Log.i("la","isplaying");
+                la_note_piano.start();
             }
             if(view == findViewById(R.id.Si)){
-
+                Log.i("si","isplaying");
+                si_note_piano.start();
             }
             return;
         }
