@@ -68,1863 +68,1136 @@
 
             </LinearLayout>
 
-            <HorizontalScrollView
-                android:id="@+id/horizontal"
+
+            <ScrollView
+                android:id="@+id/vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="horizontal">
 
-                <ScrollView
-                    android:id="@+id/vertical"
-                    android:layout_width="fill_parent"
+                <LinearLayout
+                    android:id="@+id/note_container"
+                    android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/note_container"
+                        android:id="@+id/instrument_container"
                         android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-
-                        <LinearLayout
-                            android:id="@+id/track1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <Button
+                            android:id="@+id/instrument1"
+                            android:layout_width="80dp"
+                            android:layout_height="60dp"
                             android:layout_marginLeft="2dp"
-                            android:orientation="horizontal">
+                            android:layout_marginTop="2dp"
+                            android:background="@color/white"
+                            android:padding="2dp"
+                            android:text="@string/piano"/>
 
-                            <Button
-                                android:id="@+id/instrument1"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano" />
-
-                            <Button
-                                android:id="@+id/premierButton"
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:background="@color/black"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/track2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <Button
+                            android:id="@+id/instrument2"
+                            android:layout_width="80dp"
+                            android:layout_height="60dp"
                             android:layout_marginLeft="2dp"
-                            android:orientation="horizontal">
+                            android:layout_marginTop="2dp"
+                            android:background="@color/white"
+                            android:padding="2dp"
+                            android:text="@string/piano"/>
 
-                            <Button
-                                android:id="@+id/instrument2"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"/>
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/track3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <Button
+                            android:id="@+id/instrument3"
+                            android:layout_width="80dp"
+                            android:layout_height="60dp"
                             android:layout_marginLeft="2dp"
-                            android:orientation="horizontal">
+                            android:layout_marginTop="2dp"
+                            android:background="@color/white"
+                            android:padding="2dp"
+                            android:text="@string/piano"/>
 
-                            <Button
-                                android:id="@+id/instrument3"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"/>
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/track4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <Button
+                            android:id="@+id/instrument4"
+                            android:layout_width="80dp"
+                            android:layout_height="60dp"
                             android:layout_marginLeft="2dp"
-                            android:orientation="horizontal"
-                            android:visibility="gone">
+                            android:layout_marginTop="2dp"
+                            android:background="@color/white"
+                            android:padding="2dp"
+                            android:text="@string/piano"
+                            android:visibility="gone"/>
 
-                            <Button
-                                android:id="@+id/instrument4"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"/>
+                        <Button
+                            android:id="@+id/instrument5"
+                            android:layout_width="80dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/white"
+                            android:padding="2dp"
+                            android:text="@string/piano"
+                            android:visibility="gone"/>
 
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
+                        <Button
+                            android:id="@+id/instrument6"
+                            android:layout_width="80dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/white"
+                            android:padding="2dp"
+                            android:text="@string/piano"
+                            android:visibility="gone"/>
 
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
+                    </LinearLayout>
 
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                            <Button
-                                android:layout_width="40dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="2dp"
-                                android:foreground="@color/blank_couleur"
-                                android:onClick="SelectBeat" />
-
-                <ScrollView
-                    android:id="@+id/vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/note_container"
-                        android:layout_width="wrap_content"
+                    <HorizontalScrollView
+                        android:id="@+id/horizontal"
+                        android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:id="@+id/instrument_container"
+                            android:id="@+id/tracks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <Button
-                                android:id="@+id/instrument1"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"/>
-
-                            <Button
-                                android:id="@+id/instrument2"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"/>
-
-                            <Button
-                                android:id="@+id/instrument3"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"/>
-
-                            <Button
-                                android:id="@+id/instrument4"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"
-                                android:visibility="gone"/>
-
-                            <Button
-                                android:id="@+id/instrument5"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"
-                                android:visibility="gone"/>
-
-                            <Button
-                                android:id="@+id/instrument6"
-                                android:layout_width="80dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="2dp"
-                                android:layout_marginTop="2dp"
-                                android:background="@color/white"
-                                android:padding="2dp"
-                                android:text="@string/piano"
-                                android:visibility="gone"/>
-
-                        </LinearLayout>
-
-                        <HorizontalScrollView
-                            android:id="@+id/horizontal"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:orientation="horizontal">
-
                             <LinearLayout
-                                android:id="@+id/tracks"
+                                android:id="@+id/track1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:layout_marginLeft="2dp"
+                                android:orientation="horizontal">
+
+
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
 
                                 <LinearLayout
-                                    android:id="@+id/track1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:orientation="horizontal">
-
-
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <LinearLayout
-                                        android:id="@+id/scrollbuffer"
-                                        android:layout_height="5dp"
-                                        android:layout_width="585dp"
-                                        android:orientation="vertical"
-                                        android:visibility="gone">
-
-                                    </LinearLayout>
-
-
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:id="@+id/track2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:orientation="horizontal">
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:id="@+id/track3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:orientation="horizontal">
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:id="@+id/track4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:orientation="horizontal"
+                                    android:id="@+id/scrollbuffer"
+                                    android:layout_height="5dp"
+                                    android:layout_width="600dp"
+                                    android:orientation="vertical"
                                     android:visibility="gone">
 
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-
                                 </LinearLayout>
-                                <LinearLayout
-                                    android:id="@+id/track5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:orientation="horizontal"
-                                    android:visibility="gone">
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
 
 
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:id="@+id/track6"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:orientation="horizontal"
-                                    android:visibility="gone">
-
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-                                    <Button
-                                        android:layout_width="40dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="2dp"
-                                        android:foreground="@color/blank_couleur"
-                                        android:onClick="SelectBeat" />
-
-
-                                </LinearLayout>
                             </LinearLayout>
-                        </HorizontalScrollView>
-                    </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/track2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="horizontal">
 
-                </ScrollView>
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/track3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/track4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/track5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/track6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+                                <Button
+                                    android:layout_width="40dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="2dp"
+                                    android:foreground="@color/blank_couleur"
+                                    android:onClick="SelectBeat" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+            </ScrollView>
 
         </LinearLayout>
 
@@ -2121,7 +1394,6 @@
                     android:id="@+id/radio_high"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-
                     android:text="@string/high"
                     android:onClick="changeHeight"/>
 
