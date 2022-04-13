@@ -16,9 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Chronometer;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public int bpm = 120;
     public int nbtracks = 3;
     public float dureedelai = 0.5F;
+    public int scrollDistX = 190;
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -64,42 +68,28 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        HorizontalScrollView horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal)); //variable pour le scroll horizontal
+
         chronometer = findViewById(R.id.chronometer);
 
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) { //execute a chaque seconde du chrono
 
-                /*
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 1000  ) { //1sec
 
-                    //mets le background de la premiere colone en noir
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 1000  ) {//1 sec //scroll par dessus les bouttons des instruments
+
+                    horizontalscrollView.scrollTo(scrollDistX, 0);
+
                 }
 
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 2000  ) {//2 sec
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= (dureedelai * 1000f)  ) { //scroll a chaque tick selon le bpm une colonne a la fois
 
-                    //mets le background de la premiere colone en blanc
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+                    horizontalscrollView.scrollTo(scrollDistX, 0);
+                    scrollDistX += 120;
 
-                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+
                 }
-
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 3000  ) {//2 sec
-
-                    //mets le background de la premiere colone en blanc
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
-
-                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
-                }
-
-                 */
-
             }
         });
     }
@@ -164,27 +154,22 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         {
             case 1:
                 findViewById(R.id.track2).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument2).setVisibility(View.VISIBLE);
                 break;
 
             case 2:
                 findViewById(R.id.track3).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument3).setVisibility(View.VISIBLE);
                 break;
 
             case 3:
                 findViewById(R.id.track4).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument4).setVisibility(View.VISIBLE);
                 break;
 
             case 4:
                 findViewById(R.id.track5).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument5).setVisibility(View.VISIBLE);
                 break;
 
             case 5:
                 findViewById(R.id.track6).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument6).setVisibility(View.VISIBLE);
                 break;
 
             case 6:
@@ -220,27 +205,22 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
             case 2:
                 findViewById(R.id.track2).setVisibility(View.GONE);
-                findViewById(R.id.instrument2).setVisibility(View.GONE);
                 break;
 
             case 3:
                 findViewById(R.id.track3).setVisibility(View.GONE);
-                findViewById(R.id.instrument3).setVisibility(View.GONE);
                 break;
 
             case 4:
                 findViewById(R.id.track4).setVisibility(View.GONE);
-                findViewById(R.id.instrument4).setVisibility(View.GONE);
                 break;
 
             case 5:
                 findViewById(R.id.track5).setVisibility(View.GONE);
-                findViewById(R.id.instrument5).setVisibility(View.GONE);
                 break;
 
             case 6:
                 findViewById(R.id.track6).setVisibility(View.GONE);
-                findViewById(R.id.instrument6).setVisibility(View.GONE);
                 break;
         }
         nbtracks--;
