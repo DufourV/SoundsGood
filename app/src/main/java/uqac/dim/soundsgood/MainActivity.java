@@ -79,9 +79,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= (dureedelai * 1000f)  ) { //scroll a chaque tick selon le bpm une colonne a la fois
 
                     horizontalscrollView.scrollTo(scrollDistX, 0);
-                    scrollDistX += 120;
+                    scrollDistX += 118;
 
                 }
+
+
             }
         });
     }
@@ -146,22 +148,27 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         {
             case 1:
                 findViewById(R.id.track2).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument2).setVisibility(View.VISIBLE);
                 break;
 
             case 2:
                 findViewById(R.id.track3).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument3).setVisibility(View.VISIBLE);
                 break;
 
             case 3:
                 findViewById(R.id.track4).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument4).setVisibility(View.VISIBLE);
                 break;
 
             case 4:
                 findViewById(R.id.track5).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument5).setVisibility(View.VISIBLE);
                 break;
 
             case 5:
                 findViewById(R.id.track6).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument6).setVisibility(View.VISIBLE);
                 break;
 
             case 6:
@@ -197,22 +204,27 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
             case 2:
                 findViewById(R.id.track2).setVisibility(View.GONE);
+                findViewById(R.id.instrument2).setVisibility(View.GONE);
                 break;
 
             case 3:
                 findViewById(R.id.track3).setVisibility(View.GONE);
+                findViewById(R.id.instrument3).setVisibility(View.GONE);
                 break;
 
             case 4:
                 findViewById(R.id.track4).setVisibility(View.GONE);
+                findViewById(R.id.instrument4).setVisibility(View.GONE);
                 break;
 
             case 5:
                 findViewById(R.id.track5).setVisibility(View.GONE);
+                findViewById(R.id.instrument5).setVisibility(View.GONE);
                 break;
 
             case 6:
                 findViewById(R.id.track6).setVisibility(View.GONE);
+                findViewById(R.id.instrument6).setVisibility(View.GONE);
                 break;
         }
         nbtracks--;
@@ -341,6 +353,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             chronometer.start();
             running = true;
 
+            findViewById(R.id.scrollbuffer).setVisibility(View.VISIBLE);
+
         }
 
     }
@@ -351,6 +365,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             chronometer.stop();
             pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
             running = false;
+
+            findViewById(R.id.scrollbuffer).setVisibility(View.GONE);
         }
     }
 
@@ -368,6 +384,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
         scrollDistX = 0;
         horizontalscrollView.scrollTo(scrollDistX, 0);
+
+
 
     }
 }
