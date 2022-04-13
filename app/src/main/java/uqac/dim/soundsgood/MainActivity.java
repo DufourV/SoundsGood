@@ -65,14 +65,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final MediaPlayer do_note = MediaPlayer.create(this, R.raw.do_note);
-        final MediaPlayer re_note = MediaPlayer.create(this, R.raw.re_note);
-        final MediaPlayer mi_note = MediaPlayer.create(this, R.raw.mi_note);
-        final MediaPlayer fa_note = MediaPlayer.create(this, R.raw.fa_note);
-        final MediaPlayer sol_note = MediaPlayer.create(this, R.raw.sol_note);
-        final MediaPlayer la_note = MediaPlayer.create(this, R.raw.la_note);
-        final MediaPlayer si_note = MediaPlayer.create(this, R.raw.si_note);
-
         chronometer = findViewById(R.id.chronometer);
 
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
