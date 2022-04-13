@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             @Override
             public void onChronometerTick(Chronometer chronometer) { //execute a chaque seconde du chrono
 
+                /*
                 if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 1000  ) { //1sec
 
                     //mets le background de la premiere colone en noir
@@ -96,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                     ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
                     ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
                 }
+                
+                 */
 
             }
         });
@@ -380,6 +383,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     }
 
     public void ResetDefilement(){ //reset le background noir
+        /*
         LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
         ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
 
@@ -389,6 +393,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
         ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
 
-        
+        */
     }
 }
