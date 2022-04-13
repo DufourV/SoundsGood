@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Chronometer;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
@@ -27,6 +31,10 @@ import android.widget.Spinner;
 public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener{
 
     private BPMDialogue bpmdialogue;
+    //Chrono variables
+    private Chronometer chronometer;
+    private boolean running;
+    private long pauseOffset;
     private View selectedBeat = null;
     private int keyboardHeight = 2;
     public int bpm = 120;
@@ -55,6 +63,42 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        chronometer = findViewById(R.id.chronometer);
+
+        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) { //execute a chaque seconde du chrono
+
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 1000  ) { //1sec
+
+                    //mets le background de la premiere colone en noir
+                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+                }
+
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 2000  ) {//2 sec
+
+                    //mets le background de la premiere colone en blanc
+                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+                }
+
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 3000  ) {//2 sec
+
+                    //mets le background de la premiere colone en blanc
+                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
+                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+                }
+
+            }
+        });
     }
 
     @Override
@@ -78,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
         switch (item.getItemId())
         {
+
             case R.id.menu_ChangerBPM:
                 Log.i("DIM", "VOICI VOTRE LISTE DE MUSIQUE!");
                 openDialog();
@@ -101,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 return true;
 
             case R.id.menu_Reinitialiser:
+
 
                 return true;
 
@@ -305,15 +351,44 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void PlayButton(View view){
 
+        if(!running) {
+            chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
+            chronometer.start();
+            running = true;
+
+        }
+
     }
 
     public void PauseButton(View view){
 
+        if(running){
+            chronometer.stop();
+            pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
+            running = false;
+        }
     }
 
     public void RecordButton(View view){
 
     }
+    public void ResetTimerButton(View view){
+        chronometer.setBase(SystemClock.elapsedRealtime()); //reset le temps du chrono a 0
+        pauseOffset = 0;
 
+        ResetDefilement();
+    }
 
+    public void ResetDefilement(){ //reset le background noir
+        LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
+        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+        ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
+        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+        ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
+        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+
+        
+    }
 }
