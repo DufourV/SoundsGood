@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private View selectedBeat = null;
     private int keyboardHeight = 2;
     public int bpm = 120;
+    public int nbtracks = 3;
     public float dureedelai = 0.5F;
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
@@ -84,13 +85,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 return true;
 
             case R.id.menu_AjouterTrack:
-                Log.i("DIM", "VOICI LES PARAMETRES!");
-                openActivityParametres();
-
+                addtrack();
                 return true;
 
             case R.id.menu_RetirerTrack:
-
+                removetrack();
                 return true;
 
             case R.id.menu_Sauvegarder:
@@ -108,6 +107,84 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void addtrack()
+    {
+        switch(nbtracks)
+        {
+            case 1:
+                findViewById(R.id.track2).setVisibility(View.VISIBLE);
+                break;
+
+            case 2:
+                findViewById(R.id.track3).setVisibility(View.VISIBLE);
+                break;
+
+            case 3:
+                findViewById(R.id.track4).setVisibility(View.VISIBLE);
+                break;
+
+            case 4:
+                findViewById(R.id.track5).setVisibility(View.VISIBLE);
+                break;
+
+            case 5:
+                findViewById(R.id.track6).setVisibility(View.VISIBLE);
+                break;
+
+            case 6:
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.track_toast, (ViewGroup) findViewById(R.id.track_toast_linearlayout));
+                TextView tv = (TextView) layout.findViewById(R.id.toast_text);
+                tv.setText(R.string.maxtrack);
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 100);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(layout);
+                toast.show();
+                return;
+        }
+        nbtracks++;
+    }
+
+    public void removetrack()
+    {
+        switch(nbtracks)
+        {
+            case 1:
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.track_toast, (ViewGroup) findViewById(R.id.track_toast_linearlayout));
+                TextView tv = (TextView) layout.findViewById(R.id.toast_text);
+                tv.setText(R.string.mintrack);
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 100);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(layout);
+                toast.show();
+                return;
+
+            case 2:
+                findViewById(R.id.track2).setVisibility(View.GONE);
+                break;
+
+            case 3:
+                findViewById(R.id.track3).setVisibility(View.GONE);
+                break;
+
+            case 4:
+                findViewById(R.id.track4).setVisibility(View.GONE);
+                break;
+
+            case 5:
+                findViewById(R.id.track5).setVisibility(View.GONE);
+                break;
+
+            case 6:
+                findViewById(R.id.track6).setVisibility(View.GONE);
+                break;
+        }
+        nbtracks--;
     }
 
     public void openDialog(){
