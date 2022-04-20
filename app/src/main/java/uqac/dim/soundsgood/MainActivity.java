@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.AudioAttributes;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -30,6 +31,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import android.widget.Spinner;
+import android.media.MediaPlayer;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener{
 
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public float dureedelai = 0.5F;
     public int scrollDistX = 0;
     public HorizontalScrollView horizontalscrollView;
+
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -248,11 +253,49 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
     //applique une note a la trame choisie
-    public void addNote(View view)
-    {
+    public void addNote(View view) throws IOException {
         if (selectedBeat == null)
         {
+
+            final MediaPlayer do_note_piano = MediaPlayer.create(this, R.raw.do_note_piano);
+            final MediaPlayer re_note_piano = MediaPlayer.create(this, R.raw.re_note_piano);
+            final MediaPlayer mi_note_piano = MediaPlayer.create(this, R.raw.mi_note_piano);
+            final MediaPlayer fa_note_piano = MediaPlayer.create(this, R.raw.fa_note_piano);
+            final MediaPlayer sol_note_piano = MediaPlayer.create(this, R.raw.sol_note_piano);
+            final MediaPlayer la_note_piano = MediaPlayer.create(this, R.raw.la_note_piano);
+            final MediaPlayer si_note_piano = MediaPlayer.create(this, R.raw.si_note_piano);
             //jouer la note
+
+            if(view == findViewById(R.id.Do)){
+
+                Log.i("do","isplaying");
+                do_note_piano.start();
+
+            }
+            if(view == findViewById(R.id.Re)){
+                Log.i("re","isplaying");
+                re_note_piano.start();
+            }
+            if(view == findViewById(R.id.Mi)){
+                Log.i("mi","isplaying");
+                mi_note_piano.start();
+            }
+            if(view == findViewById(R.id.Fa)){
+                Log.i("fa","isplaying");
+                fa_note_piano.start();
+            }
+            if(view == findViewById(R.id.Sol)){
+                Log.i("sol","isplaying");
+                sol_note_piano.start();
+            }
+            if(view == findViewById(R.id.La)){
+                Log.i("la","isplaying");
+                la_note_piano.start();
+            }
+            if(view == findViewById(R.id.Si)){
+                Log.i("si","isplaying");
+                si_note_piano.start();
+            }
             return;
         }
 
@@ -388,4 +431,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
     }
+
+
 }
