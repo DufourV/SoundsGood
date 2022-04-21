@@ -106,7 +106,7 @@
                             android:layout_marginTop="2dp"
                             android:background="@color/white"
                             android:padding="2dp"
-                            android:text="@string/piano"/>
+                            android:text="@string/guitare"/>
 
                         <Button
                             android:id="@+id/instrument3"
@@ -116,7 +116,7 @@
                             android:layout_marginTop="2dp"
                             android:background="@color/white"
                             android:padding="2dp"
-                            android:text="@string/piano"/>
+                            android:text="@string/clave"/>
 
                         <Button
                             android:id="@+id/instrument4"

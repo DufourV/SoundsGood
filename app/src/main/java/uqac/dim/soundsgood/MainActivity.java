@@ -3,10 +3,13 @@ package uqac.dim.soundsgood;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -17,8 +20,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Chronometer;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
@@ -30,16 +37,24 @@ import android.widget.Spinner;
 import android.media.MediaPlayer;
 
 import java.io.IOException;
+import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener{
 
+    private BPMDialogue bpmdialogue;
     //Chrono variables
     private Chronometer chronometer;
     private boolean running;
     private long pauseOffset;
-
     private View selectedBeat = null;
     private int keyboardHeight = 2;
+    public int bpm = 120;
+    public int nbtracks = 3;
+    public float dureedelai = 0.5F;
+    public int scrollDistX = 0;
+    public HorizontalScrollView horizontalscrollView;
+    private SoundPool soundpool;
+    private HashMap<Integer, Integer> soundsMap;
 
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
@@ -65,38 +80,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal)); //variable pour le scroll horizontal
         chronometer = findViewById(R.id.chronometer);
 
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) { //execute a chaque seconde du chrono
 
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 1000  ) { //1sec
+                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= (dureedelai * 1000f)  ) { //scroll a chaque tick selon le bpm une colonne a la fois
 
-                    //mets le background de la premiere colone en noir
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
+                    horizontalscrollView.scrollTo(scrollDistX, 0);
+                    scrollDistX += 118;
+
                 }
 
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 2000  ) {//2 sec
-
-                    //mets le background de la premiere colone en blanc
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
-
-                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
-                }
-
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= 3000  ) {//2 sec
-
-                    //mets le background de la premiere colone en blanc
-                    LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
-
-                    ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
-                    ColbackgroundColor.setBackgroundColor(getColor(R.color.black));
-                }
 
             }
         });
@@ -126,18 +123,16 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.menu_ChangerBPM:
                 Log.i("DIM", "VOICI VOTRE LISTE DE MUSIQUE!");
-                openActivityListeMusique();
+                openDialog();
 
                 return true;
 
             case R.id.menu_AjouterTrack:
-                Log.i("DIM", "VOICI LES PARAMETRES!");
-                openActivityParametres();
-
+                addtrack();
                 return true;
 
             case R.id.menu_RetirerTrack:
-
+                removetrack();
                 return true;
 
             case R.id.menu_Sauvegarder:
@@ -158,170 +153,337 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void addtrack()
+    {
+        switch(nbtracks)
+        {
+            case 1:
+                findViewById(R.id.track2).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument2).setVisibility(View.VISIBLE);
+                break;
+
+            case 2:
+                findViewById(R.id.track3).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument3).setVisibility(View.VISIBLE);
+                break;
+
+            case 3:
+                findViewById(R.id.track4).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument4).setVisibility(View.VISIBLE);
+                break;
+
+            case 4:
+                findViewById(R.id.track5).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument5).setVisibility(View.VISIBLE);
+                break;
+
+            case 5:
+                findViewById(R.id.track6).setVisibility(View.VISIBLE);
+                findViewById(R.id.instrument6).setVisibility(View.VISIBLE);
+                break;
+
+            case 6:
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.track_toast, (ViewGroup) findViewById(R.id.track_toast_linearlayout));
+                TextView tv = (TextView) layout.findViewById(R.id.toast_text);
+                tv.setText(R.string.maxtrack);
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 100);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(layout);
+                toast.show();
+                return;
+        }
+        nbtracks++;
+    }
+
+    public void removetrack()
+    {
+        switch(nbtracks)
+        {
+            case 1:
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.track_toast, (ViewGroup) findViewById(R.id.track_toast_linearlayout));
+                TextView tv = (TextView) layout.findViewById(R.id.toast_text);
+                tv.setText(R.string.mintrack);
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 100);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(layout);
+                toast.show();
+                return;
+
+            case 2:
+                findViewById(R.id.track2).setVisibility(View.GONE);
+                findViewById(R.id.instrument2).setVisibility(View.GONE);
+                break;
+
+            case 3:
+                findViewById(R.id.track3).setVisibility(View.GONE);
+                findViewById(R.id.instrument3).setVisibility(View.GONE);
+                break;
+
+            case 4:
+                findViewById(R.id.track4).setVisibility(View.GONE);
+                findViewById(R.id.instrument4).setVisibility(View.GONE);
+                break;
+
+            case 5:
+                findViewById(R.id.track5).setVisibility(View.GONE);
+                findViewById(R.id.instrument5).setVisibility(View.GONE);
+                break;
+
+            case 6:
+                findViewById(R.id.track6).setVisibility(View.GONE);
+                findViewById(R.id.instrument6).setVisibility(View.GONE);
+                break;
+        }
+        nbtracks--;
+    }
+
+    public void openDialog(){
+        BPMDialogue bpmdialogue = new BPMDialogue();
+        bpmdialogue.show(getSupportFragmentManager(), "BPM Choix");
+    }
+
+    @Override
+    public void applyBPM(int nouveauBPM) {
+        bpm = nouveauBPM;
+        dureedelai = 60f/ (float)nouveauBPM;
+    }
+
     public void SelectBeat (View view)
     {
-
-        if(selectedBeat != null)
-        {
-            deselectColor(selectedBeat);
-        }
-
         selectedBeat = view;
-
-        selectColor(selectedBeat);
     }
 
-
-    //remet la couleur déhighlightée quand tu cliques ailleurs
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public void deselectColor(View view)
-    {
-        /*
-        Drawable selectedForeground = view.getForeground();
-
-
-        if (selectedForeground.equals(getDrawable(R.color.blank_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.blank_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.do_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.do_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.do_diese_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.do_diese_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.re_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.re_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.re_diese_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.re_diese_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.mi_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.mi_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.fa_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.fa_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.fa_diese_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.fa_diese_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.sol_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.si_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.sol_diese_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.si_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.la_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.la_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.la_diese_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.la_diese_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.si_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.si_unselected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.custom_selected)))
-            selectedBeat.setForeground(getDrawable(R.color.custom_unselected));
-
-         */
-    }
-
-
-    //switche la couleur quand tu cliques sur un endroit de la trame
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public void selectColor(View view)
-    {
-        /*
-        Drawable selectedForeground = view.getForeground();
-        if (selectedForeground.equals(getDrawable(R.color.blank_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.blank_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.do_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.do_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.do_diese_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.do_diese_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.re_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.re_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.re_diese_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.re_diese_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.mi_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.mi_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.fa_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.fa_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.fa_diese_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.fa_diese_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.sol_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.sol_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.sol_diese_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.sol_diese_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.la_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.la_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.la_diese_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.la_diese_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.si_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.si_selected));
-
-        else if (selectedForeground.equals(getDrawable(R.color.custom_unselected)))
-            selectedBeat.setForeground(getDrawable(R.color.custom_selected));
-         */
-    }
 
     //applique une note a la trame choisie
     public void addNote(View view) throws IOException {
         if (selectedBeat == null)
         {
-
-            final MediaPlayer do_note_piano = MediaPlayer.create(this, R.raw.do_note_piano);
-            final MediaPlayer re_note_piano = MediaPlayer.create(this, R.raw.re_note_piano);
+            /*final MediaPlayer re_note_piano = MediaPlayer.create(this, R.raw.re_note_piano);
             final MediaPlayer mi_note_piano = MediaPlayer.create(this, R.raw.mi_note_piano);
             final MediaPlayer fa_note_piano = MediaPlayer.create(this, R.raw.fa_note_piano);
             final MediaPlayer sol_note_piano = MediaPlayer.create(this, R.raw.sol_note_piano);
             final MediaPlayer la_note_piano = MediaPlayer.create(this, R.raw.la_note_piano);
-            final MediaPlayer si_note_piano = MediaPlayer.create(this, R.raw.si_note_piano);
+            final MediaPlayer si_note_piano = MediaPlayer.create(this, R.raw.si_note_piano);*/
+            final MediaPlayer do_note_piano = MediaPlayer.create(this, R.raw.do_note_piano);
+            final MediaPlayer re_note_guitare = MediaPlayer.create(this, R.raw.re_note_guitare);
+            final MediaPlayer claves = MediaPlayer.create(this, R.raw.claves);
+            int instrument = 1;
+
+            soundpool = new SoundPool(4, AudioManager.STREAM_MUSIC, 100);
+            soundsMap = new HashMap<Integer, Integer>();
+            soundsMap.put(instrument, soundpool.load(this, R.raw.do_note_piano, 1));
+
+
+
+
             //jouer la note
 
-            if(view == findViewById(R.id.Do)){
 
-                Log.i("do","isplaying");
-                do_note_piano.start();
+                if(view == findViewById(R.id.Do)){
 
-            }
-            if(view == findViewById(R.id.Re)){
-                Log.i("re","isplaying");
-                re_note_piano.start();
-            }
-            if(view == findViewById(R.id.Mi)){
-                Log.i("mi","isplaying");
-                mi_note_piano.start();
-            }
-            if(view == findViewById(R.id.Fa)){
-                Log.i("fa","isplaying");
-                fa_note_piano.start();
-            }
-            if(view == findViewById(R.id.Sol)){
-                Log.i("sol","isplaying");
-                sol_note_piano.start();
-            }
-            if(view == findViewById(R.id.La)){
-                Log.i("la","isplaying");
-                la_note_piano.start();
-            }
-            if(view == findViewById(R.id.Si)){
-                Log.i("si","isplaying");
-                si_note_piano.start();
-            }
+                    Log.i("do","isplaying");
+
+
+                    if(keyboardHeight == 3){
+                       int sound = 1;
+                       playSound(1, 2.0f);
+                    }
+
+                    if(keyboardHeight == 2){
+                        do_note_piano.start();
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+                if(view == findViewById(R.id.Re)){
+                    Log.i("re","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+
+                }
+                if(view == findViewById(R.id.Mi)){
+                    Log.i("mi","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+                if(view == findViewById(R.id.Fa)){
+                    Log.i("fa","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+                if(view == findViewById(R.id.Sol)){
+                    Log.i("sol","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+                if(view == findViewById(R.id.La)){
+                    Log.i("la","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+                if(view == findViewById(R.id.Si)){
+                    Log.i("si","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+
+                if(view == findViewById(R.id.Do_diese)){
+                    Log.i("do_diese","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+                if(view == findViewById(R.id.Re_diese)){
+                    Log.i("re_diese","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+                if(view == findViewById(R.id.Fa_diese)){
+                    Log.i("fa_diese","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+
+                if(view == findViewById(R.id.Sol_diese)){
+                    Log.i("sol_diese","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+
+                }
+                if(view == findViewById(R.id.La_diese)){
+                    Log.i("la_diese","isplaying");
+
+                    if(keyboardHeight == 3){
+
+                    }
+
+                    if(keyboardHeight == 2){
+
+                    }
+
+                    if(keyboardHeight == 1){
+
+                    }
+                }
+
             return;
         }
+
 
 
         switch(view.getId())
@@ -396,6 +558,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void playSound(int sound, float fSpeed) {
+        AudioManager mgr = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        float streamVolumeCurrent = mgr.getStreamVolume(AudioManager.STREAM_MUSIC);
+        float streamVolumeMax = mgr.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        float volume = streamVolumeCurrent / streamVolumeMax;
+        soundpool.play(soundsMap.get(sound), volume, volume, 1, 0, fSpeed);
+    }
+
     public void changeHeight(View view)
     {
         switch(view.getId())
@@ -421,6 +591,8 @@ public class MainActivity extends AppCompatActivity {
             chronometer.start();
             running = true;
 
+            findViewById(R.id.scrollbuffer).setVisibility(View.VISIBLE);
+
         }
 
     }
@@ -431,13 +603,14 @@ public class MainActivity extends AppCompatActivity {
             chronometer.stop();
             pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
             running = false;
+
+            findViewById(R.id.scrollbuffer).setVisibility(View.GONE);
         }
     }
 
     public void RecordButton(View view){
 
     }
-
     public void ResetTimerButton(View view){
         chronometer.setBase(SystemClock.elapsedRealtime()); //reset le temps du chrono a 0
         pauseOffset = 0;
@@ -446,16 +619,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ResetDefilement(){ //reset le background noir
-        LinearLayout ColbackgroundColor = ((LinearLayout)findViewById(R.id.PremiereColonne));
-        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
 
-        ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne2));
-        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
+        scrollDistX = 0;
+        horizontalscrollView.scrollTo(scrollDistX, 0);
 
-        ColbackgroundColor = ((LinearLayout)findViewById(R.id.Colonne3));
-        ColbackgroundColor.setBackgroundColor(getColor(R.color.white));
 
-        
+
     }
 
 
