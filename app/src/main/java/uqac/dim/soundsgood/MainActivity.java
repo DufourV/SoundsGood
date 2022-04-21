@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public HorizontalScrollView horizontalscrollView;
     private SoundPool soundpool;
     private HashMap<Integer, Integer> soundsMap;
+    private int piano, guitare, claves;
 
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
@@ -73,6 +75,9 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 }
             }
     );
+
+    public MainActivity() {
+    }
 
 
     @Override
@@ -267,15 +272,28 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             final MediaPlayer fa_note_piano = MediaPlayer.create(this, R.raw.fa_note_piano);
             final MediaPlayer sol_note_piano = MediaPlayer.create(this, R.raw.sol_note_piano);
             final MediaPlayer la_note_piano = MediaPlayer.create(this, R.raw.la_note_piano);
-            final MediaPlayer si_note_piano = MediaPlayer.create(this, R.raw.si_note_piano);*/
+            final MediaPlayer si_note_piano = MediaPlayer.create(this, R.raw.si_note_piano);
             final MediaPlayer do_note_piano = MediaPlayer.create(this, R.raw.do_note_piano);
             final MediaPlayer re_note_guitare = MediaPlayer.create(this, R.raw.re_note_guitare);
-            final MediaPlayer claves = MediaPlayer.create(this, R.raw.claves);
-            int instrument = 1;
+            final MediaPlayer claves = MediaPlayer.create(this, R.raw.claves);*/
 
-            soundpool = new SoundPool(4, AudioManager.STREAM_MUSIC, 100);
-            soundsMap = new HashMap<Integer, Integer>();
-            soundsMap.put(instrument, soundpool.load(this, R.raw.do_note_piano, 1));
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                AudioAttributes audioattributes = new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build();
+                soundpool = new SoundPool.Builder()
+                        .setMaxStreams(1)
+                        .setAudioAttributes(audioattributes)
+                        .build();
+            }
+            else{
+                soundpool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);
+            }
+
+            piano = soundpool.load(this,R.raw.do_note_piano, 1);
+            guitare = soundpool.load(this,R.raw.re_note_guitare, 1);
+            claves = soundpool.load(this,R.raw.claves, 1);
 
 
 
@@ -289,16 +307,16 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
                     if(keyboardHeight == 3){
-                       int sound = 1;
-                       playSound(1, 2.0f);
+                     soundpool.play(piano,1,1,0,0,2.0f);
+
                     }
 
                     if(keyboardHeight == 2){
-                        do_note_piano.start();
+                     soundpool.play(piano,1,1,0,0,1.0f);
                     }
 
                     if(keyboardHeight == 1){
-
+                     soundpool.play(piano,1,1,0,0,0.5f);
                     }
 
                 }
@@ -486,6 +504,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
 
+
         switch(view.getId())
         {
             case R.id.Do:
@@ -558,13 +577,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         }
     }
 
-    public void playSound(int sound, float fSpeed) {
-        AudioManager mgr = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        float streamVolumeCurrent = mgr.getStreamVolume(AudioManager.STREAM_MUSIC);
-        float streamVolumeMax = mgr.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        float volume = streamVolumeCurrent / streamVolumeMax;
-        soundpool.play(soundsMap.get(sound), volume, volume, 1, 0, fSpeed);
-    }
 
     public void changeHeight(View view)
     {
@@ -625,6 +637,13 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
 
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        soundpool.release();
+        soundpool = null;
     }
 
 
