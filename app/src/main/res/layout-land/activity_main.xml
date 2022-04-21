@@ -96,7 +96,8 @@
                             android:layout_marginTop="2dp"
                             android:background="@color/white"
                             android:padding="2dp"
-                            android:text="@string/piano"/>
+                            android:text="@string/piano"
+                            android:onClick="addNote"/>
 
                         <Button
                             android:id="@+id/instrument2"
@@ -106,7 +107,8 @@
                             android:layout_marginTop="2dp"
                             android:background="@color/white"
                             android:padding="2dp"
-                            android:text="@string/guitare"/>
+                            android:text="@string/guitare"
+                            android:onClick="addNote"/>
 
                         <Button
                             android:id="@+id/instrument3"
@@ -116,7 +118,8 @@
                             android:layout_marginTop="2dp"
                             android:background="@color/white"
                             android:padding="2dp"
-                            android:text="@string/clave"/>
+                            android:text="@string/clave"
+                            android:onClick="addNote"/>
 
                         <Button
                             android:id="@+id/instrument4"

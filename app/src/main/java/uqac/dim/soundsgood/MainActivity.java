@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     boolean  loaded = false;
     private HashMap<Integer, Integer> soundsMap;
     private int piano, guitare, claves;
+    private int instrument = piano;
 
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
@@ -297,6 +298,13 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             guitare = soundpool.load(this,R.raw.re_note_guitare, 1);
             claves = soundpool.load(this,R.raw.claves, 1);
 
+            switch(view.getId()){
+                case R.id.instrument1: instrument = piano;break;
+                case R.id.instrument2: instrument = guitare;break;
+                case R.id.instrument3: instrument = claves;break;
+                default: break;
+            }
+
 
 
             //jouer la note
@@ -310,16 +318,16 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,2.0f);
+                            soundpool.play(instrument,1,1,0,0,2.0f);
 
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.0f);
+                            soundpool.play(instrument,1,1,0,0,1.0f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0, 0.5f);
+                            soundpool.play(instrument,1,1,0,0, 0.5f);
                         }
 
                     }
@@ -327,15 +335,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("re","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,2.24f);
+                            soundpool.play(instrument,1,1,0,0,2.24f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.12f);
+                            soundpool.play(instrument,1,1,0,0,1.12f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.56f);
+                            soundpool.play(instrument,1,1,0,0,0.56f);
                         }
 
 
@@ -344,15 +352,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("mi","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,2.52f);
+                            soundpool.play(instrument,1,1,0,0,2.52f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.26f);
+                            soundpool.play(instrument,1,1,0,0,1.26f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.63f);
+                            soundpool.play(instrument,1,1,0,0,0.63f);
                         }
 
                     }
@@ -360,15 +368,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("fa","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,2.66f);
+                            soundpool.play(instrument,1,1,0,0,2.66f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.33f);
+                            soundpool.play(instrument,1,1,0,0,1.33f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.67f);
+                            soundpool.play(instrument,1,1,0,0,0.67f);
                         }
 
                     }
@@ -376,15 +384,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("sol","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,3.0f);
+                            soundpool.play(instrument,1,1,0,0,3.0f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.5f);
+                            soundpool.play(instrument,1,1,0,0,1.5f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.75f);
+                            soundpool.play(instrument,1,1,0,0,0.75f);
                         }
 
                     }
@@ -392,15 +400,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("la","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,3.36f);
+                            soundpool.play(instrument,1,1,0,0,3.36f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.68f);
+                            soundpool.play(instrument,1,1,0,0,1.68f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.84f);
+                            soundpool.play(instrument,1,1,0,0,0.84f);
                         }
 
                     }
@@ -408,15 +416,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("si","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,1.88f);
+                            soundpool.play(instrument,1,1,0,0,1.88f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,0.94f);
+                            soundpool.play(instrument,1,1,0,0,0.94f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.47f);
+                            soundpool.play(instrument,1,1,0,0,0.47f);
                         }
 
                     }
@@ -425,15 +433,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("do_diese","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,2.12f);
+                            soundpool.play(instrument,1,1,0,0,2.12f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.06f);
+                            soundpool.play(instrument,1,1,0,0,1.06f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.53f);
+                            soundpool.play(instrument,1,1,0,0,0.53f);
                         }
 
                     }
@@ -441,15 +449,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("re_diese","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,2.38f);
+                            soundpool.play(instrument,1,1,0,0,2.38f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.19f);
+                            soundpool.play(instrument,1,1,0,0,1.19f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.6f);
+                            soundpool.play(instrument,1,1,0,0,0.6f);
                         }
 
                     }
@@ -457,15 +465,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("fa_diese","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,2.82f);
+                            soundpool.play(instrument,1,1,0,0,2.82f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.41f);
+                            soundpool.play(instrument,1,1,0,0,1.41f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.7f);
+                            soundpool.play(instrument,1,1,0,0,0.7f);
                         }
 
                     }
@@ -474,15 +482,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("sol_diese","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,3.14f);
+                            soundpool.play(instrument,1,1,0,0,3.14f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.57f);
+                            soundpool.play(instrument,1,1,0,0,1.57f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.78f);
+                            soundpool.play(instrument,1,1,0,0,0.78f);
                         }
 
                     }
@@ -490,15 +498,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Log.i("la_diese","isplaying");
 
                         if(keyboardHeight == 3){
-                            soundpool.play(piano,1,1,0,0,3.18f);
+                            soundpool.play(instrument,1,1,0,0,3.18f);
                         }
 
                         if(keyboardHeight == 2){
-                            soundpool.play(piano,1,1,0,0,1.59f);
+                            soundpool.play(instrument,1,1,0,0,1.59f);
                         }
 
                         if(keyboardHeight == 1){
-                            soundpool.play(piano,1,1,0,0,0.8f);
+                            soundpool.play(instrument,1,1,0,0,0.8f);
                         }
                     }
                 }
