@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public int scrollDistX = 0;
     public HorizontalScrollView horizontalscrollView;
     private SoundPool soundpool;
+    boolean  loaded = false;
     private HashMap<Integer, Integer> soundsMap;
     private int piano, guitare, claves;
 
@@ -291,213 +292,218 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 soundpool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);
             }
 
+
             piano = soundpool.load(this,R.raw.do_note_piano, 1);
             guitare = soundpool.load(this,R.raw.re_note_guitare, 1);
             claves = soundpool.load(this,R.raw.claves, 1);
 
 
 
-
             //jouer la note
 
+            soundpool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+                public void onLoadComplete(SoundPool soundPool, int sampleId,int status) {
 
-                if(view == findViewById(R.id.Do)){
+                    if(view == findViewById(R.id.Do)){
 
-                    Log.i("do","isplaying");
+                        Log.i("do","isplaying");
 
 
-                    if(keyboardHeight == 3){
-                     soundpool.play(piano,1,1,0,0,2.0f);
+                        if(keyboardHeight == 3){
+                            soundpool.play(piano,1,1,0,0,2.0f);
+
+                        }
+
+                        if(keyboardHeight == 2){
+                            soundpool.play(piano,1,1,0,0,1.0f);
+                        }
+
+                        if(keyboardHeight == 1){
+                            soundpool.play(piano,1,1,0,0, 0.5F);
+                        }
+
+                    }
+                    if(view == findViewById(R.id.Re)){
+                        Log.i("re","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
+
+                    }
+                    if(view == findViewById(R.id.Mi)){
+                        Log.i("mi","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
+                    }
+                    if(view == findViewById(R.id.Fa)){
+                        Log.i("fa","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
+                    }
+                    if(view == findViewById(R.id.Sol)){
+                        Log.i("sol","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
+                    }
+                    if(view == findViewById(R.id.La)){
+                        Log.i("la","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
+                    }
+                    if(view == findViewById(R.id.Si)){
+                        Log.i("si","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
 
                     }
 
-                    if(keyboardHeight == 2){
-                     soundpool.play(piano,1,1,0,0,1.0f);
+                    if(view == findViewById(R.id.Do_diese)){
+                        Log.i("do_diese","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
+                    }
+                    if(view == findViewById(R.id.Re_diese)){
+                        Log.i("re_diese","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
+                    }
+                    if(view == findViewById(R.id.Fa_diese)){
+                        Log.i("fa_diese","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
                     }
 
-                    if(keyboardHeight == 1){
-                     soundpool.play(piano,1,1,0,0,0.5f);
-                    }
+                    if(view == findViewById(R.id.Sol_diese)){
+                        Log.i("sol_diese","isplaying");
 
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+
+                    }
+                    if(view == findViewById(R.id.La_diese)){
+                        Log.i("la_diese","isplaying");
+
+                        if(keyboardHeight == 3){
+
+                        }
+
+                        if(keyboardHeight == 2){
+
+                        }
+
+                        if(keyboardHeight == 1){
+
+                        }
+                    }
                 }
-                if(view == findViewById(R.id.Re)){
-                    Log.i("re","isplaying");
+            });
 
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-
-                }
-                if(view == findViewById(R.id.Mi)){
-                    Log.i("mi","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-                if(view == findViewById(R.id.Fa)){
-                    Log.i("fa","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-                if(view == findViewById(R.id.Sol)){
-                    Log.i("sol","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-                if(view == findViewById(R.id.La)){
-                    Log.i("la","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-                if(view == findViewById(R.id.Si)){
-                    Log.i("si","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-
-                if(view == findViewById(R.id.Do_diese)){
-                    Log.i("do_diese","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-                if(view == findViewById(R.id.Re_diese)){
-                    Log.i("re_diese","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-                if(view == findViewById(R.id.Fa_diese)){
-                    Log.i("fa_diese","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-
-                if(view == findViewById(R.id.Sol_diese)){
-                    Log.i("sol_diese","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-
-                }
-                if(view == findViewById(R.id.La_diese)){
-                    Log.i("la_diese","isplaying");
-
-                    if(keyboardHeight == 3){
-
-                    }
-
-                    if(keyboardHeight == 2){
-
-                    }
-
-                    if(keyboardHeight == 1){
-
-                    }
-                }
 
             return;
         }
