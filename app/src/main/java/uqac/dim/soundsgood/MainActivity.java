@@ -308,7 +308,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
             //jouer la note
-            instrument = piano;
+
             soundpool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
                 public void onLoadComplete(SoundPool soundPool, int sampleId,int status) {
 
