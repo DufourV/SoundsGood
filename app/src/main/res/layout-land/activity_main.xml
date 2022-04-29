@@ -54,7 +54,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:src="@drawable/recordbuttoncircle"
-                    android:onClick="RecordButton">
+                    android:onClick="RecordButton"
+                    android:visibility="gone">
                 </ImageView>
 
                 <ImageView
