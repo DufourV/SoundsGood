@@ -38,6 +38,7 @@ import android.widget.Spinner;
 import android.media.MediaPlayer;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener{
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private HashMap<Integer, Integer> soundsMap;
     private int piano, guitare, claves;
     private int instrument = piano;
+    private ArrayList<String> SavedNoteList = new ArrayList<String>();
 
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
@@ -528,14 +530,17 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         {
             case R.id.Do:
                selectedBeat.setForeground(getDrawable(R.color.do_couleur));
+               SavedNoteList.add("c");
                break;
 
             case R.id.Do_diese:
                 selectedBeat.setForeground(getDrawable(R.color.do_diese_couleur));
+                SavedNoteList.add("cDiese");
                 break;
 
             case R.id.Re:
                 selectedBeat.setForeground(getDrawable(R.color.re_couleur));
+                SavedNoteList.add("d");
                 break;
 
             case R.id.Re_diese:
@@ -544,10 +549,12 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
             case R.id.Mi:
                 selectedBeat.setForeground(getDrawable(R.color.mi_couleur));
+                SavedNoteList.add("e");
                 break;
 
             case R.id.Fa:
                 selectedBeat.setForeground(getDrawable(R.color.fa_couleur));
+                SavedNoteList.add("f");
                 break;
 
             case R.id.Fa_diese:
@@ -556,6 +563,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
             case R.id.Sol:
                 selectedBeat.setForeground(getDrawable(R.color.sol_couleur));
+                SavedNoteList.add("g");
                 break;
 
             case R.id.Sol_diese:
@@ -564,6 +572,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
             case R.id.La:
                 selectedBeat.setForeground(getDrawable(R.color.la_couleur));
+                SavedNoteList.add("a");
                 break;
 
             case R.id.La_diese:
@@ -572,10 +581,12 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
             case R.id.Si:
                 selectedBeat.setForeground(getDrawable(R.color.si_couleur));
+                SavedNoteList.add("b");
                 break;
 
             case R.id.Erase:
                 selectedBeat.setForeground(getDrawable(R.color.blank_couleur));
+                SavedNoteList.clear(); //removes all the elements in the list
                 break;
         }
 
