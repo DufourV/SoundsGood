@@ -99,6 +99,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                     horizontalscrollView.scrollTo(scrollDistX, 0);
                     scrollDistX += 118;
 
+                    if(dureedelai >= 0.6f){
+                        horizontalscrollView.scrollTo(scrollDistX, 0);
+                        scrollDistX += 118;
+                    }
+
                 }
 
 
