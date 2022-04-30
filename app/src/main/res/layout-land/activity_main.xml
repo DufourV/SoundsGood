@@ -1219,14 +1219,14 @@
                 android:orientation="vertical"
                 android:layout_marginBottom="10dp">
 
-                <Chronometer
-                    android:id="@+id/chronometer"
+
+                <TextView
+                    android:id="@+id/text_view_countdown"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="00:00"
                     android:textSize="30sp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="8dp">
-                </Chronometer>
+                    android:textColor="@color/black"></TextView>
 
                 <Button
                     android:id="@+id/Erase"
