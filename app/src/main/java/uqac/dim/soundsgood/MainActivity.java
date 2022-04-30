@@ -12,7 +12,9 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.SystemClock;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -40,14 +42,11 @@ import android.media.MediaPlayer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener{
 
     private BPMDialogue bpmdialogue;
-    //Chrono variables
-    private Chronometer chronometer;
-    private boolean running;
-    private long pauseOffset;
     private View selectedBeat = null;
     private int keyboardHeight = 2;
     public int bpm = 120;
@@ -61,6 +60,13 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private int piano, guitare, claves;
     private int instrument = piano;
     private ArrayList<String> SavedNoteList = new ArrayList<String>();
+
+    //countdown timer variables
+    private static final long START_TIME_IN_MILLIS = 180000;
+    private TextView mTextViewCountDown;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
@@ -90,27 +96,10 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         setContentView(R.layout.activity_main);
 
         horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal)); //variable pour le scroll horizontal
-        chronometer = findViewById(R.id.chronometer);
+        mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
-        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
-            @Override
-            public void onChronometerTick(Chronometer chronometer) { //execute a chaque seconde du chrono
+        updateCountDownText();
 
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) >= (dureedelai * 1000f)  ) { //scroll a chaque tick selon le bpm une colonne a la fois
-
-                    horizontalscrollView.scrollTo(scrollDistX, 0);
-                    scrollDistX += 118;
-
-                    if(dureedelai >= 0.6f){
-                        horizontalscrollView.scrollTo(scrollDistX, 0);
-                        scrollDistX += 118;
-                    }
-
-                }
-
-
-            }
-        });
     }
 
     @Override
@@ -263,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     @Override
     public void applyBPM(int nouveauBPM) {
         bpm = nouveauBPM;
-        dureedelai = 60f/ (float)nouveauBPM;
+        dureedelai = 60F/ nouveauBPM;
     }
 
     public void SelectBeat (View view)
@@ -628,44 +617,59 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void PlayButton(View view){
 
-        if(!running) {
-            chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
-            chronometer.start();
-            running = true;
+        if(!mTimerRunning) {
 
+           mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, (long) (dureedelai * 1000)) {
+               @Override
+               public void onTick(long millisUntilFinished) {
+
+                   mTimeLeftInMillis = millisUntilFinished;
+                   updateCountDownText();
+                   Log.i("DIM", String.valueOf((long) (dureedelai * 1000)));
+
+                   horizontalscrollView.scrollTo(scrollDistX, 0);
+                   scrollDistX += 118;
+               }
+
+               @Override
+               public void onFinish() {
+                   mTimerRunning = false;
+               }
+           }.start();
+
+            mTimerRunning = true;
             findViewById(R.id.scrollbuffer).setVisibility(View.VISIBLE);
-
+            findViewById(R.id.Reset).setVisibility(View.GONE);
         }
 
+    }
+
+    private void updateCountDownText(){
+        int minutes = (int) (mTimeLeftInMillis /1000) / 60;
+        int seconds = (int) (mTimeLeftInMillis /1000) % 60;
+
+        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds);
+        mTextViewCountDown.setText(timeLeftFormatted);
+
+        Log.i("DIM", timeLeftFormatted);
     }
 
     public void PauseButton(View view){
-
-        if(running){
-            chronometer.stop();
-            pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
-            running = false;
-
-            findViewById(R.id.scrollbuffer).setVisibility(View.GONE);
-        }
+        findViewById(R.id.scrollbuffer).setVisibility(View.GONE);
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+        findViewById(R.id.Reset).setVisibility(View.VISIBLE);
     }
 
-    public void RecordButton(View view){
-
-    }
     public void ResetTimerButton(View view){
-        chronometer.setBase(SystemClock.elapsedRealtime()); //reset le temps du chrono a 0
-        pauseOffset = 0;
-
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+        updateCountDownText();
         ResetDefilement();
     }
 
     public void ResetDefilement(){ //reset le background noir
-
         scrollDistX = 0;
         horizontalscrollView.scrollTo(scrollDistX, 0);
-
-
 
     }
 
@@ -676,5 +680,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         soundpool = null;
     }
 
+    public void RecordButton(View view){ }
 
 }
