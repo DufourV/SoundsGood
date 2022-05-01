@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 return true;
 
             case R.id.menu_RetirerTrack:
-                
+
                 return true;
 
             case R.id.menu_Sauvegarder:
