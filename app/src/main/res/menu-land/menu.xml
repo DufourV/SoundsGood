@@ -3,6 +3,8 @@
 
     <item android:id="@+id/menu_ChangerBPM"
         android:title="Changer le BPM"/>
+    <item android:id="@+id/menu_Parametres"
+        android:title="Modifier les paramètres" />
     <item android:id="@+id/menu_AjouterTrack"
         android:title="Ajouter une piste" />
     <item android:id="@+id/menu_RetirerTrack"

@@ -114,6 +114,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         return true;
     }
 
+    public void openActivityListeMusique() {
+        Intent intent = new Intent(this, ListeMusique.class);
+        activityLauncher.launch(intent);
+    }
+
+    public void openActivityParametres() {
+        Intent intent = new Intent(this, Parametres.class);
+        activityLauncher.launch(intent);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -124,6 +133,10 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             case R.id.menu_ChangerBPM:
                 openDialog();
 
+                return true;
+
+            case R.id.menu_Parametres:
+                openActivityParametres();
                 return true;
 
             case R.id.menu_AjouterTrack:
@@ -140,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 return true;
 
             case R.id.menu_Charger:
-
+                openActivityListeMusique();
                 return true;
 
             case R.id.menu_Reinitialiser:
