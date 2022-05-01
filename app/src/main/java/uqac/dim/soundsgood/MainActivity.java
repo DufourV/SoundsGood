@@ -86,8 +86,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             }
     );
 
-    public MainActivity() {
-    }
+
 
 
     @Override
@@ -108,15 +107,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         return true;
     }
 
-    public void openActivityListeMusique() {
-        Intent intent = new Intent(this, ListeMusique.class);
-        activityLauncher.launch(intent);
-    }
-
-    public void openActivityParametres() {
-        Intent intent = new Intent(this, Parametres.class);
-        activityLauncher.launch(intent);
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -131,11 +121,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 return true;
 
             case R.id.menu_AjouterTrack:
-                addtrack();
+
                 return true;
 
             case R.id.menu_RetirerTrack:
-                removetrack();
+                
                 return true;
 
             case R.id.menu_Sauvegarder:
@@ -156,93 +146,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         }
     }
 
-    public void addtrack()
-    {
-        switch(nbtracks)
-        {
-            case 1:
-                findViewById(R.id.track2).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument2).setVisibility(View.VISIBLE);
-                break;
 
-            case 2:
-                findViewById(R.id.track3).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument3).setVisibility(View.VISIBLE);
-                break;
 
-            case 3:
-                findViewById(R.id.track4).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument4).setVisibility(View.VISIBLE);
-                break;
-
-            case 4:
-                findViewById(R.id.track5).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument5).setVisibility(View.VISIBLE);
-                break;
-
-            case 5:
-                findViewById(R.id.track6).setVisibility(View.VISIBLE);
-                findViewById(R.id.instrument6).setVisibility(View.VISIBLE);
-                break;
-
-            case 6:
-                LayoutInflater inflater = getLayoutInflater();
-                View layout = inflater.inflate(R.layout.track_toast, (ViewGroup) findViewById(R.id.track_toast_linearlayout));
-                TextView tv = (TextView) layout.findViewById(R.id.toast_text);
-                tv.setText(R.string.maxtrack);
-                Toast toast = new Toast(getApplicationContext());
-                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 100);
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.setView(layout);
-                toast.show();
-                return;
-        }
-        nbtracks++;
-    }
-
-    public void removetrack()
-    {
-        switch(nbtracks)
-        {
-            case 1:
-                LayoutInflater inflater = getLayoutInflater();
-                View layout = inflater.inflate(R.layout.track_toast, (ViewGroup) findViewById(R.id.track_toast_linearlayout));
-                TextView tv = (TextView) layout.findViewById(R.id.toast_text);
-                tv.setText(R.string.mintrack);
-                Toast toast = new Toast(getApplicationContext());
-                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 100);
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.setView(layout);
-                toast.show();
-                return;
-
-            case 2:
-                findViewById(R.id.track2).setVisibility(View.GONE);
-                findViewById(R.id.instrument2).setVisibility(View.GONE);
-                break;
-
-            case 3:
-                findViewById(R.id.track3).setVisibility(View.GONE);
-                findViewById(R.id.instrument3).setVisibility(View.GONE);
-                break;
-
-            case 4:
-                findViewById(R.id.track4).setVisibility(View.GONE);
-                findViewById(R.id.instrument4).setVisibility(View.GONE);
-                break;
-
-            case 5:
-                findViewById(R.id.track5).setVisibility(View.GONE);
-                findViewById(R.id.instrument5).setVisibility(View.GONE);
-                break;
-
-            case 6:
-                findViewById(R.id.track6).setVisibility(View.GONE);
-                findViewById(R.id.instrument6).setVisibility(View.GONE);
-                break;
-        }
-        nbtracks--;
-    }
 
     public void openDialog(){
         BPMDialogue bpmdialogue = new BPMDialogue();
@@ -255,25 +160,13 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         dureedelai = 60F/ nouveauBPM;
     }
 
-    public void SelectBeat (View view)
-    {
-        selectedBeat = view;
-    }
+
 
 
     //applique une note a la trame choisie
     public void addNote(View view) throws IOException {
         if (selectedBeat == null)
         {
-            /*final MediaPlayer re_note_piano = MediaPlayer.create(this, R.raw.re_note_piano);
-            final MediaPlayer mi_note_piano = MediaPlayer.create(this, R.raw.mi_note_piano);
-            final MediaPlayer fa_note_piano = MediaPlayer.create(this, R.raw.fa_note_piano);
-            final MediaPlayer sol_note_piano = MediaPlayer.create(this, R.raw.sol_note_piano);
-            final MediaPlayer la_note_piano = MediaPlayer.create(this, R.raw.la_note_piano);
-            final MediaPlayer si_note_piano = MediaPlayer.create(this, R.raw.si_note_piano);
-            final MediaPlayer do_note_piano = MediaPlayer.create(this, R.raw.do_note_piano);
-            final MediaPlayer re_note_guitare = MediaPlayer.create(this, R.raw.re_note_guitare);
-            final MediaPlayer claves = MediaPlayer.create(this, R.raw.claves);*/
 
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
                 AudioAttributes audioattributes = new AudioAttributes.Builder()
@@ -638,7 +531,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
            }.start();
 
             mTimerRunning = true;
-            findViewById(R.id.scrollbuffer).setVisibility(View.VISIBLE);
             findViewById(R.id.Reset).setVisibility(View.GONE);
         }
 
@@ -655,7 +547,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     }
 
     public void PauseButton(View view){
-        findViewById(R.id.scrollbuffer).setVisibility(View.GONE);
         mCountDownTimer.cancel();
         mTimerRunning = false;
         findViewById(R.id.Reset).setVisibility(View.VISIBLE);
@@ -680,6 +571,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         soundpool = null;
     }
 
-    public void RecordButton(View view){ }
+
 
 }
