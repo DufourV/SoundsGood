@@ -547,6 +547,14 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     }
 
+    public void AddTrack(View view){
+        tracks.addNewTracks(1);
+    }
+
+    public void RemoveTrack(View view){
+        tracks.removeTracks(1);
+    }
+
     @Override
     protected void onDestroy(){
         super.onDestroy();
