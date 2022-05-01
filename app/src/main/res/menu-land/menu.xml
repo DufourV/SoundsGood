@@ -5,13 +5,15 @@
     <item android:id="@+id/menu_ChangerBPM"
         android:title="Changer le BPM"/>
     <item android:id="@+id/menu_AjouterTrack"
-        android:title="Ajouter une Trame" />
+        android:title="Ajouter une piste" />
     <item android:id="@+id/menu_RetirerTrack"
-        android:title="Retirer une Trame" />
+        android:title="Retirer une piste" />
     <item android:id="@+id/menu_Sauvegarder"
-        android:title="Sauvegarder" />
+        android:title="Sauvegarder"
+        android:onClick="sauvegarde"/>
     <item android:id="@+id/menu_Charger"
-        android:title="Charger"/>
+        android:title="Charger"
+        android:onClick="chargement"/>
     <item android:id="@+id/menu_Reinitialiser"
         android:title="Reinitialiser"/>
 

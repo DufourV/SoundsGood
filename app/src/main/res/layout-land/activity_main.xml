@@ -55,7 +55,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:src="@drawable/recordbuttoncircle"
-                    android:onClick="RecordButton"
                     android:visibility="gone">
                 </ImageView>
 
@@ -73,107 +72,26 @@
 
             <ScrollView
                 android:id="@+id/vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/note_container"
+                <HorizontalScrollView
+                    android:id="@+id/horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:id="@+id/instrument_container"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/linearTracks"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/instrument1"
-                            android:layout_width="80dp"
-                            android:layout_height="60dp"
-                            android:layout_marginLeft="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/white"
-                            android:padding="2dp"
-                            android:text="@string/piano"
-                            android:onClick="addNote"/>
-
-                        <Button
-                            android:id="@+id/instrument2"
-                            android:layout_width="80dp"
-                            android:layout_height="60dp"
-                            android:layout_marginLeft="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/white"
-                            android:padding="2dp"
-                            android:text="@string/guitare"
-                            android:onClick="addNote"/>
-
-                        <Button
-                            android:id="@+id/instrument3"
-                            android:layout_width="80dp"
-                            android:layout_height="60dp"
-                            android:layout_marginLeft="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/white"
-                            android:padding="2dp"
-                            android:text="@string/clave"
-                            android:onClick="addNote"/>
-
-                        <Button
-                            android:id="@+id/instrument4"
-                            android:layout_width="80dp"
-                            android:layout_height="60dp"
-                            android:layout_marginLeft="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/white"
-                            android:padding="2dp"
-                            android:text="@string/piano"
-                            android:visibility="gone"/>
-
-                        <Button
-                            android:id="@+id/instrument5"
-                            android:layout_width="80dp"
-                            android:layout_height="60dp"
-                            android:layout_marginLeft="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/white"
-                            android:padding="2dp"
-                            android:text="@string/piano"
-                            android:visibility="gone"/>
-
-                        <Button
-                            android:id="@+id/instrument6"
-                            android:layout_width="80dp"
-                            android:layout_height="60dp"
-                            android:layout_marginLeft="2dp"
-                            android:layout_marginTop="2dp"
-                            android:background="@color/white"
-                            android:padding="2dp"
-                            android:text="@string/piano"
-                            android:visibility="gone"/>
 
                     </LinearLayout>
 
-                    <HorizontalScrollView
-                        android:id="@+id/horizontal"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:id="@+id/tracks"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                </HorizontalScrollView>
 
 
-
-                        </LinearLayout>
-                    </HorizontalScrollView>
-                </LinearLayout>
 
             </ScrollView>
 
