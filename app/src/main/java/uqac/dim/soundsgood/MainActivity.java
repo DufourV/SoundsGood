@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private boolean mTimerRunning;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
+    private TrackConstructor tracks;
+    private SGSaver saver;
+
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -97,15 +100,19 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal)); //variable pour le scroll horizontal
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
+        tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
+        tracks.generateTrack();
+
         updateCountDownText();
 
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
-    }
+    }*/
 
 
     @Override
@@ -187,11 +194,12 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             guitare = soundpool.load(this,R.raw.re_note_guitare, 1);
             claves = soundpool.load(this,R.raw.claves, 1);
 
+            /*
             switch(view.getId()){
                 case R.id.instrument1: instrument = piano;break;
                 case R.id.instrument2: instrument = guitare;break;
                 case R.id.instrument3: instrument = claves;break;
-                default: break;
+                default: break;*/
             }
 
 
@@ -407,7 +415,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
 
-
+        /*
         switch(view.getId())
         {
             case R.id.Do:
@@ -487,7 +495,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 selectedBeat.setBackgroundResource(R.color.high);
                 break;
         }
-    }
+    }*/
 
 
     public void changeHeight(View view)
