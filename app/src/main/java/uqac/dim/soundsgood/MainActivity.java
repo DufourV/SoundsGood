@@ -109,12 +109,12 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     }
 
-    /*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
-    }*/
+    }
 
 
     @Override
@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         {
 
             case R.id.menu_ChangerBPM:
-                Log.i("DIM", "VOICI VOTRE LISTE DE MUSIQUE!");
                 openDialog();
 
                 return true;
@@ -139,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
             case R.id.menu_Sauvegarder:
 
+                sauvegarde(item);
                 return true;
 
             case R.id.menu_Charger:
@@ -555,5 +555,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     }
 
 
+    public void sauvegarde(MenuItem item) {
 
+    }
+
+    public void chargement(MenuItem item) {
+
+    }
 }
