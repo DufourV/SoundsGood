@@ -17,4 +17,12 @@ public class Parametres extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.parametres);
     }
+
+
+
+
+
+
+
+
 }
