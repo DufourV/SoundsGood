@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Intent intent = result.getData();
                         if(intent != null) {
                             //extract data ?????
+
+                            instrument = intent.getIntExtra("result", 0);
                         }
                     }
                 }
@@ -103,6 +105,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void openActivityParametres() {
         Intent intent = new Intent(this, Parametres.class);
+        intent.putExtra("BPM_Actuel", bpm);
+        //intent.putExtra("NB_Tracks", nbtracks);
         activityLauncher.launch(intent);
     }
 
