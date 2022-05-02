@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public HorizontalScrollView horizontalscrollView;
     private SoundPool soundpool;
     boolean  loaded = false;
+    private SoundPlayer soundplayer;
     private HashMap<Integer, Integer> soundsMap;
     private int piano, guitare, claves;
     private int instrument = piano;
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
         tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
+        soundplayer = new SoundPlayer(this);
         tracks.generateTrack();
 
         updateCountDownText();
@@ -190,8 +192,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             }
 
 
-            piano = soundpool.load(this,R.raw.do_note_piano, 1);
-            guitare = soundpool.load(this,R.raw.re_note_guitare, 1);
+            piano = soundpool.load(this,R.raw.guitare_do, 1);
+            guitare = soundpool.load(this,R.raw.piano_do, 1);
             claves = soundpool.load(this,R.raw.claves, 1);
 
             /*
@@ -211,38 +213,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
                     if(view == findViewById(R.id.Do)){
 
-                        Log.i("do","isplaying");
-
-
-                        if(keyboardHeight == 3){
-                            soundpool.play(instrument,1,1,0,0,2.0f);
-
-                        }
-
-                        if(keyboardHeight == 2){
-                            soundpool.play(instrument,1,1,0,0,1.0f);
-                        }
-
-                        if(keyboardHeight == 1){
-                            soundpool.play(instrument,1,1,0,0, 0.5f);
-                        }
+                       soundplayer.PlayNote("piano","c", keyboardHeight );
 
                     }
                     if(view == findViewById(R.id.Re)){
                         Log.i("re","isplaying");
-
-                        if(keyboardHeight == 3){
-                            soundpool.play(instrument,1,1,0,0,2.24f);
-                        }
-
-                        if(keyboardHeight == 2){
-                            soundpool.play(instrument,1,1,0,0,1.12f);
-                        }
-
-                        if(keyboardHeight == 1){
-                            soundpool.play(instrument,1,1,0,0,0.56f);
-                        }
-
 
                     }
                     if(view == findViewById(R.id.Mi)){
