@@ -19,15 +19,11 @@ import android.widget.Toast;
 
 public class Parametres extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-
     public int nbOfTracks;
     public int bpmActuel;
     public TextView bpmTextView;
     public String text;
     public int instrument;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

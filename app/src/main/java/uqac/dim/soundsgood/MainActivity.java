@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             }
     );
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,17 +97,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         return true;
     }
 
-    public void openActivityListeMusique() {
-        Intent intent = new Intent(this, ListeMusique.class);
-        activityLauncher.launch(intent);
-    }
-
-
-
     public void openActivityParametres() {
         Intent intent = new Intent(this, Parametres.class);
         intent.putExtra("BPM_Actuel", bpm);
         intent.putExtra("NB_Tracks", nbtracks);
+        activityLauncher.launch(intent);
+    }
+
+    public void openActivityListeMusique() {
+        Intent intent = new Intent(this, ListeMusique.class);
         activityLauncher.launch(intent);
     }
 
@@ -249,5 +248,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void chargement(MenuItem item) {
 
+        openActivityListeMusique(); //Methode qui ouvre la liste de musique 
     }
 }

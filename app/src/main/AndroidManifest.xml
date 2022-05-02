@@ -24,7 +24,7 @@
             android:screenOrientation="landscape"/>
         <activity
             android:name=".ListeMusique"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape"/>
         <activity
             android:name=".MainActivity"
