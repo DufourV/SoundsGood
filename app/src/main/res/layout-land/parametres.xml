@@ -25,20 +25,45 @@
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_1"/>
-            <RadioButton style="@style/frag1Col" android:text="@string/piano" android:checked="true"/>
-            <EditText style="@style/frag1Col" android:text="120"/>
+
+            <Spinner
+                android:id="@+id/Spinner1"
+                style="@style/frag1Col"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/piano" />
+
+            <TextView style="@style/frag1Col" android:id="@+id/bpmParametre" android:text="120"/>
         </TableRow>
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_2"/>
-            <RadioButton style="@style/frag1Col" android:text="@string/guitare"/>
+            <Spinner
+                android:id="@+id/Spinner2"
+                style="@style/frag1Col"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/piano"/>
         </TableRow>
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_3"/>
-            <RadioButton style="@style/frag1Col" android:text="Claves"/>
+            <Spinner
+                android:id="@+id/Spinner3"
+                style="@style/frag1Col"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/piano"/>
         </TableRow>
     </TableLayout>
+
+    <Button
+        android:id="@+id/BoutonRetour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Appliquer les paramètres">
+
+    </Button>
 
 
 </LinearLayout>
