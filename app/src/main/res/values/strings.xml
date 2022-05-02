@@ -20,4 +20,9 @@
     <string name="track">Track</string>
     <string name="mintrack">Quantite minimale de trames atteinte</string>
     <string name="maxtrack">Quantite maximale de trames atteinte</string>
+    <string-array name="Instruments">
+        <item>Piano</item>
+        <item>Guitare</item>
+        <item>Claves</item>
+    </string-array>
 </resources>

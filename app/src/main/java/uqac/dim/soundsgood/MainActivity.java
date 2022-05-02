@@ -64,12 +64,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                     if(result.getResultCode() == RESULT_OK){
                         Intent intent = result.getData();
                         if(intent != null) {
-                            //extract data ?????
+                            //extract data
+
+                            instrument = intent.getIntExtra("result", 0);
                         }
                     }
                 }
             }
     );
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,15 +97,15 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         return true;
     }
 
-    public void openActivityListeMusique() {
-        Intent intent = new Intent(this, ListeMusique.class);
+    public void openActivityParametres() {
+        Intent intent = new Intent(this, Parametres.class);
+        intent.putExtra("BPM_Actuel", bpm);
+        intent.putExtra("NB_Tracks", nbtracks);
         activityLauncher.launch(intent);
     }
 
-
-
-    public void openActivityParametres() {
-        Intent intent = new Intent(this, Parametres.class);
+    public void openActivityListeMusique() {
+        Intent intent = new Intent(this, ListeMusique.class);
         activityLauncher.launch(intent);
     }
 
@@ -221,10 +224,14 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void AddTrack(View view){
         tracks.addNewTracks(1);
+        nbtracks = nbtracks + 1;
     }
 
     public void RemoveTrack(View view){
-        if (tracks.getTracksNumber() > 0) tracks.removeTracks(1);
+        if (tracks.getTracksNumber() > 0){
+            tracks.removeTracks(1);
+            nbtracks = nbtracks - 1;
+        }
     }
 
     @Override
@@ -241,5 +248,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void chargement(MenuItem item) {
 
+        openActivityListeMusique(); //Methode qui ouvre la liste de musique 
     }
 }
