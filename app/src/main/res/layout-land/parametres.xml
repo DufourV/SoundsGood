@@ -12,58 +12,78 @@
         android:text="@string/parametres"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="20dp">
 
     </TextView>
-
-    <TableLayout style="@style/frag1TableLayout" >
-        <TableRow style="@style/frag1HeaderTableRow">
-            <TextView style="@style/frag1HeaderCol" android:text="@string/track"/>
-            <TextView style="@style/frag1HeaderCol" android:text="@string/instrument"/>
-            <TextView style="@style/frag1HeaderCol" android:text="@string/bpm"/>
-        </TableRow>
-
-        <TableRow style="@style/frag1TableRow">
-            <TextView style="@style/frag1Col" android:text="@string/_1"/>
-
-            <Spinner
-                android:id="@+id/Spinner1"
-                style="@style/frag1Col"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/piano" />
-
-            <TextView style="@style/frag1Col" android:id="@+id/bpmParametre" android:text="120"/>
-        </TableRow>
-
-        <TableRow style="@style/frag1TableRow">
-            <TextView style="@style/frag1Col" android:text="@string/_2"/>
-            <Spinner
-                android:id="@+id/Spinner2"
-                style="@style/frag1Col"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/piano"/>
-        </TableRow>
-
-        <TableRow style="@style/frag1TableRow">
-            <TextView style="@style/frag1Col" android:text="@string/_3"/>
-            <Spinner
-                android:id="@+id/Spinner3"
-                style="@style/frag1Col"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/piano"/>
-        </TableRow>
-    </TableLayout>
 
     <Button
         android:id="@+id/BoutonRetour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Appliquer les paramètres">
-
+        android:text="Appliquer les paramètres"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="right">
     </Button>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BPM: "
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black">
+            </TextView>
+
+            <TextView
+                android:id="@+id/bpmParametre"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="120"
+                android:textSize="18dp">
+            </TextView>
+    </LinearLayout>
+
+
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
+
+
+    <TableLayout style="@style/frag1TableLayout" android:id="@+id/TableauParametres" >
+        <TableRow style="@style/frag1HeaderTableRow">
+            <TextView style="@style/frag1HeaderCol" android:text="@string/track"/>
+            <TextView style="@style/frag1HeaderCol" android:text="@string/instrument"/>
+        </TableRow>
+
+    </TableLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+    <Spinner
+        android:id="@+id/Spinner1"
+        style="@style/frag1Col"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/piano" />
 
 </LinearLayout>
