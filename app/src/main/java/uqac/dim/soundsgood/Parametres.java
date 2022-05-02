@@ -27,6 +27,8 @@ public class Parametres extends AppCompatActivity implements AdapterView.OnItemS
     public int instrument;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,39 +36,53 @@ public class Parametres extends AppCompatActivity implements AdapterView.OnItemS
 
 
 
-        //if(getIntent().hasExtra("NB_Tracks")) {
-         //   nbOfTracks = getIntent().getIntExtra("NB_Tracks", 0);
+        if(getIntent().hasExtra("NB_Tracks")) {
+            //nbOfTracks = getIntent().getIntExtra("NB_Tracks", 0);
+            Bundle bundleTracks = getIntent().getExtras();
+            nbOfTracks = bundleTracks.getInt("NB_Tracks");
 
-            //for(int i = 1; i <= nbOfTracks; i++){ }
+            for(int i = 1; i <= nbOfTracks; i++){
 
-            if (getIntent().hasExtra("BPM_Actuel")) {
-                Bundle bundle = getIntent().getExtras();
-                bpmActuel = bundle.getInt("BPM_Actuel");
-               // bpmActuel = getIntent().getFloatExtra("BPM_Actuel");
+                TableLayout tableLayout = findViewById(R.id.TableauParametres);
+                TableRow tableRow = new TableRow(this);
 
-                bpmTextView = findViewById(R.id.bpmParametre);
-                bpmTextView.setText(String.valueOf(bpmActuel));
+                TextView textView = new TextView(this);
+                textView.setText(String.valueOf(i));
+                tableRow.addView(textView);
 
-                Spinner spinner = findViewById(R.id.Spinner1);
+
+                Spinner spinner = new Spinner(this);
                 ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Instruments, android.R.layout.simple_spinner_item);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(adapter);
                 spinner.setOnItemSelectedListener(this);
 
-                Spinner spinner2 = findViewById(R.id.Spinner2);
-                ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.Instruments, android.R.layout.simple_spinner_item);
-                adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner2.setAdapter(adapter2);
-                spinner2.setOnItemSelectedListener(this);
+                tableRow.addView(spinner);
 
-                Spinner spinner3 = findViewById(R.id.Spinner3);
-                ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.Instruments, android.R.layout.simple_spinner_item);
-                adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner3.setAdapter(adapter3);
-                spinner3.setOnItemSelectedListener(this);
+                tableLayout.addView(tableRow);
 
             }
-    //    }
+
+                if (getIntent().hasExtra("BPM_Actuel")) {
+
+                    Bundle bundle = getIntent().getExtras();
+                    bpmActuel = bundle.getInt("BPM_Actuel");
+
+                    bpmTextView = findViewById(R.id.bpmParametre);
+                    bpmTextView.setText(String.valueOf(bpmActuel));
+/*
+                    Spinner spinner = findViewById(R.id.Spinner1);
+                    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Instruments, android.R.layout.simple_spinner_item);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(adapter);
+                    spinner.setOnItemSelectedListener(this);
+
+
+
+ */
+
+                }
+       }
 
         Button button = findViewById(R.id.BoutonRetour);
         button.setOnClickListener(new View.OnClickListener() {
@@ -91,8 +107,6 @@ public class Parametres extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
 
-
-
     }
 
 
@@ -100,6 +114,7 @@ public class Parametres extends AppCompatActivity implements AdapterView.OnItemS
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         text = adapterView.getItemAtPosition(i).toString();
         //Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_LONG).show();
+
 
     }
 
