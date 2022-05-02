@@ -109,13 +109,24 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     }
 
-    /*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
-    }*/
+    }
 
+    public void openActivityListeMusique() {
+        Intent intent = new Intent(this, ListeMusique.class);
+        activityLauncher.launch(intent);
+    }
+
+
+
+    public void openActivityParametres() {
+        Intent intent = new Intent(this, Parametres.class);
+        activityLauncher.launch(intent);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -124,9 +135,12 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         {
 
             case R.id.menu_ChangerBPM:
-                Log.i("DIM", "VOICI VOTRE LISTE DE MUSIQUE!");
                 openDialog();
 
+                return true;
+
+            case R.id.menu_Parametres:
+                openActivityParametres();
                 return true;
 
             case R.id.menu_AjouterTrack:
@@ -134,15 +148,16 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 return true;
 
             case R.id.menu_RetirerTrack:
-                
+
                 return true;
 
             case R.id.menu_Sauvegarder:
 
+                sauvegarde(item);
                 return true;
 
             case R.id.menu_Charger:
-
+                openActivityListeMusique();
                 return true;
 
             case R.id.menu_Reinitialiser:
@@ -547,6 +562,14 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     }
 
+    public void AddTrack(View view){
+        tracks.addNewTracks(1);
+    }
+
+    public void RemoveTrack(View view){
+        tracks.removeTracks(1);
+    }
+
     @Override
     protected void onDestroy(){
         super.onDestroy();
@@ -555,5 +578,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     }
 
 
+    public void sauvegarde(MenuItem item) {
 
+    }
+
+    public void chargement(MenuItem item) {
+
+    }
 }

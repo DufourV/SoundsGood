@@ -21,29 +21,24 @@
             <TextView style="@style/frag1HeaderCol" android:text="@string/track"/>
             <TextView style="@style/frag1HeaderCol" android:text="@string/instrument"/>
             <TextView style="@style/frag1HeaderCol" android:text="@string/bpm"/>
-            <TextView style="@style/frag1HeaderCol" android:text="@string/pitch"/>
         </TableRow>
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_1"/>
-            <TextView style="@style/frag1Col" android:text="@string/piano"/>
-            <TextView style="@style/frag1Col" android:text="125"/>
-            <TextView style="@style/frag1Col" android:text="125"/>
+            <RadioButton style="@style/frag1Col" android:text="@string/piano" android:checked="true"/>
+            <EditText style="@style/frag1Col" android:text="120"/>
         </TableRow>
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_2"/>
-            <TextView style="@style/frag1Col" android:text="@string/guitare"/>
-            <TextView style="@style/frag1Col" android:text="120"/>
-            <TextView style="@style/frag1Col" android:text="120"/>
+            <RadioButton style="@style/frag1Col" android:text="@string/guitare"/>
         </TableRow>
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_3"/>
-            <TextView style="@style/frag1Col" android:text="@string/saxophone"/>
-            <TextView style="@style/frag1Col" android:text="120"/>
-            <TextView style="@style/frag1Col" android:text="120"/>
+            <RadioButton style="@style/frag1Col" android:text="Claves"/>
         </TableRow>
     </TableLayout>
+
 
 </LinearLayout>

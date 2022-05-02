@@ -10,6 +10,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+
 public class Parametres extends AppCompatActivity {
 
     @Override
@@ -17,4 +18,13 @@ public class Parametres extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.parametres);
     }
+
+
+
+
+
+
+
+
+
 }

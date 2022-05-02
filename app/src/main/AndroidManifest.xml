@@ -20,10 +20,12 @@
         android:theme="@style/Theme.SoundsGood">
         <activity
             android:name=".Parametres"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".ListeMusique"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
