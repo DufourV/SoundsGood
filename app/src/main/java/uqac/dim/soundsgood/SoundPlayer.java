@@ -114,7 +114,7 @@ public class SoundPlayer {
                 rate = rate*isDo;
                 break;
 
-            case "cDiese":
+            case "c#":
                 rate = rate*isDoDiese;
                 break;
 
@@ -122,7 +122,7 @@ public class SoundPlayer {
                 rate = rate*isRe;
                 break;
 
-            case "dDiese":
+            case "d#":
                 rate = rate*isReDiese;
                 break;
 
@@ -134,7 +134,7 @@ public class SoundPlayer {
                 rate = rate*isFa;
                 break;
 
-            case "fDiese":
+            case "f#":
                 rate = rate*isFaDiese;
                 break;
 
@@ -142,7 +142,7 @@ public class SoundPlayer {
                 rate = rate*isSol;
                 break;
 
-            case "gDiese":
+            case "g#":
                 rate = rate*isSolDiese;
                 break;
 
@@ -150,7 +150,7 @@ public class SoundPlayer {
                 rate = rate*isLa;
                 break;
 
-            case "aDiese":
+            case "a#":
                 rate = rate*isLaDiese;
                 break;
 
