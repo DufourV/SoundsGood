@@ -25,21 +25,20 @@
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_1"/>
-            <TextView style="@style/frag1Col" android:text="@string/piano"/>
-            <TextView style="@style/frag1Col" android:text="120"/>
+            <RadioButton style="@style/frag1Col" android:text="@string/piano" android:checked="true"/>
+            <EditText style="@style/frag1Col" android:text="120"/>
         </TableRow>
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_2"/>
-            <TextView style="@style/frag1Col" android:text="@string/guitare"/>
-            <TextView style="@style/frag1Col" android:text="120"/>
+            <RadioButton style="@style/frag1Col" android:text="@string/guitare"/>
         </TableRow>
 
         <TableRow style="@style/frag1TableRow">
             <TextView style="@style/frag1Col" android:text="@string/_3"/>
-            <TextView style="@style/frag1Col" android:text="Claves"/>
-            <TextView style="@style/frag1Col" android:text="120"/>
+            <RadioButton style="@style/frag1Col" android:text="Claves"/>
         </TableRow>
     </TableLayout>
+
 
 </LinearLayout>

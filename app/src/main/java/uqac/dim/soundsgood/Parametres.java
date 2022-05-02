@@ -26,4 +26,5 @@ public class Parametres extends AppCompatActivity {
 
 
 
+
 }
