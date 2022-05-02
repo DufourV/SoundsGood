@@ -119,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         activityLauncher.launch(intent);
     }
 
+
+
     public void openActivityParametres() {
         Intent intent = new Intent(this, Parametres.class);
         activityLauncher.launch(intent);
