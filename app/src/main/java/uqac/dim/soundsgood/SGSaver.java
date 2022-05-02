@@ -77,7 +77,6 @@ public class SGSaver {
     }
 
     @NonNull
-    @Override
     public String toString() {
         StringBuilder info = new StringBuilder();
 
@@ -133,5 +132,13 @@ public class SGSaver {
 
     public void setTrackContent(ArrayList<String> trackContent) {
         this.trackContent = trackContent;
+    }
+
+    public String getTrackName() {
+        return trackName;
+    }
+
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
     }
 }
