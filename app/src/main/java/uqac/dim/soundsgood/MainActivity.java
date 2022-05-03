@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private TrackConstructor tracks;
     private ArrayList<SoundPlayer> soundPlayers;
 
+    private SGSaver saver;
+
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
         new ActivityResultCallback<ActivityResult>() {
@@ -129,7 +131,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             case R.id.menu_Parametres:
                 openActivityParametres();
                 return true;
-            case R.id.menu_Sauvegarder: return true;
+            case R.id.menu_Sauvegarder:
+                return true;
             case R.id.menu_Charger: return true;
             case R.id.menu_Reinitialiser: return true;
             default: return super.onOptionsItemSelected(item);
