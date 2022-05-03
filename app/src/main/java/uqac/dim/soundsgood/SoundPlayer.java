@@ -8,6 +8,7 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -72,7 +73,7 @@ public class SoundPlayer {
         }
     }
 
-    public void playTrackFromListWithView(ArrayList<String> track, int bpm, int trackLength, TextView mTextViewCountDown) { // À nettoyer
+    public void playTrackFromListWithView(ArrayList<String> track, int bpm, int trackLength, TextView mTextViewCountDown, TrackConstructor tracks, HorizontalScrollView horizontalscrollView) { // À nettoyer
         ArrayList<Integer> hauteurs = new ArrayList<>();
         ArrayList<String> notes = new ArrayList<>();
         isRunning = true;
@@ -96,6 +97,12 @@ public class SoundPlayer {
             public void onTick(long l) {
                 if (noteRef < trackLength) {
                     if (isRunning) {
+                        for (int i = 0; i < tracks.getTracksNumber(); i++) {
+                            tracks.getButtons().get(i).get(noteRef).setAlpha(0.5f);
+                            if (noteRef > 0) tracks.getButtons().get(i).get(noteRef - 1).setAlpha(1f);
+                        }
+
+                        horizontalscrollView.scrollTo(TrackConstructor.NOTE_WIDTH * noteRef, 0);
                         playNote(noteToInt(notes.get(noteRef)), hauteurs.get(noteRef));
 
                         int minutes = (int) (remainingTime / 1000 / 60);
@@ -115,8 +122,12 @@ public class SoundPlayer {
 
             @Override
             public void onFinish() {
+                for (int i = 0; i < tracks.getTracksNumber(); i++) tracks.getButtons().get(i).get(noteRef - 1).setAlpha(1f);
+                horizontalscrollView.scrollTo(0, 0);
                 noteRef = 0;
                 remainingTime = ((trackLength * 1000) * 60) / bpm ;
+                setInitialTiming(trackLength, mTextViewCountDown);
+                isRunning = false;
             }
         }.start();
     }
@@ -154,6 +165,7 @@ public class SoundPlayer {
             @Override
             public void onFinish() {
                 noteRef = 0;
+                isRunning = false;
             }
         }.start();
     }

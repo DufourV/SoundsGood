@@ -216,10 +216,72 @@ public class TrackConstructor {
         }
     }
 
+    public ArrayList<String> getTracksArray(){
+        ArrayList<String> returnarray = new ArrayList<String>();
+
+        for (ArrayList<String> track : actualContent) {
+            returnarray.addAll(track);
+        }
+        return returnarray;
+    }
+
+    private void refreshNotes() {
+        ArrayList<String> Array = getTracksArray();
+        for (int i = 0; i < tracksNumber; i++) {
+            for (int j = 0; j < trackLength; j++) {
+                selectedNote = tracks.get(i).get(j);
+                int couleur;
+                switch(Array.get(i * tracksNumber + j)) {
+                    case "c1": case "c2": case "c3":
+                        couleur = (R.color.do_couleur); break;
+                    case "c#1": case "c#2": case "c#3":
+                        couleur = (R.color.do_diese_couleur); break;
+                    case "d1" : case "d2" : case "d3" :
+                        couleur = (R.color.re_couleur); break;
+                    case "d#1" : case "d#2" : case "d#3" :
+                        couleur = (R.color.re_diese_couleur); break;
+                    case "e1" : case "e2" : case "e3" :
+                        couleur = (R.color.mi_couleur); break;
+                    case "f1" : case "f2" : case "f3" :
+                        couleur = (R.color.fa_couleur); break;
+                    case "f#1" : case "f#2" : case "f#3" :
+                        couleur = (R.color.fa_diese_couleur); break;
+                    case "g1" : case "g2" : case "g3" :
+                        couleur = (R.color.sol_couleur); break;
+                    case "g#1" : case "g#2" : case "g#3" :
+                        couleur = (R.color.sol_diese_couleur); break;
+                    case "a1" : case "a2" : case "a3" :
+                        couleur = (R.color.la_couleur); break;
+                    case "a#1" : case "a#2" : case "a#3" :
+                        couleur = (R.color.la_diese_couleur);break;
+                    case "b1" : case "b2" : case "b3" :
+                        couleur = (R.color.si_couleur);break;
+                    case "-" : default:
+                        couleur = 0xFFb5b8bd;
+                }
+
+                GradientDrawable tb = new GradientDrawable();
+                tb.mutate();
+                tb.setStroke(10, 0xFFffffff);
+                tb.setColor(couleur);
+                selectedNote.setBackground(tb);
+                tb.invalidateSelf();
+            }
+        }
+    }
+
+    public void delete() {
+        for (LinearLayout ref : realReference)
+            reference.removeView(ref);
+    }
+
+    public ArrayList<ArrayList<Button>> getButtons() {
+        return tracks;
+    }
+
     public ArrayList<ArrayList<String>> getTracks() {
         return actualContent;
     }
-
 
     public int getTrackLength() {
         return trackLength;
@@ -237,119 +299,6 @@ public class TrackConstructor {
 
     public int getSelectedJ() {
         return selectedJ;
-    }
-
-    public ArrayList<String> getTracksArray(){
-        ArrayList<String> returnarray = new ArrayList<String>();
-
-        for (ArrayList<String> track : actualContent)
-        {
-            returnarray.addAll(track);
-        }
-        return returnarray;
-    }
-
-    private void refreshNotes()
-    {
-        ArrayList<String> Array = getTracksArray();
-        for (int i = 0; i<tracksNumber; i++)
-        {
-         for (int j = 0; j<trackLength; j++)
-         {
-             selectedI = i;
-             selectedJ = j;
-             selectedNote = tracks.get(selectedI).get(selectedJ);
-             int couleur;
-             switch(Array.get(i*tracksNumber+j))
-             {
-                 case "c1":
-                 case "c2":
-                 case "c3":
-                         couleur = (R.color.do_couleur);
-                         break;
-
-                 case "c#1":
-                 case "c#2":
-                 case "c#3":
-                     couleur = (R.color.do_diese_couleur);
-                     break;
-
-                 case "d1" :
-                 case "d2" :
-                 case "d3" :
-                     couleur = (R.color.re_couleur);
-                     break;
-
-                 case "d#1" :
-                 case "d#2" :
-                 case "d#3" :
-                     couleur = (R.color.re_diese_couleur);
-                     break;
-
-                 case "e1" :
-                 case "e2" :
-                 case "e3" :
-                     couleur = (R.color.mi_couleur);
-                     break;
-
-                 case "f1" :
-                 case "f2" :
-                 case "f3" :
-                     couleur = (R.color.fa_couleur);
-                     break;
-
-                 case "f#1" :
-                 case "f#2" :
-                 case "f#3" :
-                     couleur = (R.color.fa_diese_couleur);
-                     break;
-
-                 case "g1" :
-                 case "g2" :
-                 case "g3" :
-                     couleur = (R.color.sol_couleur);
-                     break;
-
-                 case "g#1" :
-                 case "g#2" :
-                 case "g#3" :
-                     couleur = (R.color.sol_diese_couleur);
-                     break;
-
-                 case "a1" :
-                 case "a2" :
-                 case "a3" :
-                     couleur = (R.color.la_couleur);
-                     break;
-
-                 case "a#1" :
-                 case "a#2" :
-                 case "a#3" :
-                     couleur = (R.color.la_diese_couleur);
-                     break;
-
-                 case "b1" :
-                 case "b2" :
-                 case "b3" :
-                     couleur = (R.color.si_couleur);
-                     break;
-
-                 case "-" :
-                     couleur = 0xFFb5b8bd;
-                     break;
-
-                 default:
-                     couleur = 0xFFb5b8bd;
-             }
-
-             GradientDrawable tb = new GradientDrawable();
-             tb.mutate();
-             tb.setStroke(15, 0xFFffffff);
-             tb.setColor(couleur);
-             selectedNote.setBackground(tb);
-             tb.invalidateSelf();
-         }
-        }
     }
 
     public ArrayList<String> getSpecificTrack(int i) {return actualContent.get(i);}
