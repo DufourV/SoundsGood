@@ -26,6 +26,13 @@
         android:layout_gravity="right">
     </Button>
 
+    <EditText
+        android:id="@+id/Nom_Enregistrement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom de l'enregistrement">
+    </EditText>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

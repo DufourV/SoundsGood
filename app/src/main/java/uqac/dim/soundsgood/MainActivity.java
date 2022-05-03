@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public int bpm = 60;
     public HorizontalScrollView horizontalscrollView;
     public ArrayList<Integer> instrumentArray;
+    public String TrackName = "Nom de l'enregistrement";
 
     private boolean isPlayRunning = false;
     private TextView mTextViewCountDown;
@@ -54,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                             }
                             soundPlayers.get(i).changeInstrument(getApplicationContext(), 1, tempSource);
                         }
+
+                        TrackName = intent.getStringExtra("resultName");
+
                     }
                 }
                 if(result.getResultCode() == RESULT_FIRST_USER) {
@@ -63,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         instrumentArray = intent.getIntegerArrayListExtra("resultPathChargement");
                     }
                 }
+
             }
         }
     );
@@ -98,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public void openActivityParametres() {
         Intent intent = new Intent(this, Parametres.class);
         intent.putExtra("BPM_Actuel", bpm);
+        intent.putExtra("Track_name", TrackName);
         intent.putExtra("NB_Tracks", tracks.getTracksNumber());
         intent.putExtra("Array", instrumentArray);
         activityLauncher.launch(intent);
