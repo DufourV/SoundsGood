@@ -36,6 +36,8 @@ public class SGSaver {
             }
         }
 
+
+
         String fileName = trackName.toLowerCase(Locale.ROOT) + System.currentTimeMillis() + ".sg";
         try {
             File sFile = new File(fileName);
@@ -117,6 +119,10 @@ public class SGSaver {
     public void setNumberOfTracks(int numberOfTracks) {
         this.numberOfTracks = numberOfTracks;
     }
+
+    public int getTrackLength(){return trackLength;}
+
+    public void setTrackLength(int trackLength){this.trackLength = trackLength;}
 
     public int getBpm() {
         return bpm;
