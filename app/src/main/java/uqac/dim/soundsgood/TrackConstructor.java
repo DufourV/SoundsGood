@@ -29,6 +29,8 @@ public class TrackConstructor {
     private int selectedI = 0;
     private int selectedJ = 0;
 
+    private TrackDao dao;
+
     public TrackConstructor(int trackLength, int tracksNumber, LinearLayout reference) {
         this.trackLength = trackLength;
         this.reference = reference;
