@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public int scrollDistX = 0;
     public HorizontalScrollView horizontalscrollView;
     public ArrayList<Integer> instrumentArray;
-    public EditText editTextNotes;
 
     //countdown timer variables
     private static final long START_TIME_IN_MILLIS = 180000;
@@ -89,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
         horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal)); //variable pour le scroll horizontal
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
-        editTextNotes = ((EditText)findViewById(R.id.addNotes_input));
 
         tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
         soundPlayers = new ArrayList<>();
@@ -294,7 +292,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public void ApplyNewNotes(int nouveauNbNotes){
 
         int nbOfNotes = tracks.getTrackLength();
-       // editTextNotes.setText(nbOfNotes);
 
         if(nouveauNbNotes >= nbOfNotes){
             tracks.addNewNotes(nouveauNbNotes-nbOfNotes);
