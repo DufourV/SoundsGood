@@ -14,9 +14,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -28,15 +30,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener{
+public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener, AddNotesDialogue.dialogueListener2 {
 
     private BPMDialogue bpmdialogue;
+    private AddNotesDialogue addNotesDialogue;
     private int keyboardHeight = 2;
     public int bpm = 60;
     public float dureedelai = 0.5F;
     public int scrollDistX = 0;
     public HorizontalScrollView horizontalscrollView;
     public ArrayList<Integer> instrumentArray;
+    public EditText editTextNotes;
 
     //countdown timer variables
     private static final long START_TIME_IN_MILLIS = 180000;
@@ -83,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
         horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal)); //variable pour le scroll horizontal
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
+        editTextNotes = ((EditText)findViewById(R.id.addNotes_input));
 
         tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
         soundPlayers = new ArrayList<>();
@@ -126,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         switch (item.getItemId()) {
             case R.id.menu_ChangerBPM:
                 openDialog(); return true;
+            case R.id.menu_AjouterNotes: return true;
             case R.id.menu_Parametres:
                 openActivityParametres();
                 return true;
@@ -271,6 +277,28 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         super.onDestroy();
     }
 
+
+    public void AddNewNotes(MenuItem item) {
+        AddNotesDialogue addNotesDialogue = new AddNotesDialogue();
+        addNotesDialogue.show(getSupportFragmentManager(), "Notes Choix");
+    }
+
+   @Override
+    public void ApplyNewNotes(int nouveauNbNotes){
+
+        int nbOfNotes = tracks.getTrackLength();
+       // editTextNotes.setText(nbOfNotes);
+
+        if(nouveauNbNotes >= nbOfNotes){
+            tracks.addNewNotes(nouveauNbNotes-nbOfNotes);
+        }
+        else{ //si nouveau nb de note est plus petit que le nb de note actuel
+            tracks.removeNotes(nbOfNotes - nouveauNbNotes);
+        }
+
+
+
+    }
 
     public void sauvegarde(MenuItem item) {
 
