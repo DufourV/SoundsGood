@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListeEnregistrement"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste des enregistrements"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp">
+
+    </TextView>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableLayout style="@style/frag1TableLayout" android:id="@+id/TableauEnregistrements" >
+                <TableRow style="@style/frag1HeaderTableRow">
+                    <TextView style="@style/frag1HeaderCol" android:text="Nom"/>
+                    <TextView style="@style/frag1HeaderCol" android:text="Charger l'enregistrement"/>
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
