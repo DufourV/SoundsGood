@@ -39,8 +39,6 @@ public class AddNotesDialogue extends AppCompatDialogFragment {
         return builder.create();
     }
 
-
-
     @Override
     public void onAttach(Context context){
         super.onAttach(context);

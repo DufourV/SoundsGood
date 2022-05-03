@@ -215,7 +215,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         if (tracks.getTracksNumber() > 0) {
             tracks.removeTracks(1);
             soundPlayers.remove(soundPlayers.size() - 1);
-
             instrumentArray.remove(instrumentArray.size() - 1);
         }
     }
@@ -234,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     @Override
     public void applyNewNotes(int nouveauNbNotes){
         if (nouveauNbNotes > tracks.getTrackLength()) tracks.addNewNotes(nouveauNbNotes - tracks.getTracksNumber());
-        else if (nouveauNbNotes < tracks.getTrackLength()) tracks.removeNotes(tracks.getTracksNumber() - nouveauNbNotes);
+        else if (nouveauNbNotes < tracks.getTrackLength()) tracks.removeNotes(tracks.getTrackLength() - nouveauNbNotes);
     }
 
     public void sauvegarde(MenuItem item) {

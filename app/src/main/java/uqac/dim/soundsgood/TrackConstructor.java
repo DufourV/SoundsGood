@@ -108,7 +108,7 @@ public class TrackConstructor {
 
             tracks.remove(tracksNumber - 1);
             actualContent.remove(tracksNumber - 1);
-
+            tracksNumber--;
         }
     }
 
