@@ -21,15 +21,24 @@ public class SoundPlayer {
     public static final float ismid = 1.0f;
     public static final float ishigh = 2.0f;
 
-    private final SoundPool soundPool;
+    private SoundPool soundPool;
     private int instrument; // piano = 0, guitare = 1,  claves = 2
 
     private int noteRef = 0;
 
     private boolean hasLoaded = false;
+    private boolean isRunning = false;
+    private boolean isReset = false;
 
 
     public SoundPlayer(Context context, int instrument, int soundSource) {
+        changeInstrument(context, instrument, soundSource);
+
+    }
+
+    public void changeInstrument(Context context, int instrument, int soundSource) {
+        this.instrument = instrument;
+
         AudioAttributes audioAttributes = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -51,11 +60,6 @@ public class SoundPlayer {
 
     }
 
-    public void changeInstrument(int instrument, int soundSource) {
-        this.instrument = instrument;
-        //soundPool.load(, 1);
-    }
-
     public void playNote(int note, int hauteur) {
         if (hasLoaded && note != 0) {
             float rate = 1.0f;
@@ -74,6 +78,7 @@ public class SoundPlayer {
     public void playTrackFromList(ArrayList<String> track, int bpm, int trackLength) {
         ArrayList<Integer> hauteurs = new ArrayList<>();
         ArrayList<String> notes = new ArrayList<>();
+        isRunning = true;
         for (int i = 0; i < trackLength; i++) {
             if (!track.get(i).equals("-")) {
                 hauteurs.add(Integer.parseInt(Character.toString(track.get(i).charAt(track.get(i).length() - 1))));
@@ -84,12 +89,19 @@ public class SoundPlayer {
             }
         }
 
-        CountDownTimer timer = new CountDownTimer(trackLength * 1000L,bpm * 1000L / 60) {
+        float temp = 60F / bpm;
+        long newTemp = (long) (1000L * temp);
+
+        CountDownTimer timer = new CountDownTimer(trackLength * 1000L, newTemp) {
             @Override
             public void onTick(long l) {
                 if (noteRef < trackLength) {
-                    playNote(noteToInt(notes.get(noteRef)), hauteurs.get(noteRef));
-                    noteRef++;
+                    if (isRunning) {
+                        playNote(noteToInt(notes.get(noteRef)), hauteurs.get(noteRef));
+                        noteRef++;
+                    } else {
+                        this.cancel();
+                    }
                 }
             }
 
@@ -120,5 +132,21 @@ public class SoundPlayer {
 
     public boolean getHasLoaded() {
         return hasLoaded;
+    }
+
+    public boolean isRunning() {
+        return isRunning;
+    }
+
+    public void setRunning(boolean running) {
+        isRunning = running;
+    }
+
+    public int getNoteRef() {
+        return noteRef;
+    }
+
+    public void setNoteRef(int noteRef) {
+        this.noteRef = noteRef;
     }
 }

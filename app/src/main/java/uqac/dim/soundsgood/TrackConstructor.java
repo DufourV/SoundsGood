@@ -229,7 +229,7 @@ public class TrackConstructor {
         return tracksNumber;
     }
 
-    private Button getSelectedNote() { return selectedNote; }
+    public Button getSelectedNote() { return selectedNote; }
 
     public int getSelectedI() {
         return selectedI;
