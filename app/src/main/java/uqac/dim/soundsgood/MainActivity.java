@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         for(int i = 0; i <= 3; i++){
             instrumentArray.add(i, 0);
         }
-
         instrumentArray.remove(3);
 
     }
