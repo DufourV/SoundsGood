@@ -14,8 +14,17 @@ import java.util.List;
 public interface TrackDao {
 
     @Query("SELECT notes FROM TrackEntity WHERE TrackEntity.tracknum LIKE :Tracknum")
-    List<String> getnotes(int Tracknum);
+    List<String> getTrack(int Tracknum);
 
     @Query("UPDATE TrackEntity SET notes = :nouvelletrack WHERE TrackEntity.tracknum =:Tracknum")
     void updateTrack(int Tracknum, ArrayList<String> nouvelletrack);
+
+    @Query("UPDATE TrackEntity SET instrument = :nouvelinstrument WHERE TrackEntity.tracknum =:Tracknum")
+    void updateInstrument(int Tracknum, int nouvelinstrument);
+
+    @Query("DELETE FROM TrackEntity WHERE TrackEntity.tracknum = :Tracknum")
+    void removeTrack(int Tracknum);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void addTrack(TrackEntity nouvelletrack);
 }

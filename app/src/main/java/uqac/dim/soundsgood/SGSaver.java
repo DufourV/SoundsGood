@@ -13,6 +13,7 @@ public class SGSaver {
     private ArrayList<String> trackContent;
     private int trackLength = 0;
     private String trackName = "";
+    private TrackDao dao;
 
     public SGSaver() {}
 
@@ -36,7 +37,7 @@ public class SGSaver {
             }
         }
 
-
+        refreshTrackContent();
 
         String fileName = trackName.toLowerCase(Locale.ROOT) + System.currentTimeMillis() + ".sg";
         try {
@@ -74,6 +75,7 @@ public class SGSaver {
             bpm = Integer.parseInt(lContent.get(2));
             trackLength = Integer.parseInt(lContent.get(3));
             for (int i = 4; i < lContent.size(); i++) trackContent.add(lContent.get(i));
+            filldatabase();
         }
         return this;
     }
@@ -140,6 +142,38 @@ public class SGSaver {
         this.trackContent = trackContent;
     }
 
+    //Ajout Leo
+    private void refreshTrackContent(){
+        //
+        trackContent = new ArrayList<String>();
+
+        for (int i = 0; i < numberOfTracks; i++) {
+            ArrayList<String> currentdbtrack = (ArrayList<String>) dao.getTrack(i);
+
+            for (int j = 0; j < trackLength; j++) {
+                trackContent.add(currentdbtrack.get(j));
+            }
+        }
+    }
+
+    private void filldatabase(){
+
+        int indexContent = 0;
+
+        for (int i = 0; i<numberOfTracks; i++)
+        {
+            ArrayList<String> tracknotes = new ArrayList<String>();
+            for (int j = 0; i<trackLength; j++)
+            {
+                tracknotes.add(trackContent.get(indexContent));
+                indexContent++;
+            }
+
+            TrackEntity newTrack = new TrackEntity(i, tracknotes);
+            dao.addTrack(newTrack);
+        }
+    }
+
     public String getTrackName() {
         return trackName;
     }
@@ -147,4 +181,5 @@ public class SGSaver {
     public void setTrackName(String trackName) {
         this.trackName = trackName;
     }
+
 }
