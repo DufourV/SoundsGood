@@ -7,12 +7,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-@Database(entities = {TrackEntity.class}, version = 1)
+@Database(entities = {SongEntity.class}, version = 1)
 @TypeConverters({Converters.class})
     public abstract class AppBD extends RoomDatabase {
 
         private static AppBD INSTANCE;
-        public abstract TrackDao dao();
+        public abstract SongDao dao();
 
         public static AppBD getDatabase(Context context) {
             if (INSTANCE == null) {
