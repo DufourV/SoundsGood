@@ -22,8 +22,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener, AddNotesDialogue.dialogueListener2 {
 
-    private BPMDialogue bpmdialogue;
-    private AddNotesDialogue addNotesDialogue;
+
     private int keyboardHeight = 2;
     public int bpm = 60;
     public int scrollDistX = 0;
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                     Intent intent = result.getData();
                     if(intent != null) {
                         instrumentArray.clear();
-
                         instrumentArray = intent.getIntegerArrayListExtra("resultArray");
 
                         for (int i = 0; i < tracks.getTracksNumber(); i++) {
@@ -57,6 +55,13 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                             }
                             soundPlayers.get(i).changeInstrument(getApplicationContext(), 1, tempSource);
                         }
+                    }
+                }
+                if(result.getResultCode() == RESULT_FIRST_USER) {
+                    Intent intent = result.getData();
+                    if (intent != null) {
+                        instrumentArray.clear();
+                        instrumentArray = intent.getIntegerArrayListExtra("resultPathChargement");
                     }
                 }
             }
@@ -97,6 +102,12 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         intent.putExtra("BPM_Actuel", bpm);
         intent.putExtra("NB_Tracks", tracks.getTracksNumber());
         intent.putExtra("Array", instrumentArray);
+        activityLauncher.launch(intent);
+    }
+
+    public void openActivityListeEnregistrement(){
+        Intent intent = new Intent(this, ListeEnregistrement.class);
+        intent.putExtra("ListeNotes", instrumentArray); //va falloir mettre le bon intent ici
         activityLauncher.launch(intent);
     }
 
@@ -235,6 +246,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void chargement(MenuItem item) {
         tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
+
+        openActivityListeEnregistrement();
     }
 
     public void addNewNotes(MenuItem item) {
