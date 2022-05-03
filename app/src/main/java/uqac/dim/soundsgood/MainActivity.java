@@ -22,8 +22,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener, AddNotesDialogue.dialogueListener2 {
 
-    private BPMDialogue bpmdialogue;
-    private AddNotesDialogue addNotesDialogue;
+
     private int keyboardHeight = 2;
     public int bpm = 60;
     public int scrollDistX = 0;
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                     Intent intent = result.getData();
                     if(intent != null) {
                         instrumentArray.clear();
-
                         instrumentArray = intent.getIntegerArrayListExtra("resultArray");
 
                         for (int i = 0; i < tracks.getTracksNumber(); i++) {
@@ -57,6 +55,13 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                             }
                             soundPlayers.get(i).changeInstrument(getApplicationContext(), 1, tempSource);
                         }
+                    }
+                }
+                if(result.getResultCode() == RESULT_FIRST_USER) {
+                    Intent intent = result.getData();
+                    if (intent != null) {
+                        instrumentArray.clear();
+                        instrumentArray = intent.getIntegerArrayListExtra("resultPathChargement");
                     }
                 }
             }
@@ -100,6 +105,12 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         activityLauncher.launch(intent);
     }
 
+    public void openActivityListeEnregistrement(){
+        Intent intent = new Intent(this, ListeEnregistrement.class);
+        intent.putExtra("ListeNotes", instrumentArray); //va falloir mettre le bon intent ici
+        activityLauncher.launch(intent);
+    }
+
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -111,8 +122,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 openActivityParametres();
                 return true;
             case R.id.menu_Sauvegarder:
+                sauvegarde(item);
                 return true;
-            case R.id.menu_Charger: return true;
+            case R.id.menu_Charger:
+                chargement(item);
+                return true;
             case R.id.menu_Reinitialiser: return true;
             default: return super.onOptionsItemSelected(item);
         }
@@ -224,6 +238,17 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         super.onDestroy();
     }
 
+    public void sauvegarde(MenuItem item) {
+        SGSaver saver= new SGSaver(tracks.getTracksNumber(), bpm, tracks.getTracksArray(), tracks.getTrackLength(), "test");
+
+        saver.save();
+    }
+
+    public void chargement(MenuItem item) {
+        tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
+
+        openActivityListeEnregistrement();
+    }
 
     public void addNewNotes(MenuItem item) {
         AddNotesDialogue addNotesDialogue = new AddNotesDialogue();
@@ -234,11 +259,5 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public void applyNewNotes(int nouveauNbNotes){
         if (nouveauNbNotes > tracks.getTrackLength()) tracks.addNewNotes(nouveauNbNotes - tracks.getTracksNumber());
         else if (nouveauNbNotes < tracks.getTrackLength()) tracks.removeNotes(tracks.getTrackLength() - nouveauNbNotes);
-    }
-
-    public void sauvegarde(MenuItem item) {
-    }
-
-    public void chargement(MenuItem item) {
     }
 }
