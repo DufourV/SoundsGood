@@ -1,5 +1,7 @@
 package uqac.dim.soundsgood;
 
+import android.os.Environment;
+
 import androidx.annotation.NonNull;
 
 import java.io.*;
@@ -28,19 +30,10 @@ public class SGSaver {
 
     public String save() {
         String fileLocation = "";
-        if (!trackContent.isEmpty()) {
-            for (String track : trackContent) {
-                int tempTrackLength = 0;
-                for (int i = 0; i < track.length(); i++)
-                    tempTrackLength = ((track.charAt(i) == ' ') ? tempTrackLength + 1 : tempTrackLength);
-                tempTrackLength++;
-                if (tempTrackLength != trackLength) return "";
-            }
-        }
 
-        String fileName = trackName.toLowerCase(Locale.ROOT) + System.currentTimeMillis() + ".sg";
+        String fileName = trackName.toLowerCase(Locale.ROOT) + ".sg";
         try {
-            File sFile = new File(fileName);
+            File sFile = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + fileName);
             if (sFile.createNewFile()) {
                 fileLocation = sFile.getAbsolutePath();
                 try {
@@ -56,7 +49,6 @@ public class SGSaver {
             e.printStackTrace();
             return "";
         }
-
         return fileLocation;
     }
 
