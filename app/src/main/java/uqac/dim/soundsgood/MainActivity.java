@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                             switch (instrumentArray.get(i)) {
                                 case 0: default: tempSource = R.raw.piano_do; break;
                                 case 1: tempSource = R.raw.guitare_do; break;
-                                case 3: tempSource = R.raw.claves; break;
+                                case 2: tempSource = R.raw.claves; break;
                             }
-                            soundPlayers.get(i).changeInstrument(getApplicationContext(), instrumentArray.get(i), tempSource);
+                            soundPlayers.get(i).changeInstrument(getApplicationContext(), 1, tempSource);
                         }
                     }
                 }
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         }
     );
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
         soundPlayers = new ArrayList<>();
         for (int i = 0; i < tracks.getTracksNumber(); i++)
-            soundPlayers.add(new SoundPlayer(getApplicationContext(), 0, R.raw.piano_do));
+            soundPlayers.add(new SoundPlayer(getApplicationContext(), 1, R.raw.piano_do));
         tracks.generateTrack();
 
         updateCountDownText();
@@ -175,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 soundPlayers.get(tracks.getSelectedI()).playNote(11, keyboardHeight); break;
             case R.id.Si: tracks.changeNote("b" + keyboardHeight, getColor(R.color.si_couleur));
                 soundPlayers.get(tracks.getSelectedI()).playNote(12, keyboardHeight); break;
-            case R.id.Erase: tracks.cleareNote(); break;
+            case R.id.Erase: tracks.clearNote(); break;
         }
     }
 

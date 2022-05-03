@@ -170,7 +170,7 @@ public class TrackConstructor {
         tb.invalidateSelf();
     }
 
-    public void cleareNote() {
+    public void clearNote() {
         selectedNote.setBackground(baseColor);
         actualContent.get(selectedI).set(selectedJ, "-");
     }
