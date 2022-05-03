@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private TrackConstructor tracks;
     private ArrayList<SoundPlayer> soundPlayers;
 
-    private SGSaver saver;
-
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -123,8 +121,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 openActivityParametres();
                 return true;
             case R.id.menu_Sauvegarder:
+                sauvegarde(item);
                 return true;
-            case R.id.menu_Charger: return true;
+            case R.id.menu_Charger:
+                chargement(item);
+                return true;
             case R.id.menu_Reinitialiser: return true;
             default: return super.onOptionsItemSelected(item);
         }
@@ -265,10 +266,12 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
     public void sauvegarde(MenuItem item) {
+        SGSaver saver= new SGSaver(tracks.getTracksNumber(), bpm, tracks.getTracksArray(), tracks.getTrackLength(), "test");
 
+        saver.save();
     }
 
     public void chargement(MenuItem item) {
-        openActivityListeMusique(); //Methode qui ouvre la liste de musique
+        tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
     }
 }
