@@ -31,10 +31,8 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener{
 
     private BPMDialogue bpmdialogue;
-    private View selectedBeat = null;
     private int keyboardHeight = 2;
     public int bpm = 60;
-    public int nbtracks = 3;
     public float dureedelai = 0.5F;
     public int scrollDistX = 0;
     public HorizontalScrollView horizontalscrollView;
@@ -51,21 +49,30 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private ArrayList<SoundPlayer> soundPlayers;
 
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == RESULT_OK){
-                        Intent intent = result.getData();
-                        if(intent != null) {
-                            //extract data
-                            instrumentArray.clear();
+        new ActivityResultContracts.StartActivityForResult(),
+        new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if(result.getResultCode() == RESULT_OK){
+                    Intent intent = result.getData();
+                    if(intent != null) {
+                        instrumentArray.clear();
 
-                            instrumentArray = intent.getIntegerArrayListExtra("resultArray");
+                        instrumentArray = intent.getIntegerArrayListExtra("resultArray");
+
+                        for (int i = 0; i < tracks.getTracksNumber(); i++) {
+                            int tempSource = 0;
+                            switch (instrumentArray.get(i)) {
+                                case 0: default: tempSource = R.raw.piano_do; break;
+                                case 1: tempSource = R.raw.guitare_do; break;
+                                case 3: tempSource = R.raw.claves; break;
+                            }
+                            soundPlayers.get(i).changeInstrument(getApplicationContext(), instrumentArray.get(i), tempSource);
                         }
                     }
                 }
             }
+        }
     );
 
     @Override
@@ -78,7 +85,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
         tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
         soundPlayers = new ArrayList<>();
-        for (int i = 0; i < tracks.getTracksNumber(); i++) soundPlayers.add(new SoundPlayer(getApplicationContext(), 1, R.raw.piano_do));
+        for (int i = 0; i < tracks.getTracksNumber(); i++)
+            soundPlayers.add(new SoundPlayer(getApplicationContext(), 0, R.raw.piano_do));
         tracks.generateTrack();
 
         updateCountDownText();
@@ -92,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -102,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public void openActivityParametres() {
         Intent intent = new Intent(this, Parametres.class);
         intent.putExtra("BPM_Actuel", bpm);
-        intent.putExtra("NB_Tracks", nbtracks);
+        intent.putExtra("NB_Tracks", tracks.getTracksNumber());
         intent.putExtra("Array", instrumentArray);
         activityLauncher.launch(intent);
     }
@@ -141,6 +148,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     @SuppressLint("NonConstantResourceId")
     public void addNote(View view) throws IOException {
+        if (tracks.getSelectedNote() == null) return;
+
         switch (view.getId()) { // Ajouter le playNote une fois en place
             case R.id.Do: tracks.changeNote("c" + keyboardHeight, getColor(R.color.do_couleur));
                 soundPlayers.get(tracks.getSelectedI()).playNote(1, keyboardHeight); break;
@@ -224,12 +233,14 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         mCountDownTimer.cancel();
         mTimerRunning = false;
         findViewById(R.id.Reset).setVisibility(View.VISIBLE);
+        for (SoundPlayer soundPlayer : soundPlayers) soundPlayer.setRunning(false);
     }
 
     public void ResetTimerButton(View view){
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
         updateCountDownText();
         ResetDefilement();
+        for (SoundPlayer soundPlayer : soundPlayers) soundPlayer.setNoteRef(0);
     }
 
     public void ResetDefilement(){ //reset le background noir
@@ -242,8 +253,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         tracks.addNewTracks(1);
         soundPlayers.add(new SoundPlayer(getApplicationContext(), 1, R.raw.piano_do));
 
-        instrumentArray.add(nbtracks, 0);
-        nbtracks = nbtracks + 1;
+        instrumentArray.add(tracks.getTracksNumber() - 1, 0);
     }
 
     public void RemoveTrack(View view){
@@ -251,8 +261,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
             tracks.removeTracks(1);
             soundPlayers.remove(soundPlayers.size() - 1);
 
-            instrumentArray.remove(nbtracks-1);
-            nbtracks = nbtracks - 1;
+            instrumentArray.remove(tracks.getTracksNumber() - 1);
         }
     }
 
