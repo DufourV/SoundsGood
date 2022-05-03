@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.fragment.app.DialogFragment;
 
 public class AddNotesDialogue extends AppCompatDialogFragment {
 
@@ -26,7 +25,7 @@ public class AddNotesDialogue extends AppCompatDialogFragment {
                 .setPositiveButton("Accepter", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         int nouveauNbNotes = Integer.parseInt(editNote.getText().toString());
-                        listener.ApplyNewNotes(nouveauNbNotes);
+                        listener.applyNewNotes(nouveauNbNotes);
                         editNote.setHint(String.valueOf(nouveauNbNotes));
                     }
                 })
@@ -37,7 +36,6 @@ public class AddNotesDialogue extends AppCompatDialogFragment {
                 });
 
         editNote = view.findViewById(R.id.addNotes_input);
-        // Create the AlertDialog object and return it
         return builder.create();
     }
 
@@ -55,6 +53,6 @@ public class AddNotesDialogue extends AppCompatDialogFragment {
     }
 
     public interface dialogueListener2 {
-        void ApplyNewNotes(int nouveauNbNotes);
+        void applyNewNotes(int nouveauNbNotes);
     }
 }

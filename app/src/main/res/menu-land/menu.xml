@@ -5,7 +5,7 @@
         android:title="Changer le BPM"/>
     <item android:id="@+id/menu_AjouterNotes"
         android:title="Changer le nombre de notes"
-        android:onClick="AddNewNotes"/>
+        android:onClick="addNewNotes"/>
     <item android:id="@+id/menu_Parametres"
         android:title="Modifier les paramètres" />
     <item android:id="@+id/menu_Sauvegarder"
