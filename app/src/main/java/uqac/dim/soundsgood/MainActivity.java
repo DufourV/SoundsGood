@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     private int keyboardHeight = 2;
     public int bpm = 60;
-    public int scrollDistX = 0;
     public HorizontalScrollView horizontalscrollView;
     public ArrayList<Integer> instrumentArray;
 
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal)); //variable pour le scroll horizontal
+        horizontalscrollView = ((HorizontalScrollView)findViewById(R.id.horizontal));
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
         tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
@@ -88,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         for(int i = 0; i < tracks.getTracksNumber(); i++){
             instrumentArray.add(i, 0);
         }
-
     }
 
     @Override
@@ -119,15 +117,13 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                 openDialog(); return true;
             case R.id.menu_AjouterNotes: return true;
             case R.id.menu_Parametres:
-                openActivityParametres();
-                return true;
+                openActivityParametres(); return true;
             case R.id.menu_Sauvegarder:
-                sauvegarde(item);
-                return true;
+                sauvegarde(item); return true;
             case R.id.menu_Charger:
-                chargement(item);
-                return true;
-            case R.id.menu_Reinitialiser: return true;
+                chargement(item); return true;
+            case R.id.menu_Reinitialiser:
+                reinitialiser(); return true;
             default: return super.onOptionsItemSelected(item);
         }
     }
@@ -189,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public void playButton(View view){
         if (!isPlayRunning) {
             isPlayRunning = true;
-            soundPlayers.get(0).playTrackFromListWithView(tracks.getTracks().get(0), bpm, tracks.getTrackLength(), mTextViewCountDown);
+            soundPlayers.get(0).playTrackFromListWithView(tracks.getTracks().get(0), bpm, tracks.getTrackLength(), mTextViewCountDown, tracks, horizontalscrollView);
             for (int i = 1 ; i < tracks.getTracksNumber(); i++) {
                 soundPlayers.get(i).playTrackFromList(tracks.getTracks().get(i), tracks.getTrackLength());
             }
@@ -207,26 +203,28 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void resetTimerButton(View view){
         if (!isPlayRunning) {
-            resetDefilement();
-            for (SoundPlayer soundPlayer : soundPlayers) soundPlayer.setNoteRef(0);
-            if (tracks.getTracksNumber() > 0) soundPlayers.get(0).setInitialTiming(tracks.getTrackLength(), mTextViewCountDown);
+            if (soundPlayers.size() > 0) {
+                if (soundPlayers.get(0).getNoteRef() > 0) {
+                    horizontalscrollView.scrollTo(0, 0);
+                    for (int i = 0; i < tracks.getTracksNumber(); i++) tracks.getButtons().get(i).get(soundPlayers.get(0).getNoteRef() - 1).setAlpha(1f);
+                    for (SoundPlayer soundPlayer : soundPlayers) soundPlayer.setNoteRef(0);
+                    if (tracks.getTracksNumber() > 0) soundPlayers.get(0).setInitialTiming(tracks.getTrackLength(), mTextViewCountDown);
+                }
+            }
         }
     }
 
-    public void resetDefilement(){
-        scrollDistX = 0;
-        horizontalscrollView.scrollTo(scrollDistX, 0);
-    }
-
     public void addTrack(View view){
-        tracks.addNewTracks(1);
-        soundPlayers.add(new SoundPlayer(getApplicationContext(), 1, R.raw.piano_do, bpm));
+        if (!isPlayRunning){
+            tracks.addNewTracks(1);
+            soundPlayers.add(new SoundPlayer(getApplicationContext(), 1, R.raw.piano_do, bpm));
 
-        instrumentArray.add(tracks.getTracksNumber() - 1, 0);
+            instrumentArray.add(tracks.getTracksNumber() - 1, 0);
+        }
     }
 
     public void removeTrack(View view){
-        if (tracks.getTracksNumber() > 0) {
+        if (tracks.getTracksNumber() > 0 && !isPlayRunning) {
             tracks.removeTracks(1);
             soundPlayers.remove(soundPlayers.size() - 1);
             instrumentArray.remove(instrumentArray.size() - 1);
@@ -253,6 +251,22 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public void addNewNotes(MenuItem item) {
         AddNotesDialogue addNotesDialogue = new AddNotesDialogue();
         addNotesDialogue.show(getSupportFragmentManager(), "Notes Choix");
+    }
+
+    public void reinitialiser() {
+        tracks.delete();
+        tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
+        soundPlayers = new ArrayList<>();
+        for (int i = 0; i < tracks.getTracksNumber(); i++)
+            soundPlayers.add(new SoundPlayer(getApplicationContext(), 1, R.raw.piano_do, bpm));
+        tracks.generateTrack();
+
+        soundPlayers.get(0).setInitialTiming(tracks.getTrackLength(), mTextViewCountDown);
+
+        instrumentArray = new ArrayList<Integer>();
+        for(int i = 0; i < tracks.getTracksNumber(); i++){
+            instrumentArray.add(i, 0);
+        }
     }
 
     @Override
