@@ -17,4 +17,11 @@ public class TrackEntity {
 
     @ColumnInfo(name = "notes")
     public ArrayList<String> notes;
+
+    public TrackEntity() {}
+
+    public TrackEntity(int tracknum, ArrayList<String> notes) {
+        this.tracknum = tracknum;
+        this.notes = notes;
+    }
 }
