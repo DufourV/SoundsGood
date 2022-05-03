@@ -19,11 +19,11 @@ public interface TrackDao {
     @Query("UPDATE TrackEntity SET notes = :nouvelletrack WHERE TrackEntity.tracknum =:Tracknum")
     void updateTrack(int Tracknum, ArrayList<String> nouvelletrack);
 
-    @Query("UPDATE TrackEntity SET instrument = :nouvelinstrument WHERE TrackEntity.tracknum =:Tracknum")
-    void updateInstrument(int Tracknum, int nouvelinstrument);
-
     @Query("DELETE FROM TrackEntity WHERE TrackEntity.tracknum = :Tracknum")
     void removeTrack(int Tracknum);
+
+    @Query("DELETE FROM TrackEntity")
+    void clearDatabase();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addTrack(TrackEntity nouvelletrack);
