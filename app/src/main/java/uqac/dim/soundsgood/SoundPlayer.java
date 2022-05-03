@@ -6,59 +6,44 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
+import android.os.CountDownTimer;
+import android.util.Log;
 
 import androidx.activity.result.ActivityResult;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SoundPlayer {
+    private static final float ROOT = 1.09257f;
 
-    public static float islow = 0.5f;
-    public static float ismid = 1f;
-    public static float ishigh = 2f;
+    public static final float islow = 0.5f;
+    public static final float ismid = 1.0f;
+    public static final float ishigh = 2.0f;
 
-    public static float isDo = 1f;
-    public static float isDoDiese = 1.08f;
-    public static float isRe = 1.16f;
-    public static float isReDiese = 1.25f;
-    public static float isMi = 1.33f;
-    public static float isFa = 1.41f;
-    public static float isFaDiese = 1.5f;
-    public static float isSol = 1.58f;
-    public static float isSolDiese = 1.66f;
-    public static float isLa = 1.75f;
-    public static float isLaDiese = 1.83f;
-    public static float isSi = 1.91f;
+    private final SoundPool soundPool;
+    private int instrument; // piano = 0, guitare = 1,  claves = 2
 
-    private SoundPool soundpool;
-    private HashMap<Integer, Integer> soundsMap;
-    private int piano, guitare, claves;
-    private int instrument = piano;
+    private int noteRef = 0;
 
     private boolean hasLoaded = false;
 
 
-    public SoundPlayer(Context context) {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            AudioAttributes audioattributes = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build();
-            soundpool = new SoundPool.Builder()
-                    .setMaxStreams(30)
-                    .setAudioAttributes(audioattributes)
-                    .build();
-        }
-        else{
-            soundpool = new SoundPool(30, AudioManager.STREAM_MUSIC, 100);
-        }
+    public SoundPlayer(Context context, int instrument, int soundSource) {
+        AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build();
+        soundPool = new SoundPool.Builder()
+                .setMaxStreams(300)
+                .setAudioAttributes(audioAttributes)
+                .build();
 
+        this.instrument = instrument;
 
-        piano = soundpool.load(context,R.raw.piano_do, 1);
-        guitare = soundpool.load(context,R.raw.guitare_do, 1);
-        claves = soundpool.load(context,R.raw.claves, 1);
+        soundPool.load(context, soundSource, 1);
 
-        soundpool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
                 hasLoaded = true;
             }
@@ -66,104 +51,74 @@ public class SoundPlayer {
 
     }
 
-
-    public void ChangeInstrument() {
-
+    public void changeInstrument(int instrument, int soundSource) {
+        this.instrument = instrument;
+        //soundPool.load(, 1);
     }
 
-    public void PlayNote(String instrumentnom, String note, int hauteur) {
+    public void playNote(int note, int hauteur) {
+        if (hasLoaded && note != 0) {
+            float rate = 1.0f;
 
-        if (!hasLoaded)
-            return;
+            for (int i = 0 ; i < note - 1; i++) rate = rate * ROOT;
 
-        float rate = 1f;
-
-        switch(instrumentnom)
-        {
-            case "piano":
-                instrument = piano;
-                break;
-
-            case "guitare":
-                instrument = guitare;
-                break;
-
-            case "claves":
-                instrument = claves;
-                break;
+            switch(hauteur) {
+                case 1: rate = rate*islow; break;
+                case 2: rate = rate*ismid; break;
+                case 3: rate = rate*ishigh; break;
+            }
+            soundPool.play(instrument,1,1,1,0, rate);
         }
-
-        switch(hauteur)
-        {
-            case 1:
-                rate = rate*islow;
-                break;
-
-            case 2:
-                rate = rate*ismid;
-                break;
-
-            case 3:
-                rate = rate*ishigh;
-                break;
-        }
-
-        switch(note)
-        {
-            case "c":
-                rate = rate*isDo;
-                break;
-
-            case "c#":
-                rate = rate*isDoDiese;
-                break;
-
-            case "d":
-                rate = rate*isRe;
-                break;
-
-            case "d#":
-                rate = rate*isReDiese;
-                break;
-
-            case "e":
-                rate = rate*isMi;
-                break;
-
-            case "f":
-                rate = rate*isFa;
-                break;
-
-            case "f#":
-                rate = rate*isFaDiese;
-                break;
-
-            case "g":
-                rate = rate*isSol;
-                break;
-
-            case "g#":
-                rate = rate*isSolDiese;
-                break;
-
-            case "a":
-                rate = rate*isLa;
-                break;
-
-            case "a#":
-                rate = rate*isLaDiese;
-                break;
-
-            case "b":
-                rate = rate*isSi;
-                break;
-        }
-
-        soundpool.play(instrument,1,1,0,0,rate);
-
     }
 
-    public boolean getHasLoaded(){
+    public void playTrackFromList(ArrayList<String> track, int bpm, int trackLength) {
+        ArrayList<Integer> hauteurs = new ArrayList<>();
+        ArrayList<String> notes = new ArrayList<>();
+        for (int i = 0; i < trackLength; i++) {
+            if (!track.get(i).equals("-")) {
+                hauteurs.add(Integer.parseInt(Character.toString(track.get(i).charAt(track.get(i).length() - 1))));
+                notes.add(track.get(i).substring(0, track.get(i).length() - 1));
+            } else {
+                hauteurs.add(1);
+                notes.add("-");
+            }
+        }
+
+        CountDownTimer timer = new CountDownTimer(trackLength * 1000L,bpm * 1000L / 60) {
+            @Override
+            public void onTick(long l) {
+                if (noteRef < trackLength) {
+                    playNote(noteToInt(notes.get(noteRef)), hauteurs.get(noteRef));
+                    noteRef++;
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                noteRef = 0;
+            }
+        }.start();
+    }
+
+    private int noteToInt(String note) {
+        switch (note) {
+            case "c": return 1;
+            case "c#": return 2;
+            case "d": return 3;
+            case "d#": return 4;
+            case "e": return 5;
+            case "f": return 6;
+            case "f#": return 7;
+            case "g": return 8;
+            case "g#": return 9;
+            case "a": return 10;
+            case "a#": return 11;
+            case "b": return 12;
+            default: return 0;
+        }
+    }
+
+    public boolean getHasLoaded() {
         return hasLoaded;
     }
 }
