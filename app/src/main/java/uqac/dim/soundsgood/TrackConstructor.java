@@ -52,6 +52,12 @@ public class TrackConstructor {
 
         generateReference();
         addTracks(this.tracksNumber);
+
+        for (int i = 0; i< tracksNumber; i++)
+        {
+            TrackEntity newTrack = new TrackEntity(i, GenerateEmptyTrack());
+            dao.addTrack(newTrack);
+        }
     }
 
     private void addTracks(int numberOfTracks) {
