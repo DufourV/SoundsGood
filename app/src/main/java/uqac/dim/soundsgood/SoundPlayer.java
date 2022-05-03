@@ -28,7 +28,6 @@ public class SoundPlayer {
 
     private boolean hasLoaded = false;
     private boolean isRunning = false;
-    private boolean isReset = false;
 
 
     public SoundPlayer(Context context, int instrument, int soundSource) {
