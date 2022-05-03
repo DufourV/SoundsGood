@@ -27,10 +27,11 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public int bpm = 60;
     public HorizontalScrollView horizontalscrollView;
     public ArrayList<Integer> instrumentArray;
-    public String TrackName = "Nom de l'enregistrement";
 
     private boolean isPlayRunning = false;
     private TextView mTextViewCountDown;
+
+    private AppBD database;
 
     private TrackConstructor tracks;
     private ArrayList<SoundPlayer> soundPlayers;
@@ -55,9 +56,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                             }
                             soundPlayers.get(i).changeInstrument(getApplicationContext(), 1, tempSource);
                         }
-
-                        TrackName = intent.getStringExtra("resultName");
-
                     }
                 }
                 if(result.getResultCode() == RESULT_FIRST_USER) {
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         instrumentArray = intent.getIntegerArrayListExtra("resultPathChargement");
                     }
                 }
-
             }
         }
     );
@@ -88,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
         soundPlayers.get(0).setInitialTiming(tracks.getTrackLength(), mTextViewCountDown);
 
+        database = AppBD.getDatabase(getApplicationContext());
+
         instrumentArray = new ArrayList<Integer>();
         for(int i = 0; i < tracks.getTracksNumber(); i++){
             instrumentArray.add(i, 0);
@@ -103,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     public void openActivityParametres() {
         Intent intent = new Intent(this, Parametres.class);
         intent.putExtra("BPM_Actuel", bpm);
-        intent.putExtra("Track_name", TrackName);
         intent.putExtra("NB_Tracks", tracks.getTracksNumber());
         intent.putExtra("Array", instrumentArray);
         activityLauncher.launch(intent);
@@ -243,13 +241,36 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     }
 
     public void sauvegarde(MenuItem item) {
-        SGSaver saver= new SGSaver(tracks.getTracksNumber(), bpm, tracks.getTracksArray(), tracks.getTrackLength(), "test");
 
-        saver.save();
+        String Nomtrack = "test";
+
+        SGSaver saver= new SGSaver(tracks.getTracksNumber(), bpm, tracks.getTracksArray(), tracks.getTrackLength(), Nomtrack);
+
+        String NomPath = saver.save();
+
+        SongEntity newsong = new SongEntity(Nomtrack, NomPath);
+
+        database.dao().addTrack(newsong);
     }
 
     public void chargement(MenuItem item) {
-        tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
+
+        SGSaver saver = new SGSaver();
+        saver.load(database.dao().getPath("test"));
+
+        tracks = new TrackConstructor(saver.getTrackLength(), saver.getNumberOfTracks(), (LinearLayout) findViewById(R.id.linearTracks), saver.getFormatedTrack());
+
+        bpm = saver.getBpm();
+
+        instrumentArray = new ArrayList<>();
+
+        soundPlayers = new ArrayList<>();
+
+        for(int i = 0; i< tracks.getTracksNumber(); i++)
+        {
+            instrumentArray.add(0);
+            soundPlayers.add(new SoundPlayer(getApplicationContext(),0,R.raw.piano_do,bpm));
+        }
 
         openActivityListeEnregistrement();
     }
