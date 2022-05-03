@@ -108,7 +108,7 @@ public class TrackConstructor {
 
             tracks.remove(tracksNumber - 1);
             actualContent.remove(tracksNumber - 1);
-
+            tracksNumber--;
         }
     }
 
@@ -199,7 +199,7 @@ public class TrackConstructor {
         tb.invalidateSelf();
     }
 
-    public void cleareNote() {
+    public void clearNote() {
         selectedNote.setBackground(baseColor);
         actualContent.get(selectedI).set(selectedJ, "-");
     }
@@ -229,7 +229,7 @@ public class TrackConstructor {
         return tracksNumber;
     }
 
-    private Button getSelectedNote() { return selectedNote; }
+    public Button getSelectedNote() { return selectedNote; }
 
     public int getSelectedI() {
         return selectedI;

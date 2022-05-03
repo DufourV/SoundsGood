@@ -23,7 +23,7 @@
             android:exported="true"
             android:screenOrientation="landscape"/>
         <activity
-            android:name=".ListeMusique"
+            android:name=".ListeEnregistrement"
             android:exported="true"
             android:screenOrientation="landscape"/>
         <activity
