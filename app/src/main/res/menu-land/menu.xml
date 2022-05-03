@@ -5,10 +5,6 @@
         android:title="Changer le BPM"/>
     <item android:id="@+id/menu_Parametres"
         android:title="Modifier les paramètres" />
-    <item android:id="@+id/menu_AjouterTrack"
-        android:title="Ajouter une piste" />
-    <item android:id="@+id/menu_RetirerTrack"
-        android:title="Retirer une piste" />
     <item android:id="@+id/menu_Sauvegarder"
         android:title="Sauvegarder"
         android:onClick="sauvegarde"/>
@@ -17,6 +13,4 @@
         android:onClick="chargement"/>
     <item android:id="@+id/menu_Reinitialiser"
         android:title="Reinitialiser"/>
-
-
 </menu>

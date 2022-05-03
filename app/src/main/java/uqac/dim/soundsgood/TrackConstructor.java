@@ -200,4 +200,12 @@ public class TrackConstructor {
     }
 
     private Button getSelectedNote() { return selectedNote; }
+
+    public int getSelectedI() {
+        return selectedI;
+    }
+
+    public int getSelectedJ() {
+        return selectedJ;
+    }
 }
