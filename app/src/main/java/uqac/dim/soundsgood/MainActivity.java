@@ -14,9 +14,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -28,9 +30,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener{
+public class MainActivity extends AppCompatActivity implements BPMDialogue.dialogueListener, AddNotesDialogue.dialogueListener2 {
 
     private BPMDialogue bpmdialogue;
+    private AddNotesDialogue addNotesDialogue;
     private int keyboardHeight = 2;
     public int bpm = 60;
     public float dureedelai = 0.5F;
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         switch (item.getItemId()) {
             case R.id.menu_ChangerBPM:
                 openDialog(); return true;
+            case R.id.menu_AjouterNotes: return true;
             case R.id.menu_Parametres:
                 openActivityParametres();
                 return true;
@@ -273,6 +277,27 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         super.onDestroy();
     }
 
+
+    public void AddNewNotes(MenuItem item) {
+        AddNotesDialogue addNotesDialogue = new AddNotesDialogue();
+        addNotesDialogue.show(getSupportFragmentManager(), "Notes Choix");
+    }
+
+   @Override
+    public void ApplyNewNotes(int nouveauNbNotes){
+
+        int nbOfNotes = tracks.getTrackLength();
+
+        if(nouveauNbNotes >= nbOfNotes){
+            tracks.addNewNotes(nouveauNbNotes-nbOfNotes);
+        }
+        else{ //si nouveau nb de note est plus petit que le nb de note actuel
+            tracks.removeNotes(nbOfNotes - nouveauNbNotes);
+        }
+
+
+
+    }
 
     public void sauvegarde(MenuItem item) {
 
