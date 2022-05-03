@@ -71,6 +71,7 @@ public class TrackConstructor {
             realReference.get(tracksNumber + i).setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1.0f));
             addNotes(tracks.get(tracksNumber + i), actualContent.get(tracksNumber + i), realReference.get(tracksNumber + i));
             reference.addView(realReference.get(tracksNumber + i));
+
             tracksNumber++;
         }
     }
@@ -83,7 +84,6 @@ public class TrackConstructor {
             tracks.remove(tracksNumber - 1);
             actualContent.remove(tracksNumber - 1);
 
-            tracksNumber--;
         }
     }
 
@@ -106,13 +106,15 @@ public class TrackConstructor {
     }
 
     public void addNewNotes(int numberOfNotes) {
-        for (int i = 0; i < tracksNumber; i++)
+        for (int i = 0; i < tracksNumber; i++) {
             for (int j = 0; j < numberOfNotes; j++) {
                 Button bouton = new Button(realReference.get(i).getContext());
                 bouton.setLayoutParams(new ViewGroup.LayoutParams(NOTE_WIDTH, NOTE_HEIGHT));
                 bouton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) { selectPosition(view); }
+                    public void onClick(View view) {
+                        selectPosition(view);
+                    }
                 });
                 bouton.setBackground(baseColor);
                 bouton.setLabelFor(trackLength + j);
@@ -122,17 +124,19 @@ public class TrackConstructor {
 
                 realReference.get(i).addView(bouton);
             }
+        }
         trackLength += numberOfNotes;
     }
 
     public void removeNotes(int numberOfNotes) {  // Delete le début au lieu de la fin, à corriger
-        for (int i = 0; i < tracksNumber; i++)
+        for (int i = 0; i < tracksNumber; i++) {
             for (int j = 0; j < numberOfNotes; j++) {
                 realReference.get(i).removeView(tracks.get(i).get((numberOfNotes - 1) - j));
 
                 tracks.get(i).remove((numberOfNotes - 1) - j);
                 actualContent.get(i).remove((numberOfNotes - 1) - j);
             }
+        }
         trackLength -= numberOfNotes;
     }
 
@@ -190,6 +194,7 @@ public class TrackConstructor {
     public ArrayList<ArrayList<String>> getTracks() {
         return actualContent;
     }
+
 
     public int getTrackLength() {
         return trackLength;
