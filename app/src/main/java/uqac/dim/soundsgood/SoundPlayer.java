@@ -8,11 +8,13 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class SoundPlayer {
     private static final float ROOT = 1.09257f;
@@ -22,22 +24,22 @@ public class SoundPlayer {
     public static final float ishigh = 2.0f;
 
     private SoundPool soundPool;
-    private int instrument; // piano = 0, guitare = 1,  claves = 2
 
+    private int bpm = 0;
     private int noteRef = 0;
 
     private boolean hasLoaded = false;
     private boolean isRunning = false;
 
+    private int remainingTime = 0;
 
-    public SoundPlayer(Context context, int instrument, int soundSource) {
+
+    public SoundPlayer(Context context, int instrument, int soundSource, int bpm) {
+        this.bpm = bpm;
         changeInstrument(context, instrument, soundSource);
-
     }
 
     public void changeInstrument(Context context, int instrument, int soundSource) {
-        this.instrument = instrument;
-
         AudioAttributes audioAttributes = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -46,9 +48,6 @@ public class SoundPlayer {
                 .setMaxStreams(300)
                 .setAudioAttributes(audioAttributes)
                 .build();
-
-        this.instrument = instrument;
-
         soundPool.load(context, soundSource, 1);
 
         soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
@@ -56,7 +55,6 @@ public class SoundPlayer {
                 hasLoaded = true;
             }
         });
-
     }
 
     public void playNote(int note, int hauteur) {
@@ -70,11 +68,60 @@ public class SoundPlayer {
                 case 2: rate = rate*ismid; break;
                 case 3: rate = rate*ishigh; break;
             }
-            soundPool.play(instrument,1,1,1,0, rate);
+            soundPool.play(1,1,1,1,0, rate);
         }
     }
 
-    public void playTrackFromList(ArrayList<String> track, int bpm, int trackLength) {
+    public void playTrackFromListWithView(ArrayList<String> track, int bpm, int trackLength, TextView mTextViewCountDown) { // À nettoyer
+        ArrayList<Integer> hauteurs = new ArrayList<>();
+        ArrayList<String> notes = new ArrayList<>();
+        isRunning = true;
+        for (int i = 0; i < trackLength; i++) {
+            if (!track.get(i).equals("-")) {
+                hauteurs.add(Integer.parseInt(Character.toString(track.get(i).charAt(track.get(i).length() - 1))));
+                notes.add(track.get(i).substring(0, track.get(i).length() - 1));
+            } else {
+                hauteurs.add(1);
+                notes.add("-");
+            }
+        }
+
+        float temp = 60F / bpm;
+        long newTemp = (long) (1000L * temp);
+
+        remainingTime = ((trackLength * 1000) * 60) / bpm ;
+
+        CountDownTimer timer = new CountDownTimer(trackLength * 1000L, newTemp) {
+            @Override
+            public void onTick(long l) {
+                if (noteRef < trackLength) {
+                    if (isRunning) {
+                        playNote(noteToInt(notes.get(noteRef)), hauteurs.get(noteRef));
+
+                        int minutes = (int) (remainingTime / 1000 / 60);
+                        int seconde = (int) (remainingTime / 1000 % 60);
+
+                        remainingTime -= newTemp;
+
+                        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconde);
+                        mTextViewCountDown.setText(timeLeftFormatted);
+
+                        noteRef++;
+                    } else {
+                        this.cancel();
+                    }
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                noteRef = 0;
+                remainingTime = ((trackLength * 1000) * 60) / bpm ;
+            }
+        }.start();
+    }
+
+    public void playTrackFromList(ArrayList<String> track, int trackLength) {
         ArrayList<Integer> hauteurs = new ArrayList<>();
         ArrayList<String> notes = new ArrayList<>();
         isRunning = true;
@@ -129,6 +176,18 @@ public class SoundPlayer {
         }
     }
 
+    public void setInitialTiming(int trackLength, TextView text) {
+        remainingTime = ((trackLength * 1000) * 60) / bpm ;
+        float temp = 60F / bpm;
+        long newTemp = (long) (1000L * temp);
+
+        int minutes = (int) (remainingTime / 1000 / 60);
+        int seconde = (int) (remainingTime / 1000 % 60);
+
+        remainingTime = ((trackLength * 1000) * 60) / bpm ;
+        text.setText(String.format(Locale.getDefault(), "%02d:%02d", minutes, seconde));
+    }
+
     public boolean getHasLoaded() {
         return hasLoaded;
     }
@@ -147,5 +206,13 @@ public class SoundPlayer {
 
     public void setNoteRef(int noteRef) {
         this.noteRef = noteRef;
+    }
+
+    public int getRemainingTime() {
+        return remainingTime;
+    }
+
+    public void changeBpm(int bpm) {
+        this.bpm = bpm;
     }
 }

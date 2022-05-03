@@ -36,7 +36,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="left"
                     android:src="@drawable/playbutton"
-                    android:onClick="PlayButton">
+                    android:onClick="playButton">
                 </ImageView>
 
                 <ImageView
@@ -45,7 +45,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="left"
                     android:src="@drawable/pausebutton"
-                    android:onClick="PauseButton">
+                    android:onClick="pauseButton">
                 </ImageView>
 
 
@@ -55,7 +55,7 @@
                     android:layout_width="50dp"
                     android:layout_height="30dp"
                     android:src="@drawable/resetbutton"
-                    android:onClick="ResetTimerButton">
+                    android:onClick="resetTimerButton">
                 </ImageView>
 
                 <ImageView
@@ -64,7 +64,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="left"
                     android:src="@drawable/plusbutton"
-                    android:onClick="AddTrack"
+                    android:onClick="addTrack"
                     android:visibility="visible">
                 </ImageView>
 
@@ -74,9 +74,8 @@
                     android:layout_height="40dp"
                     android:layout_gravity="left"
                     android:src="@drawable/minusbutton"
-                    android:onClick="RemoveTrack"
-                    android:visibility="visible">
-                </ImageView>
+                    android:onClick="removeTrack"
+                    android:visibility="visible"></ImageView>
 
             </LinearLayout>
 
@@ -130,7 +129,7 @@
                     android:textSize="30sp"
                     android:textColor="@color/black"></TextView>
 
-                <Button
+                <ImageButton
                     android:id="@+id/Erase"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
