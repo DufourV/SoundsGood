@@ -21,6 +21,7 @@ public class TrackEntity {
     public TrackEntity() {}
 
     public TrackEntity(int tracknum, ArrayList<String> notes) {
+        this.instrument = 0;
         this.tracknum = tracknum;
         this.notes = notes;
     }

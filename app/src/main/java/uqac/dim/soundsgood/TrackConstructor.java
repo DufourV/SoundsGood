@@ -73,6 +73,10 @@ public class TrackConstructor {
             realReference.get(tracksNumber + i).setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1.0f));
             addNotes(tracks.get(tracksNumber + i), actualContent.get(tracksNumber + i), realReference.get(tracksNumber + i));
             reference.addView(realReference.get(tracksNumber + i));
+
+            TrackEntity nouvelleTrack = new TrackEntity(tracksNumber+i, GenerateEmptyTrack());
+            dao.addTrack(nouvelleTrack);
+
             tracksNumber++;
         }
     }
@@ -85,6 +89,7 @@ public class TrackConstructor {
             tracks.remove(tracksNumber - 1);
             actualContent.remove(tracksNumber - 1);
 
+            dao.removeTrack(tracksNumber-1);
             tracksNumber--;
         }
     }
@@ -108,13 +113,17 @@ public class TrackConstructor {
     }
 
     public void addNewNotes(int numberOfNotes) {
-        for (int i = 0; i < tracksNumber; i++)
+        for (int i = 0; i < tracksNumber; i++) {
+
+            ArrayList<String> TrackToUpdate = (ArrayList<String>) dao.getTrack(i);
             for (int j = 0; j < numberOfNotes; j++) {
                 Button bouton = new Button(realReference.get(i).getContext());
                 bouton.setLayoutParams(new ViewGroup.LayoutParams(NOTE_WIDTH, NOTE_HEIGHT));
                 bouton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) { selectPosition(view); }
+                    public void onClick(View view) {
+                        selectPosition(view);
+                    }
                 });
                 bouton.setBackground(baseColor);
                 bouton.setLabelFor(trackLength + j);
@@ -123,18 +132,27 @@ public class TrackConstructor {
                 actualContent.get(i).add("-");
 
                 realReference.get(i).addView(bouton);
+
+                TrackToUpdate.add("-");
             }
+            dao.updateTrack(i, TrackToUpdate);
+        }
         trackLength += numberOfNotes;
     }
 
     public void removeNotes(int numberOfNotes) {  // Delete le début au lieu de la fin, à corriger
-        for (int i = 0; i < tracksNumber; i++)
+        for (int i = 0; i < tracksNumber; i++) {
+            ArrayList<String> TrackToUpdate = (ArrayList<String>) dao.getTrack(i);
             for (int j = 0; j < numberOfNotes; j++) {
                 realReference.get(i).removeView(tracks.get(i).get((numberOfNotes - 1) - j));
 
                 tracks.get(i).remove((numberOfNotes - 1) - j);
                 actualContent.get(i).remove((numberOfNotes - 1) - j);
+
+                TrackToUpdate.remove(trackLength-1-j);
             }
+            dao.updateTrack(i, TrackToUpdate);
+        }
         trackLength -= numberOfNotes;
     }
 
@@ -170,11 +188,19 @@ public class TrackConstructor {
         tb.setColor(couleur);
         selectedNote.setBackground(tb);
         tb.invalidateSelf();
+
+        ArrayList<String> TrackToUpdate = (ArrayList<String>) dao.getTrack(selectedI);
+        TrackToUpdate.set(selectedJ, note);
+        dao.updateTrack(selectedI, TrackToUpdate);
     }
 
     public void cleareNote() {
         selectedNote.setBackground(baseColor);
         actualContent.get(selectedI).set(selectedJ, "-");
+
+        ArrayList<String> TrackToUpdate = (ArrayList<String>) dao.getTrack(selectedI);
+        TrackToUpdate.set(selectedJ, "-");
+        dao.updateTrack(selectedI, TrackToUpdate);
     }
 
     public void generateTrack() {
@@ -191,6 +217,15 @@ public class TrackConstructor {
 
     public ArrayList<ArrayList<String>> getTracks() {
         return actualContent;
+    }
+
+    public ArrayList<String> GenerateEmptyTrack(){
+        ArrayList<String> arrayvide = new ArrayList<String>();
+        for (int i = 0; i<trackLength; i++)
+        {
+            arrayvide.add("-");
+        }
+        return arrayvide;
     }
 
     public int getTrackLength() {
