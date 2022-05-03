@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -22,6 +23,8 @@ import java.util.ArrayList;
 
 public class Parametres extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    private String TrackName;
+    public EditText nameEditText;
     public int nbOfTracks;
     public int bpmActuel;
     public TextView bpmTextView;
@@ -84,6 +87,14 @@ public class Parametres extends AppCompatActivity implements AdapterView.OnItemS
                 bpmTextView.setText(String.valueOf(bpmActuel));
             }
 
+            if(getIntent().hasExtra("Track_name")) {
+                Bundle bundle = getIntent().getExtras();
+                TrackName = bundle.getString("Track_name");
+
+                nameEditText = findViewById(R.id.Nom_Enregistrement);
+                nameEditText.setText(TrackName);
+
+            }
 
        }
 
@@ -103,7 +114,15 @@ public class Parametres extends AppCompatActivity implements AdapterView.OnItemS
                 else{
                     instrument = 2;
                 }
+
+                TrackName = nameEditText.getText().toString();
+
                 Intent resultIntent1 = new Intent();
+                resultIntent1.putExtra("resultName", TrackName);
+                setResult(RESULT_OK, resultIntent1);
+
+
+                //Intent resultIntent1 = new Intent();
                 resultIntent1.putIntegerArrayListExtra("resultArray", instrumentArray);
                 setResult(RESULT_OK, resultIntent1);
                 finish();
