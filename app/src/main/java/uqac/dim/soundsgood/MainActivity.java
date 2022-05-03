@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private boolean mTimerRunning;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
+    private AppBD database;
+
     private TrackConstructor tracks;
     private ArrayList<SoundPlayer> soundPlayers;
 
@@ -82,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         tracks.generateTrack();
 
         updateCountDownText();
+
+        database = AppBD.getDatabase(getApplicationContext());
 
         instrumentArray = new ArrayList<Integer>();
         for(int i = 0; i <= 3; i++){
@@ -266,12 +270,30 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
 
     public void sauvegarde(MenuItem item) {
+
+        database.dao().clearDatabase();
+
+        for (int i = 0; i<tracks.getTracksNumber(); i++)
+        {
+            TrackEntity nouvelleTrack = new TrackEntity(i,tracks.getSpecificTrack(i));
+            database.dao().addTrack(nouvelleTrack);
+        }
+
         SGSaver saver= new SGSaver(tracks.getTracksNumber(), bpm, tracks.getTracksArray(), tracks.getTrackLength(), "test");
 
         saver.save();
     }
 
     public void chargement(MenuItem item) {
-        tracks = new TrackConstructor(15, 3, (LinearLayout) findViewById(R.id.linearTracks));
+
+        database.dao().clearDatabase();
+
+        SGSaver saver = new SGSaver();
+        saver.load("test");
+
+        for (int i = 0; i< saver.getNumberOfTracks(); i++)
+            database.dao().addTrack(saver.createSpecificTrack(i));
+
+        tracks = new TrackConstructor(saver.getTrackLength(), saver.getNumberOfTracks(), (LinearLayout) findViewById(R.id.linearTracks), saver.getFormatedTrack());
     }
 }

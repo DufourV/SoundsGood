@@ -12,7 +12,7 @@ import androidx.room.TypeConverters;
     public abstract class AppBD extends RoomDatabase {
 
         private static AppBD INSTANCE;
-        public abstract TrackDao TrackDao();
+        public abstract TrackDao dao();
 
         public static AppBD getDatabase(Context context) {
             if (INSTANCE == null) {

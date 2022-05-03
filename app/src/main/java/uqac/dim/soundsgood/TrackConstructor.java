@@ -351,4 +351,6 @@ public class TrackConstructor {
          }
         }
     }
+
+    public ArrayList<String> getSpecificTrack(int i) {return actualContent.get(i);}
 }
