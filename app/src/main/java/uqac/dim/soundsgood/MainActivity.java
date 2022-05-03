@@ -242,29 +242,35 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void sauvegarde(MenuItem item) {
 
-        database.dao().clearDatabase();
+        String Nomtrack = "test";
 
-        for (int i = 0; i<tracks.getTracksNumber(); i++)
-        {
-            TrackEntity nouvelleTrack = new TrackEntity(i,tracks.getSpecificTrack(i));
-            database.dao().addTrack(nouvelleTrack);
-        }
+        SGSaver saver= new SGSaver(tracks.getTracksNumber(), bpm, tracks.getTracksArray(), tracks.getTrackLength(), Nomtrack);
 
-        SGSaver saver= new SGSaver(tracks.getTracksNumber(), bpm, tracks.getTracksArray(), tracks.getTrackLength(), "test");
+        String NomPath = saver.save();
 
-        saver.save();
+        SongEntity newsong = new SongEntity(Nomtrack, NomPath);
+
+        database.dao().addTrack(newsong);
     }
 
     public void chargement(MenuItem item) {
-        database.dao().clearDatabase();
 
         SGSaver saver = new SGSaver();
-        saver.load("test");
-
-        for (int i = 0; i< saver.getNumberOfTracks(); i++)
-            database.dao().addTrack(saver.createSpecificTrack(i));
+        saver.load(database.dao().getPath("test"));
 
         tracks = new TrackConstructor(saver.getTrackLength(), saver.getNumberOfTracks(), (LinearLayout) findViewById(R.id.linearTracks), saver.getFormatedTrack());
+
+        bpm = saver.getBpm();
+
+        instrumentArray = new ArrayList<>();
+
+        soundPlayers = new ArrayList<>();
+
+        for(int i = 0; i< tracks.getTracksNumber(); i++)
+        {
+            instrumentArray.add(0);
+            soundPlayers.add(new SoundPlayer(getApplicationContext(),0,R.raw.piano_do,bpm));
+        }
 
         openActivityListeEnregistrement();
     }

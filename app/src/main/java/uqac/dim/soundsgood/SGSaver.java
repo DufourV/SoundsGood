@@ -153,16 +153,6 @@ public class SGSaver {
         this.trackContent = trackContent;
     }
 
-    public TrackEntity createSpecificTrack(int i) {
-        ArrayList<String> tracknotes = new ArrayList<String>();
-        for (int j = 0; j < trackLength; j++) {
-            tracknotes.add(trackContent.get(i*trackLength+j));
-        }
-
-        TrackEntity newTrack = new TrackEntity(i, tracknotes);
-        return newTrack;
-    }
-
     public String getTrackName() {
         return trackName;
     }
