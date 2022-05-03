@@ -8,27 +8,25 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.fragment.app.DialogFragment;
 
-public class BPMDialogue extends AppCompatDialogFragment {
+public class AddNotesDialogue extends AppCompatDialogFragment {
 
-    private EditText editBPM;
-    private dialogueListener listener;
+    private EditText editNote;
+    private AddNotesDialogue.dialogueListener2 listener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.bpm_dialog, null);
+        View view = inflater.inflate(R.layout.addnotes_dialog, null);
         builder.setView(view);
-        builder.setTitle("Choisissez un nouveau BPM")
+        builder.setTitle("Choisissez le nombres de notes")
                 .setPositiveButton("Accepter", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        int nouveauBPM = Integer.parseInt(editBPM.getText().toString());
-                        listener.applyBPM(nouveauBPM);
-                        editBPM.setHint(String.valueOf(nouveauBPM));
+                        int nouveauNbNotes = Integer.parseInt(editNote.getText().toString());
+                        listener.applyNewNotes(nouveauNbNotes);
+                        editNote.setHint(String.valueOf(nouveauNbNotes));
                     }
                 })
                 .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
@@ -37,26 +35,24 @@ public class BPMDialogue extends AppCompatDialogFragment {
                     }
                 });
 
-        editBPM = view.findViewById(R.id.bpm_input);
-        // Create the AlertDialog object and return it
+        editNote = view.findViewById(R.id.addNotes_input);
         return builder.create();
     }
+
+
 
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
 
         try {
-            listener = (dialogueListener) context;
+            listener = (AddNotesDialogue.dialogueListener2) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()+ "doit implementer le listener");
         }
     }
 
-    public interface dialogueListener {
-        void applyBPM(int nouveauBPM);
-
+    public interface dialogueListener2 {
+        void applyNewNotes(int nouveauNbNotes);
     }
-
-
 }
