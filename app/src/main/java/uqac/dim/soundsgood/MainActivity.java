@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
     private int piano, guitare, claves;
     private int instrument = piano;
     private ArrayList<String> SavedNoteList = new ArrayList<String>();
+    public ArrayList<Integer> instrumentArray;
 
     //countdown timer variables
     private static final long START_TIME_IN_MILLIS = 180000;
@@ -65,8 +66,9 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         Intent intent = result.getData();
                         if(intent != null) {
                             //extract data
+                            instrumentArray.clear();
 
-                            instrument = intent.getIntExtra("result", 0);
+                            instrumentArray = intent.getIntegerArrayListExtra("resultArray");
                         }
                     }
                 }
@@ -88,6 +90,13 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
         updateCountDownText();
 
+        instrumentArray = new ArrayList<Integer>();
+        for(int i = 0; i <= 3; i++){
+            instrumentArray.add(i, 0);
+        }
+
+        instrumentArray.remove(3);
+
     }
 
 
@@ -101,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         Intent intent = new Intent(this, Parametres.class);
         intent.putExtra("BPM_Actuel", bpm);
         intent.putExtra("NB_Tracks", nbtracks);
+        intent.putExtra("Array", instrumentArray);
         activityLauncher.launch(intent);
     }
 
@@ -224,12 +234,16 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void AddTrack(View view){
         tracks.addNewTracks(1);
+
+        instrumentArray.add(nbtracks, 0);
         nbtracks = nbtracks + 1;
     }
 
     public void RemoveTrack(View view){
         if (tracks.getTracksNumber() > 0){
             tracks.removeTracks(1);
+
+            instrumentArray.remove(nbtracks-1);
             nbtracks = nbtracks - 1;
         }
     }
@@ -248,6 +262,6 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void chargement(MenuItem item) {
 
-        openActivityListeMusique(); //Methode qui ouvre la liste de musique 
+        openActivityListeMusique(); //Methode qui ouvre la liste de musique
     }
 }
