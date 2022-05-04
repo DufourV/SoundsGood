@@ -1,8 +1,12 @@
 package uqac.dim.soundsgood;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Environment;
+import android.os.storage.StorageManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,15 +16,14 @@ public class SGSaver {
 
     private int numberOfTracks = 0;
     private int bpm = 0;
-    private ArrayList<String> trackContent;
+    private ArrayList<ArrayList<String>> trackContent;
     private int trackLength = 0;
     private String trackName = "";
-    private AppBD database;
 
     public SGSaver() {
     }
 
-    public SGSaver(int numberOfTracks, int bpm, ArrayList<String> trackContent, int trackLength, String trackName) {
+    public SGSaver(int numberOfTracks, int bpm, ArrayList<ArrayList<String>> trackContent, int trackLength, String trackName) {
         this.numberOfTracks = numberOfTracks;
         this.bpm = bpm;
         this.trackContent = trackContent;
@@ -28,16 +31,20 @@ public class SGSaver {
         this.trackName = trackName;
     }
 
-    public String save() {
+    @RequiresApi(api = Build.VERSION_CODES.R)
+    public String save(Context context, StorageManager storageManager) {
         String fileLocation = "";
 
-        String fileName = trackName.toLowerCase(Locale.ROOT) + ".sg";
+        String fileName = trackName.toLowerCase(Locale.ROOT).replaceAll(" ", "_").replaceAll("'", "") + System.currentTimeMillis() + ".sg";
+        File directory = new File(storageManager.getPrimaryStorageVolume().getDirectory().getAbsolutePath() + "/Documents") ;
+
         try {
-            File sFile = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + fileName);
+            File sFile = new File(directory, fileName);
+            sFile.setWritable(true);
             if (sFile.createNewFile()) {
                 fileLocation = sFile.getAbsolutePath();
                 try {
-                    FileWriter sWriter = new FileWriter(fileName);
+                    FileWriter sWriter = new FileWriter(sFile);
                     sWriter.write(this.toString());
                     sWriter.close();
                 } catch (IOException f) {
@@ -54,7 +61,7 @@ public class SGSaver {
 
     public SGSaver load(String contentLocation) {
         File lFile = new File(contentLocation);
-        ArrayList<String> lContent = new ArrayList<String>();
+        ArrayList<String> lContent = new ArrayList<>();
         if (lFile.exists()) {
             try {
                 BufferedReader lReader = new BufferedReader(new FileReader(lFile));
@@ -68,13 +75,13 @@ public class SGSaver {
         } else return null;
 
         if (!lContent.isEmpty()) {
-            trackContent = new ArrayList<String>();
+            trackContent = new ArrayList<ArrayList<String>>();
 
             trackName = lContent.get(0);
             numberOfTracks = Integer.parseInt(lContent.get(1));
             bpm = Integer.parseInt(lContent.get(2));
             trackLength = Integer.parseInt(lContent.get(3));
-            for (int i = 4; i < lContent.size(); i++) trackContent.add(lContent.get(i));
+            for (int i = 4; i < lContent.size(); i++) trackContent.add(stringToTrackArray(lContent.get(i)));
         }
         return this;
     }
@@ -87,9 +94,7 @@ public class SGSaver {
         info.append(numberOfTracks).append("\n");
         info.append(bpm).append("\n");
         info.append(trackLength).append("\n");
-        for (int i = 0; i < numberOfTracks; i++) info.append(trackContent.get(i)).append("\n");
-        info.deleteCharAt(info.length() - 1);
-
+        for (int i = 0; i < numberOfTracks; i++) info.append(trackArrayToString(trackContent.get(i))).append("\n");
         return info.toString();
     }
 
@@ -137,12 +142,8 @@ public class SGSaver {
         this.bpm = bpm;
     }
 
-    public ArrayList<String> getTrackContent() {
+    public ArrayList<ArrayList<String>> getTrackContent() {
         return trackContent;
-    }
-
-    public void setTrackContent(ArrayList<String> trackContent) {
-        this.trackContent = trackContent;
     }
 
     public String getTrackName() {
@@ -153,7 +154,7 @@ public class SGSaver {
         this.trackName = trackName;
     }
 
-    public ArrayList<ArrayList<String>> getFormatedTrack()
+    /*public ArrayList<ArrayList<String>> getFormatedTrack()
     {
         ArrayList<ArrayList<String>> retour = new ArrayList<ArrayList<String>>();
 
@@ -167,5 +168,5 @@ public class SGSaver {
             retour.add(track);
         }
         return retour;
-    }
+    }*/
 }

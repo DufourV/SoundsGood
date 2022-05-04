@@ -1,10 +1,16 @@
 package uqac.dim.soundsgood;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.storage.StorageManager;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,19 +66,20 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
                         }
 
                         trackName = intent.getStringExtra("resultName");
-                        //trackPath = intent.getStringExtra("resultPath");
                     }
                 }
                 if(result.getResultCode() == RESULT_FIRST_USER) {
                     Intent intent = result.getData();
                     if (intent != null) {
-                        //trackName = intent.getStringExtra("resultName");
+                        tracks.delete();
+
                         trackPath = intent.getStringExtra("resultPathChargement");
                         SGSaver saver = new SGSaver();
                         saver.load(trackPath);
 
-                        tracks.delete();
-                        tracks = new TrackConstructor(saver.getTrackLength(), saver.getNumberOfTracks(), (LinearLayout) findViewById(R.id.linearTracks), saver.getFormatedTrack());
+
+                        tracks = new TrackConstructor(saver.getTrackLength(), saver.getNumberOfTracks(), (LinearLayout) findViewById(R.id.linearTracks), saver.getTrackContent(), getApplicationContext());
+                        tracks.generateTrack();
                         bpm = saver.getBpm();
                         instrumentArray = new ArrayList<>();
                         soundPlayers = new ArrayList<>();
@@ -129,10 +136,10 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
 
     public void openActivityListeEnregistrement(){
         Intent intent = new Intent(this, ListeEnregistrement.class);
-        //
         activityLauncher.launch(intent);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -260,9 +267,10 @@ public class MainActivity extends AppCompatActivity implements BPMDialogue.dialo
         super.onDestroy();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     public void sauvegarde(MenuItem item) {
-        SGSaver saver = new SGSaver(tracks.getTracksNumber(), bpm, tracks.getTracksArray(), tracks.getTrackLength(), trackName);
-        SongEntity newsong = new SongEntity(trackName, saver.save());
+        SGSaver saver = new SGSaver(tracks.getTracksNumber(), bpm, tracks.getActualContent(), tracks.getTrackLength(), trackName);
+        SongEntity newsong = new SongEntity(trackName, saver.save(getApplicationContext(), (StorageManager) getApplicationContext().getSystemService(Context.STORAGE_SERVICE)));
 
         database.dao().addTrack(newsong);
     }
