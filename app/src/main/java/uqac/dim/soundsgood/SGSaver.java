@@ -153,20 +153,4 @@ public class SGSaver {
     public void setTrackName(String trackName) {
         this.trackName = trackName;
     }
-
-    /*public ArrayList<ArrayList<String>> getFormatedTrack()
-    {
-        ArrayList<ArrayList<String>> retour = new ArrayList<ArrayList<String>>();
-
-        for (int i = 0; i < numberOfTracks; i++)
-        {
-            ArrayList<String> track = new ArrayList<String>();
-            for (int j = 0; j<trackLength; j++)
-            {
-                track.add(trackContent.get(trackLength*i+j));
-            }
-            retour.add(track);
-        }
-        return retour;
-    }*/
 }
