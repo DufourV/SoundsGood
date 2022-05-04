@@ -37,7 +37,7 @@ public class ListeEnregistrement extends AppCompatActivity {
 
             Button button = new Button(this);
             button.setTag(songsList.get(i).trackpath);
-            button.setText(textView.getText());
+            button.setText(songsList.get(i).trackpath);
 
             tableRow.addView(button);
             tableLayout.addView(tableRow);
